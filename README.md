@@ -1,10 +1,10 @@
-# PaqSuite-ERP-IA
+# PaqSuite-IA-ERP
 
 Sistema de registro de tareas para consultorías y empresas de servicios. Evolución del proyecto Lidr-AI4Devs2025-ProyectoFinal.
 
 # Enlaces
 
-- **Repositorio:** https://github.com/paqsystems/PaqSuite-ERP-IA
+- **Repositorio:** https://github.com/paqsystems/PaqSuite-IA-ERP
 - **URL pública (si aplica):** configurar en Vercel/Netlify u otro proveedor
 
 # Reglas para Cursor — BackEnd Laravel (Sanctum) — Sistema de Partes de Atención

@@ -2,7 +2,7 @@
 
 ## Resumen ejecutivo
 
-Migración del proyecto Lidr-AI4Devs2025-ProyectoFinal al repositorio **PaqSuite-ERP-IA**. Se aprovecha la metodología, documentación y estructura existentes, incorporando DevExpress/DevExtreme, frontend mobile (Capacitor), multilingualidad, GitHub Actions CI/CD y Docker.
+Migración del proyecto Lidr-AI4Devs2025-ProyectoFinal al repositorio **PaqSuite-IA-ERP**. Se aprovecha la metodología, documentación y estructura existentes, incorporando DevExpress/DevExtreme, frontend mobile (Capacitor), multilingualidad, GitHub Actions CI/CD y Docker.
 
 **Stack base:** Backend Laravel + Sanctum, Frontend React + Vite, MySQL.
 
@@ -15,7 +15,7 @@ Migración del proyecto Lidr-AI4Devs2025-ProyectoFinal al repositorio **PaqSuite
 ### 1. Generar nuevo repositorio
 
 **Acciones:**
-- Crear repositorio remoto `paqsystems/PaqSuite-ERP-IA` en GitHub.
+- Crear repositorio remoto `paqsystems/PaqSuite-IA-ERP` en GitHub.
 - Clonar el repo actual como origen.
 - Configurar rama inicial `main` sin historial de commits del proyecto anterior (opción: `git clone --depth 1` + nuevo commit inicial), o conservar historial si se prefiere.
 - Actualizar referencias: `README`, `AGENTS.md`, nombre del proyecto, enlaces, y `.env.example`.
@@ -159,7 +159,7 @@ flowchart TB
 
 ## Checklist de validación
 
-- [x] Nuevo repo creado y referencias actualizadas (PaqSuite-ERP-IA)
+- [x] Nuevo repo creado y referencias actualizadas (PaqSuite-IA-ERP)
 - [x] DevExtreme integrado (DataGridDX wrapper disponible)
 - [x] react-i18next funcionando (es, en)
 - [x] Capacitor configurado (cap:sync, cap:android)

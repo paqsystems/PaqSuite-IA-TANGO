@@ -20,7 +20,7 @@ cp docs/futuro/workflows/cd.yml .github/workflows/cd.yml
 ```
 
 Los workflows en `docs/futuro/workflows/` ya tienen las referencias actualizadas:
-- Base de datos de tests: `paqsuite_erp_ia_test` (en lugar de `lidr_test`)
+- Base de datos de tests: `paqsuite_ia_erp_test` (en lugar de `lidr_test`)
 
 ### 2. Verificar configuración
 
