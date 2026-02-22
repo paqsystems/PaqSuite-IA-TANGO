@@ -142,7 +142,7 @@ Feature: Detalle de Cliente
 | T3 | Frontend | Enlace desde listado a detalle | Desde listado, "Ver" o fila lleva a detalle | T2 | S |
 | T4 | Tests    | Unit + integration backend (get cliente con tipos) | Tests pasan | T1 | S |
 | T5 | Tests    | E2E: listado → detalle → editar; detalle → eliminar (sin tareas) | ≥1 E2E Playwright | T2, T3 | M |
-| T6 | Docs     | Actualizar specs/ia-log si se añade o cambia contrato | Docs actualizados | T1 | S |
+| T6 | Docs     | Actualizar specs si se añade o cambia contrato | Docs actualizados | T1 | S |
 
 ---
 

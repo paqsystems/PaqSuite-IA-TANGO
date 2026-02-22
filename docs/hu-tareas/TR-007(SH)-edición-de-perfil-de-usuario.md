@@ -109,7 +109,7 @@ El usuario accede a su perfil (pantalla TR-006) y dispone de una opción "Editar
 | T2  | Backend  | UpdateProfileRequest + UserProfileController::update + ruta PUT /user/profile |
 | T3  | Frontend | user.service updateProfile() + ProfileView opción Editar perfil + formulario |
 | T4  | Tests    | Unit servicio, integration endpoint, E2E edición perfil |
-| T5  | Docs     | specs/endpoints/user-profile-update.md, ia-log, checklist TR-007 |
+| T5  | Docs     | specs/endpoints/user-profile-update.md, checklist TR-007 |
 
 ---
 
@@ -134,7 +134,7 @@ El usuario accede a su perfil (pantalla TR-006) y dispone de una opción "Editar
 - [x] Backend: PUT /user/profile + validaciones
 - [x] Frontend: Editar perfil + formulario + mensajes
 - [x] Unit + integration tests (E2E opcional)
-- [x] Docs/specs e ia-log actualizados
+- [x] Docs/specs actualizados
 
 ---
 
@@ -156,7 +156,6 @@ El usuario accede a su perfil (pantalla TR-006) y dispone de una opción "Editar
 ### Docs
 - `docs/hu-tareas/TR-007(SH)-edición-de-perfil-de-usuario.md` (nuevo)
 - `specs/endpoints/user-profile-update.md` (nuevo)
-- `docs/ia-log.md` – entrada TR-007(SH)
 
 ## Comandos ejecutados
 

@@ -40,7 +40,6 @@ Reglas obligatorias:
   - Frontend
   - Tests (unit, integration, ≥1 E2E Playwright si aplica)
   - Documentación
-  - Registro en `docs/ia-log.md`
 - Mantener consistencia con las reglas del proyecto y `.cursor/rules`.
 
 Trazabilidad obligatoria:
@@ -136,7 +135,6 @@ Cobertura mínima obligatoria:
 - Documentación:
   - OpenAPI / Swagger si aplica
   - actualización de documentación afectada
-  - registro en `docs/ia-log.md`
 - DevOps / CI-CD si aplica
 
 Trazabilidad obligatoria:

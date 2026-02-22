@@ -99,7 +99,6 @@ Cobertura mínima obligatoria:
 - Documentación:
   - OpenAPI/Swagger si aplica
   - Actualización de docs afectadas
-  - Registro en ia-log.md
 - DevOps/CI-CD si aplica.
 
 Restricciones:

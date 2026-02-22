@@ -12,9 +12,8 @@ Este documento sirve como **índice de navegación** para toda la documentación
 | **`historias-y-tickets.md`** | Historias de usuario (MUST/SHOULD), criterios de aceptación, tickets técnicos | **Documento central** – antes de implementar cualquier funcionalidad |
 | **`arquitectura.md`** | Arquitectura del sistema, componentes, decisiones de diseño | Para entender la estructura técnica |
 | **`modelo-datos.md`** | Entidades, relaciones, restricciones, convenciones de BD | Al trabajar con datos o migraciones |
-| **`testing.md`** | Estrategia de testing, tipos de tests, cómo ejecutarlos | Al escribir o ejecutar tests |
+| **`.cursor/rules/12-testing.md`** | Estrategia de testing, tipos de tests, cómo ejecutarlos | Al escribir o ejecutar tests |
 | **`deploy-ci-cd.md`** | Infraestructura, pipeline, deploy, secretos | Al desplegar o configurar CI/CD |
-| **`ia-log.md`** | Registro del uso de IA en el proyecto | Referencia y trazabilidad |
 | **`reglas-negocio.md`** | Reglas de negocio adicionales, validaciones | Al implementar lógica de negocio |
 
 ---
@@ -61,7 +60,7 @@ Cada archivo sigue el patrón `HU-XXX` o `TR-XXX` con clasificación MH (Must-Ha
 
 - **`_ENTREGA-1/`** – Documentación técnica (instrucciones, verificación)
 - **`_ENTREGA-2/`** – Código funcional (instrucciones, verificación)
-- **`plantillas/`** – Plantillas para ia-log y otros artefactos
+- **`plantillas/`** – Plantillas para artefactos del proyecto
 
 ---
 

@@ -74,7 +74,6 @@ Generar una lista de tareas con:
 - Docs:
   - OpenAPI/Swagger actualizado si hay endpoints
   - README o docs/actualizadas si cambia comportamiento
-  - registro en `ia-log.md` (prompt, output, cambios humanos)
 - DevOps:
   - si impacta despliegue/secretos/config: ajustar CI/CD o variables
 

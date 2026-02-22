@@ -274,9 +274,8 @@ Feature: Creación de Empleado
 | T9 | Tests    | E2E validación duplicado y contraseñas | Crear empleado; intentar crear con mismo código → ver error; probar contraseñas no coinciden → ver error. | T6 | S |
 | T10| Frontend | Tests unit (Vitest) servicio creación | createEmpleado(body), manejo 201, 422, 409. | T5 | S |
 | T11| Docs     | Actualizar specs/endpoints/empleados-create.md | Verificar que refleje creación en USERS y PQ_PARTES_USUARIOS; códigos 1104, 1105, 1106, 1108, 4101, 4102. | T2 | S |
-| T12| Docs     | Registrar en ia-log.md | Entrada implementación TR-019. | T11 | S |
 
-**Total:** 12 tareas (4S + 6M + 1L).
+**Total:** 11 tareas (4S + 6M + 1L).
 
 ---
 
@@ -326,7 +325,7 @@ Feature: Creación de Empleado
 - [ ] Integration tests endpoint ok
 - [ ] Frontend unit tests (Vitest) servicio ok
 - [ ] ≥1 E2E Playwright creación empleado ok
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 
@@ -350,7 +349,6 @@ Feature: Creación de Empleado
 - `frontend/tests/e2e/empleados-create.spec.ts` - Tests E2E con Playwright para creación de empleados (5 tests)
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-019.
 
 ## Comandos ejecutados
 

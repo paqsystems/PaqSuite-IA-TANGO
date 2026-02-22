@@ -153,7 +153,7 @@ Feature: Gráficos en dashboard
 | T6 | Frontend | Integrar gráfico por tipo de tarea (solo cliente) | Datos de distribucion_por_tipo; solo cliente. | T3, TR-051 | M |
 | T7 | Frontend | Actualización de gráficos al cambiar período | Al cambiar selector de período, los gráficos se refrescan con los nuevos datos. | T4–T6 | S |
 | T8 | Tests    | E2E gráficos por rol | Empleado ve 1 gráfico; supervisor ve 2; cliente ve 1; cambio de período actualiza. | T4–T7 | M |
-| T9 | Docs     | Documentar librería y decisiones (accesibilidad) | README o docs/frontend; ia-log si aplica. | T1 | S |
+| T9 | Docs     | Documentar librería y decisiones (accesibilidad) | README o docs/frontend. | T1 | S |
 
 **Total:** 9 tareas.
 

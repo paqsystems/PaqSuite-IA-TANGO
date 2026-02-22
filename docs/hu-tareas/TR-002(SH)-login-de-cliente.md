@@ -240,15 +240,6 @@ No se requieren cambios en el frontend. El formulario de login ya soporta el flu
 | Dependencias| T1 |
 | Estimación  | S |
 
-### T7 - Docs: Registrar en ia-log.md
-| Campo       | Valor |
-|-------------|-------|
-| Tipo        | Docs |
-| Descripción | Registrar implementación de login de cliente |
-| DoD         | Entrada con prompt, archivos, decisiones |
-| Dependencias| T1-T6 |
-| Estimación  | S |
-
 ---
 
 ## 8) Estrategia de Tests
@@ -289,7 +280,6 @@ No se requieren cambios en el frontend. El formulario de login ya soporta el flu
 - [ ] Integration tests agregados y pasando
 - [ ] ≥1 E2E Playwright agregado y pasando
 - [ ] Documentación actualizada
-- [ ] IA log actualizado
 
 ---
 
@@ -305,7 +295,6 @@ No se requieren cambios en el frontend. El formulario de login ya soporta el flu
 | T4 | Backend: Tests de integración para login de cliente | ✅ COMPLETADO |
 | T5 | E2E: Test Playwright para login de cliente | ✅ COMPLETADO |
 | T6 | Docs: Actualizar documentación de autenticación | ✅ COMPLETADO |
-| T7 | Docs: Registrar en ia-log.md | ✅ COMPLETADO |
 
 ---
 
@@ -326,7 +315,6 @@ No se requieren cambios en el frontend. El formulario de login ya soporta el flu
 ### Docs
 - `docs/hu-tareas/TR-002(SH)-login-de-cliente.md` (CREADO)
 - `docs/backend/autenticacion.md` (MODIFICADO) - Agregada información de login de cliente
-- `docs/ia-log.md` (MODIFICADO) - Entrada #11 agregada
 
 ---
 

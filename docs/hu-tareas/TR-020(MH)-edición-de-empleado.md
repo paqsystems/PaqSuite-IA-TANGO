@@ -320,9 +320,8 @@ Feature: Edición de Empleado
 | T12| Tests    | E2E cambio contraseña y validación | Cambiar contraseña; probar contraseñas no coinciden → ver error; probar email duplicado → ver error. | T9 | S |
 | T13| Frontend | Tests unit (Vitest) servicios | getEmpleado(id), updateEmpleado(id, body), manejo 200, 404, 422, 409. | T7, T8 | S |
 | T14| Docs     | Actualizar specs/endpoints/empleados-update.md | Verificar que refleje code no modificable; códigos 1104, 1106, 1108, 4102, 4003. | T3 | S |
-| T15| Docs     | Registrar en ia-log.md | Entrada implementación TR-020. | T14 | S |
 
-**Total:** 15 tareas (5S + 8M + 1L).
+**Total:** 14 tareas (5S + 8M + 1L).
 
 ---
 
@@ -377,7 +376,7 @@ Feature: Edición de Empleado
 - [ ] Integration tests endpoints ok
 - [ ] Frontend unit tests (Vitest) servicios ok
 - [ ] ≥1 E2E Playwright edición empleado ok
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 
@@ -399,7 +398,6 @@ Feature: Edición de Empleado
 - `frontend/tests/e2e/empleados-edit.spec.ts` – Tests E2E nuevos.
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-020 agregada.
 - `docs/hu-tareas/TR-020(MH)-edición-de-empleado.md` – Estado actualizado a COMPLETADO.
 
 ## Comandos ejecutados

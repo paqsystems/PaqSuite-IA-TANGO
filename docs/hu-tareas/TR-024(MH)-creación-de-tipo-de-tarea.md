@@ -183,7 +183,7 @@ Feature: Creación de Tipo de Tarea
 | T2 | Frontend | Formulario creación tipo de tarea (por defecto → genérico forzado y deshabilitado) | Cumple AC | T1 | M |
 | T3 | Tests    | Unit + integration (crear ok, validación, duplicado, 2117, 403) | Tests pasan | T1 | S |
 | T4 | Tests    | E2E: listado → Crear → llenar → guardar → listado | ≥1 E2E | T2 | M |
-| T5 | Docs     | Specs POST tipos-tarea; código 2117 en domain-error-codes; ia-log | Docs actualizados | T1 | S |
+| T5 | Docs     | Specs POST tipos-tarea; código 2117 en domain-error-codes | Docs actualizados | T1 | S |
 
 ---
 
@@ -208,7 +208,7 @@ Feature: Creación de Tipo de Tarea
 - [x] Backend POST + validaciones + 2117
 - [x] Frontend formulario + mensajes
 - [x] Unit/integration/E2E ok
-- [x] Docs y ia-log actualizados
+- [x] Docs actualizados
 
 ---
 

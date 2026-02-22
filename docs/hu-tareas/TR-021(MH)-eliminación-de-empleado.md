@@ -224,9 +224,8 @@ Feature: Eliminación de Empleado
 | T9 | Tests    | E2E intentar eliminar empleado con tareas (opcional) | Si hay empleado con tareas, eliminar → ver mensaje 2113 y empleado sigue en listado. | T6 | S |
 | T10| Frontend | Tests unit (Vitest) deleteEmpleado | deleteEmpleado(id); manejo 200, 422 (2113), 404. | T5 | S |
 | T11| Docs     | Actualizar specs/endpoints/empleados-delete.md | Verificar códigos 2113, 4003, 3101. | T2 | S |
-| T12| Docs     | Registrar en ia-log.md | Entrada implementación TR-021. | T11 | S |
 
-**Total:** 12 tareas (3S + 7M + 0L).
+**Total:** 11 tareas (3S + 7M + 0L).
 
 ---
 
@@ -270,7 +269,7 @@ Feature: Eliminación de Empleado
 - [ ] Integration tests DELETE ok
 - [ ] Frontend unit tests (Vitest) ok
 - [ ] ≥1 E2E Playwright eliminar empleado sin tareas ok
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 
@@ -290,7 +289,6 @@ Feature: Eliminación de Empleado
 - `frontend/tests/e2e/empleados-delete.spec.ts` – Tests E2E con Playwright para eliminación de empleados.
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-021 agregada.
 - `docs/hu-tareas/TR-021(MH)-eliminación-de-empleado.md` – Estado actualizado a COMPLETADO.
 
 ## Comandos ejecutados

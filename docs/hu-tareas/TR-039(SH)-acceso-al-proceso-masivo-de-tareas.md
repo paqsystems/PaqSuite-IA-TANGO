@@ -126,7 +126,7 @@ Feature: Acceso al Proceso Masivo
 | T1 | Frontend | Ruta y página Proceso Masivo (solo supervisor) | Página accesible con filtros y tabla; 403/redirección no supervisor | — | M |
 | T2 | Frontend | Enlace "Proceso Masivo" en menú/Dashboard (solo para supervisores) | Enlace visible solo si supervisor | T1 | S |
 | T3 | Tests    | E2E: supervisor accede; empleado redirigido o 403 | ≥1 E2E Playwright | T1, T2 | S |
-| T4 | Docs     | Actualizar specs/ia-log si aplica | Docs actualizados | T1 | S |
+| T4 | Docs     | Actualizar specs si aplica | Docs actualizados | T1 | S |
 
 ---
 

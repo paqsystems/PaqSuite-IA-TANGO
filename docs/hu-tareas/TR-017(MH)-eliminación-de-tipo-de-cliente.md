@@ -159,7 +159,7 @@ Feature: Eliminación de Tipo de Cliente
 | T3 | Frontend | Integrar eliminación en listado (y detalle si aplica) | Mensajes 2115 y éxito; actualizar listado | T2 | S |
 | T4 | Tests    | Unit + integration (eliminar ok, 422 con 2115, 404, 403) | Tests pasan | T1 | S |
 | T5 | Tests    | E2E: eliminar tipo sin clientes; intentar eliminar con clientes | ≥1 E2E | T3 | M |
-| T6 | Docs     | Specs DELETE tipos-cliente; código 2115 en domain-error-codes; ia-log | Docs actualizados | T1 | S |
+| T6 | Docs     | Specs DELETE tipos-cliente; código 2115 en domain-error-codes | Docs actualizados | T1 | S |
 
 ---
 
@@ -184,7 +184,7 @@ Feature: Eliminación de Tipo de Cliente
 - [x] Backend DELETE + verificación clientes + código 2115
 - [x] Frontend diálogo + mensajes
 - [x] Unit/integration/E2E ok
-- [x] Docs (incl. código 2115) y ia-log actualizados
+- [x] Docs (incl. código 2115) actualizados
 
 ---
 

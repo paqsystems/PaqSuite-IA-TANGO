@@ -641,16 +641,6 @@ Accept: application/json
 - **Dependencias:** T5
 - **Estimación:** S
 
-### T17: Docs - Registrar en ia-log.md
-- **Tipo:** Docs
-- **Descripción:** Registrar el uso de IA en la generación de esta historia y sus tareas
-- **DoD:**
-  - Entrada agregada en `docs/ia-log.md`
-  - Incluye: prompt usado, herramienta (Cursor), resultado, ajustes humanos (si los hay)
-  - Formato consistente con otras entradas
-- **Dependencias:** Ninguna
-- **Estimación:** S
-
 ### T18: DevOps - Verificar CI/CD (si aplica)
 - **Tipo:** DevOps
 - **Descripción:** Verificar que el pipeline de CI/CD ejecute los tests y no se rompa con los cambios
@@ -850,7 +840,6 @@ test('debe autenticar empleado y redirigir al dashboard', async ({ page }) => {
 ### Documentación
 - [ ] OpenAPI/Swagger actualizado con endpoint de login
 - [ ] README o docs de autenticación actualizados
-- [ ] Registro en `ia-log.md` completado
 
 ### CI/CD
 - [ ] Pipeline de CI/CD ejecuta todos los tests
@@ -892,8 +881,7 @@ test('debe autenticar empleado y redirigir al dashboard', async ({ page }) => {
 | T14 | Tests | E2E Playwright - Flujo completo de login | ✅ DONE |
 | T15 | Docs | Actualizar OpenAPI/Swagger | ✅ DONE |
 | T16 | Docs | Actualizar README o docs de autenticación | ✅ DONE |
-| T17 | Docs | Registrar en ia-log.md | ✅ DONE |
-| T18 | DevOps | Verificar CI/CD | ✅ DONE |
+| T17 | DevOps | Verificar CI/CD | ✅ DONE |
 
 ---
 
@@ -961,7 +949,6 @@ test('debe autenticar empleado y redirigir al dashboard', async ({ page }) => {
 ### Docs
 
 - `docs/backend/autenticacion.md` (CREADO)
-- `docs/ia-log.md` (MODIFICADO) - Entrada #8
 
 ---
 
@@ -1096,4 +1083,3 @@ mkdir -p src\app
 
 ### Documentación
 - [x] Documentación de autenticación creada
-- [x] Registro en `ia-log.md` completado

@@ -277,9 +277,7 @@ Feature: Edición de Cliente
 | T10| Tests    | E2E editar con cambio contraseña y estado | Editar cliente con acceso → cambiar contraseña; editar y cambiar activo → guardar. | T7 | S |
 | T11| Frontend | Tests unit (Vitest) servicio | getCliente, updateCliente; manejo 200, 404, 422. | T6 | S |
 | T12| Docs     | Actualizar specs clientes-get y clientes-update | Reflejar habilitar_acceso, user_id, códigos 2116, 1104 si aplica. | T3 | S |
-| T13| Docs     | Registrar en ia-log.md | Entrada implementación TR-010. | T12 | S |
-
-**Total:** 13 tareas (4S + 7M + 1L).
+**Total:** 12 tareas (4S + 7M + 1L).
 
 ---
 
@@ -322,7 +320,7 @@ Feature: Edición de Cliente
 - [ ] Integration tests GET y PUT ok
 - [ ] Frontend unit tests (Vitest) ok
 - [ ] ≥1 E2E Playwright editar cliente ok
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 
@@ -337,7 +335,6 @@ Feature: Edición de Cliente
 - Por definir: ClientesEditarPage, client.service.ts getCliente/updateCliente, ruta /clientes/:id/editar, SupervisorRoute.
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-010.
 - `specs/endpoints/clientes-get.md`, `specs/endpoints/clientes-update.md` – Actualizar si se añaden campos o códigos.
 
 ### Tests

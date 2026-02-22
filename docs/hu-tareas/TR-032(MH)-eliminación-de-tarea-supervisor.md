@@ -198,7 +198,6 @@ Feature: Eliminación de Tarea (Supervisor)
 | T8 | Tests | E2E Playwright tarea cerrada | Verificar error 2111 | T5 | S |
 | T9 | Tests | Frontend unit tests (Vitest) | Tests para task.service.ts deleteTask (mismo que TR-030; ampliar si hay lógica específica supervisor) | TR-030 | S |
 | T10 | Docs | Actualizar docs/backend/tareas.md | Documentar permisos supervisor | T2 | S |
-| T11 | Docs | Registrar en ia-log.md | Entrada de implementación | T10 | S |
 
 **Total:** 11 tareas (9S + 1M + 1L implícito)
 
@@ -269,4 +268,3 @@ Feature: Eliminación de Tarea (Supervisor)
 
 ## Pendientes / follow-ups
 
-- Registrar en docs/ia-log.md.

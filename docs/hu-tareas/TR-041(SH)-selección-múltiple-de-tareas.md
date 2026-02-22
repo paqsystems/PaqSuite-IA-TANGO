@@ -126,7 +126,7 @@ Feature: Selección Múltiple
 | T1 | Frontend | Checkbox por fila + estado de selección (ids) | Cumple AC | TR-040 | M |
 | T2 | Frontend | "Seleccionar todos" / "Deseleccionar todos" + contador en tiempo real | Contador y botones funcionando | T1 | S |
 | T3 | Tests    | E2E: seleccionar varias, seleccionar todos, deseleccionar todos, ver contador | ≥1 E2E | T2 | S |
-| T4 | Docs     | ia-log si aplica | Docs actualizados | T1 | S |
+| T4 | Docs     | Actualizar docs si aplica | Docs actualizados | T1 | S |
 
 ---
 

@@ -143,7 +143,7 @@ Feature: Actualización automática del dashboard
 | T5 | Frontend | Indicador de carga durante actualización | Visible tanto en actualización manual como automática (sin duplicar pantalla completa si ya existe). | T2, T4 | S |
 | T6 | Tests    | E2E actualización manual | Clic en Actualizar → loading → datos actualizados; indicador de última actualización. | T3, T4 | M |
 | T7 | Tests    | Unit o E2E intervalo (opcional) | Verificar que tras el intervalo se dispara una nueva petición (mock o avance de tiempo). | T2 | S |
-| T8 | Docs     | Documentar intervalo y comportamiento | README o docs; ia-log si aplica. | T1 | S |
+| T8 | Docs     | Documentar intervalo y comportamiento | README o docs. | T1 | S |
 
 **Total:** 8 tareas.
 

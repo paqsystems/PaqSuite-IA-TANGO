@@ -216,7 +216,6 @@ Cierre obligatorio (trazabilidad):
   - ## Notas y decisiones
   - ## Pendientes / follow-ups
 - Listar paths relativos al repositorio, agrupados por tipo (Backend, Frontend, DB, Tests, Docs).
-- Registrar el uso de IA en docs/ia-log.md.
 
 Restricción:
 - No ejecutar tareas fuera del alcance de esta TR.
@@ -267,7 +266,7 @@ Quiero que generes una nueva historia de usuario, con el numero 056, de tipo SH,
 ### Instrucción utilizada
 
 ```
-haz un plan y documentalo en docs/version-mysql.md, para transformar el proyecto para que trabaje sobre una base my sql. sería con la conectividad que figura en el mcp de MySql, recordando que hay que abrir el tunel ssh para poder conectarse.
+haz un plan y documentalo en docs/migracion-mssql-a-mysql.md, para transformar el proyecto para que trabaje sobre una base my sql. sería con la conectividad que figura en el mcp de MySql, recordando que hay que abrir el tunel ssh para poder conectarse.
 ```
 
 ### Contexto
@@ -283,7 +282,7 @@ El proyecto estaba utilizando SQL Server como motor de base de datos y se requer
    - Creación de plan detallado de migración
 
 2. **Documentación del plan:**
-   - Creación de `docs/version-mysql.md` con:
+   - Creación de `docs/migracion-mssql-a-mysql.md` con:
      - Contexto y objetivos
      - Configuración del túnel SSH (Windows PowerShell y PuTTY)
      - Lista completa de cambios requeridos
@@ -307,7 +306,7 @@ El proyecto estaba utilizando SQL Server como motor de base de datos y se requer
 
 ### Resultado
 
-- Plan completo documentado en `docs/version-mysql.md`
+- Plan completo documentado en `docs/migracion-mssql-a-mysql.md`
 - Migración exitosa ejecutada
 - 11 tablas creadas correctamente
 - Datos iniciales insertados
@@ -316,13 +315,12 @@ El proyecto estaba utilizando SQL Server como motor de base de datos y se requer
 
 ### Archivos clave generados/modificados
 
-- `docs/version-mysql.md` - Documentación completa de migración
+- `docs/migracion-mssql-a-mysql.md` - Documentación completa de migración
 - `backend/.env` - Configuración MySQL
 - Migraciones, seeders y tests adaptados
 - Documentación de despliegue actualizada
 - Nueva regla de formato de fechas MySQL
 
 ### Referencias
-- `docs/version-mysql.md` - Plan y documentación completa
-- `docs/ia-log.md` - Entrada de registro de uso de IA
+- `docs/migracion-mssql-a-mysql.md` - Plan y documentación completa
 

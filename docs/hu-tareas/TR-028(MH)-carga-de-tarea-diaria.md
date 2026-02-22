@@ -813,18 +813,6 @@ Agregar `data-testid` en elementos clave:
 **Dependencias:** T6  
 **Estimación:** S
 
-### T15: Docs - Registrar uso de IA
-**Tipo:** Docs  
-**Descripción:** Registrar en `docs/ia-log.md` el uso de IA para esta TR.  
-**DoD:**
-- Entrada agregada en `docs/ia-log.md`
-- Prompt o instrucción documentada
-- Herramienta utilizada (Cursor)
-- Resultado obtenido
-- Ajustes humanos realizados (si aplica)  
-**Dependencias:** Todas las tareas anteriores  
-**Estimación:** S
-
 ---
 
 ## 8) Estrategia de Tests (Playwright y otros)
@@ -975,8 +963,6 @@ Agregar `data-testid` en elementos clave:
 - [ ] Docs actualizados:
   - [ ] Documentación de API creada/actualizada
   - [ ] Ejemplos de uso documentados
-- [ ] IA log actualizado:
-  - [ ] Entrada en `docs/ia-log.md` con prompt y resultado
 - [ ] CI/CD pasa:
   - [ ] Tests ejecutándose en pipeline
   - [ ] Sin errores de linting
@@ -1013,7 +999,6 @@ Agregar `data-testid` en elementos clave:
 
 ### Docs
 - `docs/backend/tareas.md` (nuevo o modificado)
-- `docs/ia-log.md` (modificado)
 
 ---
 

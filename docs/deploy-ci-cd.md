@@ -13,7 +13,7 @@ Disponer de una URL pública accesible para evaluación del MVP.
 - **Motor:** MySQL 5.7+ o MariaDB 10.3+ (recomendado MySQL 8.0+)
 - **Base de datos:** Configurada según entorno (ej: `_datosempresa`)
 - **Driver Laravel:** `mysql` (extensión PHP PDO MySQL)
-- **Túnel SSH:** Requerido para conexión remota (ver `docs/version-mysql.md`)
+- **Túnel SSH:** Requerido para conexión remota (ver `docs/migracion-mssql-a-mysql.md`)
 
 ### Configuración de Conexión (.env)
 
@@ -26,7 +26,7 @@ DB_USERNAME=forge
 DB_PASSWORD=tu_password
 ```
 
-**Nota:** El `DB_HOST=127.0.0.1` indica que se usa un túnel SSH local. El túnel debe estar activo antes de ejecutar migraciones o acceder a la base de datos. Ver instrucciones en `docs/version-mysql.md`.
+**Nota:** El `DB_HOST=127.0.0.1` indica que se usa un túnel SSH local. El túnel debe estar activo antes de ejecutar migraciones o acceder a la base de datos. Ver instrucciones en `docs/migracion-mssql-a-mysql.md`.
 
 ### Estructura de Tablas
 
@@ -135,7 +135,7 @@ brew install php mysql
 
 **Error: Túnel SSH no disponible**
 - Establecer túnel SSH antes de ejecutar migraciones
-- Ver instrucciones detalladas en `docs/version-mysql.md`
+- Ver instrucciones detalladas en `docs/migracion-mssql-a-mysql.md`
 
 **Error: Timeout en migraciones**
 - Verificar conexión de red

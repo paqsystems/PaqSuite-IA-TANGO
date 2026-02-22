@@ -339,15 +339,6 @@ Datos de seed:
 | **Dependencias** | T11 |
 | **Estimación** | S |
 
-### T15: Registrar uso de IA
-| Campo | Valor |
-|-------|-------|
-| **Tipo** | Docs |
-| **Descripción** | Registrar en `docs/ia-log.md`: prompts usados, outputs, ajustes humanos. |
-| **DoD** | Entrada en ia-log.md con evidencia del proceso. |
-| **Dependencias** | T14 |
-| **Estimación** | S |
-
 ---
 
 ## 8) Estrategia de Tests
@@ -448,7 +439,6 @@ public function seeders_create_minimum_required_data()
 - [ ] Integration tests ok (migraciones y seeders)
 - [ ] ≥1 E2E Playwright ok → **No aplica** (HU técnica sin UI)
 - [ ] Docs actualizados (`docs/deploy-ci-cd.md`)
-- [ ] IA log actualizado (`docs/ia-log.md`)
 - [ ] CI/CD pasa (si está configurado)
 - [ ] Base de datos reproducible desde cero con `migrate:fresh --seed`
 
@@ -472,9 +462,8 @@ public function seeders_create_minimum_required_data()
 | T12 | Tests | Tests integración migraciones | M | T11 |
 | T13 | Tests | Tests integración seeders | S | T11 |
 | T14 | Docs | Documentar proceso | S | T11 |
-| T15 | Docs | Registrar uso IA | S | T14 |
 
-**Total estimado:** 15 tareas (8S + 5M + 2L implícitos en M complejas)
+**Total estimado:** 14 tareas (8S + 5M + 2L implícitos en M complejas)
 
 ---
 
@@ -503,8 +492,7 @@ Fase 4 - Verificación:
 └── T13: Tests seeders
 
 Fase 5 - Documentación:
-├── T14: Documentar proceso
-└── T15: Registrar uso IA
+└── T14: Documentar proceso
 ```
 
 ---
@@ -535,7 +523,6 @@ Fase 5 - Documentación:
 | T12 | Tests | Tests integración migraciones | ✅ DONE | `MigrationTest.php` |
 | T13 | Tests | Tests integración seeders | ✅ DONE | `SeederTest.php` |
 | T14 | Docs | Documentar proceso | ✅ DONE | `docs/deploy-ci-cd.md` actualizado |
-| T15 | Docs | Registrar uso IA | ✅ DONE | `docs/ia-log.md` actualizado |
 
 ---
 
@@ -573,7 +560,6 @@ Fase 5 - Documentación:
 
 ### Docs
 - `docs/deploy-ci-cd.md` (MODIFICADO - Agregada sección de migraciones)
-- `docs/ia-log.md` (MODIFICADO - Entrada #6)
 
 ### Archivos Eliminados
 - `backend/database/migrations/2025_01_20_000001_add_fields_to_tipo_tarea_table.php`

@@ -189,7 +189,7 @@ Feature: Listado de Tipos de Tarea
 | T3 | Frontend | Enlaces Crear / Editar / Eliminar en listado | Navegación correcta | T2 | S |
 | T4 | Tests    | Unit + integration backend (listado, 403, paginación) | Tests pasan | T1 | S |
 | T5 | Tests    | E2E: acceder listado, búsqueda, filtros | ≥1 E2E Playwright | T2 | M |
-| T6 | Docs     | Specs endpoint listado tipos tarea; ia-log | Docs actualizados | T1 | S |
+| T6 | Docs     | Specs endpoint listado tipos tarea | Docs actualizados | T1 | S |
 
 ---
 
@@ -214,7 +214,7 @@ Feature: Listado de Tipos de Tarea
 - [x] Frontend: sección Tipos de Tarea + tabla + acciones
 - [x] Unit/integration tests ok
 - [x] ≥1 E2E ok
-- [x] Docs y ia-log actualizados
+- [x] Docs actualizados
 
 ---
 

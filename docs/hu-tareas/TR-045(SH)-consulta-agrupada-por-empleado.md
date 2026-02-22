@@ -218,7 +218,7 @@ Feature: Consulta Agrupada por Empleado
 | T3 | Frontend | Accordion expandible/colapsable; detalle con columnas como consulta detallada; total general | Cumple AC | T2 | M |
 | T4 | Frontend | Enlace "Tareas por Empleado" en Dashboard o menú (solo supervisores) | Enlace visible solo si supervisor | T2 | S |
 | T5 | Tests    | Integration: GET by-employee 200, 422 (1305), 403; E2E supervisor accede, aplica filtros, expande grupo | Tests pasan | T1, T2, T3 | M |
-| T6 | Docs     | Spec endpoint by-employee; ia-log si aplica | Docs actualizados | T1 | S |
+| T6 | Docs     | Spec endpoint by-employee | Docs actualizados | T1 | S |
 
 ---
 

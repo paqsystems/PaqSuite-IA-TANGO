@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Schema;
  * Tabla utilizada por Laravel Sanctum para almacenar tokens de acceso personal.
  * Adaptada para ser compatible con MySQL usando Schema Builder de Laravel.
  * 
- * @see docs/version-mysql.md
+ * @see docs/migracion-mssql-a-mysql.md
  */
 return new class extends Migration
 {

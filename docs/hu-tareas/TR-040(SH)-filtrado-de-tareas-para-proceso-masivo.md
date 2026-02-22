@@ -142,7 +142,7 @@ Feature: Filtrado para Proceso Masivo
 | T1 | Backend  | Asegurar GET tasks/all con fecha_desde/hasta, cliente_id, usuario_id, cerrado; validación 1305 | 200 con datos; 422 (1305) si fecha_desde > fecha_hasta | TR-034 | S |
 | T2 | Frontend | Controles de filtro + "Aplicar Filtros" + total de tareas filtradas | Cumple AC | TR-039 | M |
 | T3 | Tests    | Integration: filtros y 1305; E2E aplicar filtros y ver total | Tests pasan | T1, T2 | S |
-| T4 | Docs     | Specs/domain-error-codes 1305; ia-log | Docs actualizados | T1 | S |
+| T4 | Docs     | Specs/domain-error-codes 1305 | Docs actualizados | T1 | S |
 
 ---
 

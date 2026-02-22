@@ -246,9 +246,7 @@ Feature: Listado de Clientes
 | T13| Tests    | E2E empleado no accede | Login empleado → intentar acceder a /clientes → 403 o redirección. | T7 | S |
 | T14| Frontend | Tests unit (Vitest) servicio listado | getClientes(params), transformación, manejo 403. | T6 | S |
 | T15| Docs     | Actualizar docs/specs si se añade endpoint | Especificación GET /api/v1/clientes (o referenciar specs/endpoints/clientes-list.md). | T3 | S |
-| T16| Docs     | Registrar en ia-log.md | Entrada implementación TR-008. | T15 | S |
-
-**Total:** 16 tareas (6S + 8M + 2L implícitos en M).
+**Total:** 15 tareas (6S + 8M + 2L implícitos en M).
 
 ---
 
@@ -295,7 +293,7 @@ Feature: Listado de Clientes
 - [ ] Integration tests endpoint ok
 - [ ] Frontend unit tests (Vitest) servicio ok
 - [ ] ≥1 E2E Playwright ok (supervisor listado + empleado 403)
-- [ ] Docs/specs y ia-log actualizados
+- [ ] Docs/specs actualizados
 
 ---
 
@@ -310,7 +308,6 @@ Feature: Listado de Clientes
 - Por definir: ClientesPage, servicio client.service.ts, rutas, SupervisorRoute.
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-008.
 - Referencia o actualización de `specs/endpoints/clientes-list.md` si aplica.
 
 ### Tests

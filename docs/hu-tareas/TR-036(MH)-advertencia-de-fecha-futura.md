@@ -127,7 +127,6 @@ Feature: Advertencia de Fecha Futura
 | T4 | Tests | E2E Playwright no bloquea | Verificar que se puede guardar con fecha futura | T2 | S |
 | T5 | Tests | Frontend unit tests (Vitest) | Tests para dateUtils (isFutureDate o equivalente, comparación con hoy) | T1 | S |
 | T6 | Docs | Documentar comportamiento | Actualizar docs de validaciones | T1 | S |
-| T7 | Docs | Registrar en ia-log.md | Entrada de validación | T6 | S |
 
 **Total:** 7 tareas (7S)
 

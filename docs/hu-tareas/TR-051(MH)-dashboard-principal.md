@@ -209,7 +209,6 @@ Feature: Dashboard principal
 | T12| Tests    | E2E dashboard empleado y supervisor | Login → dashboard → KPIs y bloques visibles según rol. | T6–T10 | M |
 | T13| Tests    | Frontend unit getDashboard | Params, transformación, errores. | T5 | S |
 | T14| Docs     | Documentar GET /api/v1/dashboard | docs/backend o specs. | T2 | S |
-| T15| Docs     | Registrar en ia-log.md | Entrada TR-051. | T14 | S |
 
 **Total:** 15 tareas.
 
@@ -238,7 +237,7 @@ Feature: Dashboard principal
 - [ ] Frontend Dashboard con período, KPIs, top clientes/empleados, distribución tipo
 - [ ] Unit e integration tests ok
 - [ ] ≥1 E2E dashboard por rol
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 
@@ -249,7 +248,6 @@ Feature: Dashboard principal
 - `frontend/src/app/Dashboard.css` — estilos TR-051.
 - `frontend/tests/e2e/dashboard.spec.ts` — E2E por rol (empleado, supervisor, cliente), período, Mes actual.
 - `.cursor/Docs/Dashboard.tsx.md` — documentación del componente.
-- `docs/ia-log.md` — entrada TR-051.
 
 ## Comandos ejecutados
 

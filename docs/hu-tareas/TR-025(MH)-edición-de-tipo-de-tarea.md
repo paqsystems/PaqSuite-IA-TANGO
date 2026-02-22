@@ -174,7 +174,7 @@ Feature: Edición de Tipo de Tarea
 | T3 | Frontend | Página edición tipo de tarea (código readonly; por defecto → genérico) | Cumple AC | T1 | M |
 | T4 | Tests    | Unit + integration (actualizar ok, validación, 2117, 404, 403) | Tests pasan | T1, T2 | S |
 | T5 | Tests    | E2E: listado → Editar → modificar → guardar → listado | ≥1 E2E | T3 | M |
-| T6 | Docs     | Specs GET/PUT tipos-tarea/{id}; ia-log | Docs actualizados | T1 | S |
+| T6 | Docs     | Specs GET/PUT tipos-tarea/{id} | Docs actualizados | T1 | S |
 
 ---
 
@@ -199,7 +199,7 @@ Feature: Edición de Tipo de Tarea
 - [x] Backend GET + PUT + validaciones + 2117
 - [x] Frontend formulario edición + código readonly
 - [x] Unit/integration/E2E ok
-- [x] Docs y ia-log actualizados
+- [x] Docs actualizados
 
 ---
 

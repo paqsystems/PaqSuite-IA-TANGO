@@ -217,7 +217,7 @@ Feature: Consulta Agrupada por Tipo de Tarea
 | T3 | Frontend | Accordion expandible/colapsable; detalle con columnas como consulta detallada; total general | Cumple AC | T2 | M |
 | T4 | Frontend | Enlace "Tareas por Tipo" en Dashboard o menú (solo supervisores) | Enlace visible solo si supervisor | T2 | S |
 | T5 | Tests    | Integration: GET by-task-type 200, 422 (1305), 403; E2E supervisor accede, aplica filtros, expande grupo | Tests pasan | T1, T2, T3 | M |
-| T6 | Docs     | Spec endpoint by-task-type; ia-log si aplica | Docs actualizados | T1 | S |
+| T6 | Docs     | Spec endpoint by-task-type | Docs actualizados | T1 | S |
 
 ---
 

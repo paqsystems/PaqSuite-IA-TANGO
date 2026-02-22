@@ -162,7 +162,6 @@ Feature: Selección de Empleado Propietario (Supervisor)
 | T8 | Tests | E2E Playwright empleado | Verificar selector no visible | T5 | S |
 | T9 | Tests | Frontend unit tests (Vitest) | Tests para task.service getEmployees() (mock API, lista empleados) si aplica | T5 | S |
 | T10 | Docs | Documentar comportamiento | Actualizar docs de API | T1 | S |
-| T11 | Docs | Registrar en ia-log.md | Entrada de validación | T10 | S |
 
 **Total:** 11 tareas (11S)
 

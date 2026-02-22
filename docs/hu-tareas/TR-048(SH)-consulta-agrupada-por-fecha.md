@@ -230,7 +230,7 @@ Feature: Consulta Agrupada por Fecha
 | T3 | Frontend | Accordion expandible/colapsable; detalle con columnas como consulta detallada; total general; orden cronológico | Cumple AC | T2 | M |
 | T4 | Frontend | Enlace "Tareas por Fecha" en Dashboard o menú (visible para empleado, supervisor, cliente) | Enlace visible según rol | T2 | S |
 | T5 | Tests    | Integration: GET by-date 200, 422 (1305); filtros por rol; E2E usuario accede, aplica filtros, expande grupo | Tests pasan | T1, T2, T3 | M |
-| T6 | Docs     | Spec endpoint by-date; ia-log si aplica | Docs actualizados | T1 | S |
+| T6 | Docs     | Spec endpoint by-date | Docs actualizados | T1 | S |
 
 ---
 

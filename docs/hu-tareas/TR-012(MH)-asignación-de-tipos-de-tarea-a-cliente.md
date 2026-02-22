@@ -257,9 +257,7 @@ Feature: Asignación de Tipos de Tarea a Cliente
 | T11| Tests    | E2E desasignar y validación 2116 (opcional) | Desasignar último tipo cuando no hay genéricos → ver mensaje 2116. | T8 | S |
 | T12| Frontend | Tests unit (Vitest) servicio | getTiposTareaCliente, updateTiposTareaCliente; 200, 422. | T7 | S |
 | T13| Docs     | Actualizar specs clientes-tipos-tarea | Documentar PUT si se implementa; códigos 2116, 2118. | T4 | S |
-| T14| Docs     | Registrar en ia-log.md | Entrada implementación TR-012. | T13 | S |
-
-**Total:** 14 tareas (4S + 8M + 0L).
+**Total:** 13 tareas (4S + 8M + 0L).
 
 ---
 
@@ -320,7 +318,6 @@ Feature: Asignación de Tipos de Tarea a Cliente
 - `frontend/src/features/clients/components/ClientesNuevaPage.css`: estilos .clientes-task-types-section, .clientes-task-types-list.
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-012 (opcional).
 - `specs/errors/domain-error-codes.md` – 2116 ya documentado; 2118 puede añadirse si no existe.
 
 ### Tests

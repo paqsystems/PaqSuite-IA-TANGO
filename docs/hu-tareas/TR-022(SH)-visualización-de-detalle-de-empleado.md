@@ -233,9 +233,8 @@ Feature: Visualización de Detalle de Empleado
 | T9 | Tests    | E2E acceder a detalle desde listado | Login supervisor → Empleados → hacer clic en "Ver detalle" → ver pantalla de detalle con datos. | T5, T7 | S |
 | T10| Frontend | Tests unit (Vitest) servicio detalle | getEmpleadoDetalle(id), manejo 200, 404, 403. | T4 | S |
 | T11| Docs     | Actualizar specs/endpoints/empleados-get.md | Documentar query param opcional include_stats y campo total_tareas en respuesta. | T2 | S |
-| T12| Docs     | Registrar en ia-log.md | Entrada implementación TR-022. | T11 | S |
 
-**Total:** 12 tareas (8S + 3M + 0L).
+**Total:** 11 tareas (8S + 3M + 0L).
 
 ---
 
@@ -282,7 +281,7 @@ Feature: Visualización de Detalle de Empleado
 - [ ] Integration tests endpoint ok
 - [x] Frontend unit tests (Vitest) servicio ok
 - [ ] ≥1 E2E Playwright detalle empleado ok
-- [x] Docs y ia-log actualizados
+- [x] Docs actualizados
 
 ---
 
@@ -301,7 +300,6 @@ Feature: Visualización de Detalle de Empleado
 - `frontend/src/features/employees/components/index.ts` – Export EmpleadosDetallePage.
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-022.
 - `specs/endpoints/empleados-get.md` – Actualizar si se añade query param include_stats y campo total_tareas.
 
 ### Tests

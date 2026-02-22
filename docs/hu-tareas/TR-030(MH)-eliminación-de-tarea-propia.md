@@ -232,7 +232,6 @@ Feature: Eliminación de Tarea Propia
 | T11 | Tests | E2E Playwright sin permisos | Verificar error 403 | T6 | S |
 | T12 | Tests | Frontend unit tests (Vitest) | Tests para task.service.ts deleteTask() (mock API, errores 2111/403/404) | T5 | S |
 | T13 | Docs | Actualizar docs/backend/tareas.md | Documentar endpoint DELETE | T2 | S |
-| T14 | Docs | Registrar en ia-log.md | Entrada de implementación | T13 | S |
 
 **Total:** 14 tareas (8S + 5M + 1L implícito)
 

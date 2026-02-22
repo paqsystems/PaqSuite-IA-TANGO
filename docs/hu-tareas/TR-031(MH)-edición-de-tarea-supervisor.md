@@ -250,7 +250,6 @@ Feature: Edición de Tarea (Supervisor)
 | T10 | Tests | E2E Playwright tarea cerrada | Verificar error 2110 | T6 | S |
 | T11 | Tests | Frontend unit tests (Vitest) | Tests para task.service.ts updateTask con usuario_id (supervisor) si aplica | T6 | S |
 | T12 | Docs | Actualizar docs/backend/tareas.md | Documentar cambio de propietario | T3 | S |
-| T13 | Docs | Registrar en ia-log.md | Entrada de implementación | T12 | S |
 
 **Total:** 13 tareas (7S + 5M + 1L implícito)
 
@@ -332,4 +331,4 @@ Feature: Edición de Tarea (Supervisor)
 
 ## Pendientes / follow-ups
 
-- Registrar en docs/ia-log.md. TR-032: eliminación por supervisor (ya soportado en DELETE).
+- TR-032: eliminación por supervisor (ya soportado en DELETE).

@@ -279,7 +279,7 @@ Siempre revisa el código generado:
 
 ### 3. Documentación de Cambios
 
-Registra cambios importantes en `docs/ia-log.md`:
+Documenta los cambios importantes:
 - Qué se generó
 - Qué se ajustó manualmente
 - Por qué se hizo el ajuste
@@ -318,7 +318,7 @@ Implementa [funcionalidad] siguiendo:
 ```
 Genera tests para [componente] que:
 - Cubran casos críticos
-- Sigan la estrategia en docs/testing.md
+- Sigan la estrategia en .cursor/rules/12-testing.md
 - Usen test-ids apropiados
 ```
 
@@ -435,28 +435,10 @@ Según specs/endpoints/time-entries-create.md, sin_cargo debería tener default 
 
 ---
 
-## Registro de Uso de IA
-
-Después de usar IA, registra en `docs/ia-log.md`:
-
-```markdown
-## Entrada #X
-Fecha: 2025-01-20
-Etapa: Frontend - Componente de registro
-Herramienta: Cursor + ChatGPT
-Prompt: "Genera componente TaskEntryForm con validaciones..."
-Resultado IA: Componente completo con validaciones básicas
-Ajuste humano: Agregué validación adicional de fecha no futura y mejoré manejo de errores
-Motivo: Validación faltante y UX mejorada
-```
-
----
-
 ## Referencias
 
 - `PROJECT_CONTEXT.md` - Contexto del proyecto
 - `.cursor/rules/` - Reglas de desarrollo
-- `docs/ia-log.md` - Registro de uso de IA
 
 ---
 

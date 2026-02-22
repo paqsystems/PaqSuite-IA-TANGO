@@ -78,5 +78,4 @@ La IA se utiliza como asistente en:
 - Testing
 - Documentación
 
-Las decisiones finales y ajustes son humanos y se registran en:
-`docs/ia-log.md`
+Las decisiones finales y ajustes son humanos.

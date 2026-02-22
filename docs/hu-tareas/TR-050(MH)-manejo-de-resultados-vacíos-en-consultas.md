@@ -143,8 +143,7 @@ Feature: Manejo de resultados vacíos en consultas
 | T3 | Frontend | Deshabilitar exportar cuando vacío | Si existe botón Exportar en consultas, deshabilitarlo cuando no hay resultados. | T1, T2 | S |
 | T4 | Tests    | E2E estado vacío Consulta Detallada | Escenario: usuario sin tareas en período → Consulta Detallada → mensaje vacío visible. | T1 | S |
 | T5 | Tests    | E2E estado vacío Tareas por Cliente | Escenario: período sin tareas → Tareas por Cliente → mensaje vacío visible. | T2 | S |
-| T6 | Docs     | Actualizar docs/testing o specs | Indicar comportamiento de estado vacío según HU-050. | T1, T2 | S |
-| T7 | Docs     | Registrar en ia-log.md | Entrada de implementación TR-050. | T6 | S |
+| T6 | Docs     | Actualizar .cursor/rules/12-testing o specs | Indicar comportamiento de estado vacío según HU-050. | T1, T2 | S |
 
 **Total:** 7 tareas (5S + 2 docs).
 
@@ -179,7 +178,7 @@ Feature: Manejo de resultados vacíos en consultas
 - [ ] Tareas por Cliente: mensaje vacío cuando no hay grupos; no lista vacía
 - [ ] Botón Exportar deshabilitado cuando vacío (si aplica)
 - [ ] E2E estado vacío al menos en una pantalla de consulta
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 
@@ -194,8 +193,7 @@ Feature: Manejo de resultados vacíos en consultas
 - `frontend/tests/e2e/tareas-por-cliente.spec.ts` — Test TR-050: período sin datos (2030), verifica report.byClient.empty y texto del mensaje.
 
 ### Docs
-- `docs/testing.md` — Subsección "Estado vacío en consultas (HU-050 / TR-050)".
-- `docs/ia-log.md` — Entrada implementación TR-050.
+- `.cursor/rules/12-testing.md` — Subsección "Estado vacío en consultas (HU-050 / TR-050)".
 
 ### No aplica
 - Botón Exportar: no existe en Consulta Detallada ni Tareas por Cliente (T3 N/A).

@@ -158,7 +158,7 @@ Feature: Procesamiento Masivo Cerrar/Reabrir
 | T2 | Frontend | Botón Procesar (disabled sin selección); llamada POST; loading; mensaje éxito/error; actualizar lista | Cumple AC | TR-041 | M |
 | T3 | Frontend | Opcional: diálogo de confirmación con cantidad | Diálogo visible al clic en Procesar | T2 | S |
 | T4 | Tests    | Integration: POST 200, 422 vacío, 403; E2E seleccionar y procesar | Tests pasan | T1, T2 | M |
-| T5 | Docs     | Specs endpoint bulk-toggle-close; ia-log | Docs actualizados | T1 | S |
+| T5 | Docs     | Specs endpoint bulk-toggle-close | Docs actualizados | T1 | S |
 
 ---
 

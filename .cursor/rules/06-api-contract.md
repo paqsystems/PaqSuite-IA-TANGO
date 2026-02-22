@@ -1,5 +1,12 @@
 # 01 — Contrato Base de API (obligatorio)
 
+## 0) API agnóstica de cliente (obligatorio)
+La API REST debe servir a **todos los frontends** del sistema. No debe contener lógica ni formatos específicos de un solo cliente.
+
+- **Web y mobile** (por el momento) consumen los mismos endpoints.
+- Cualquier nuevo frontend (ej. otra app, integraciones) debe poder usar la misma API sin cambios en el backend.
+- El contrato (envelope, códigos, paginación) es único y compartido por todos los clientes.
+
 ## 1) Formato estándar de respuesta (SIEMPRE)
 Todas las respuestas HTTP (éxito o error) deben ser JSON con:
 

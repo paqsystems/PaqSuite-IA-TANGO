@@ -396,15 +396,6 @@ Accept: application/json
 | Dependencias| T1 |
 | Estimación  | S |
 
-### T10 - Docs: Registrar en ia-log.md
-| Campo       | Valor |
-|-------------|-------|
-| Tipo        | Docs |
-| Descripción | Registrar implementación de perfil en el log de IA |
-| DoD         | Entrada con prompt, archivos, decisiones |
-| Dependencias| T1-T9 |
-| Estimación  | S |
-
 ---
 
 ## 8) Estrategia de Tests
@@ -475,7 +466,6 @@ Flujo: Visualización de Perfil
 - [ ] Integration tests ok
 - [ ] ≥1 E2E Playwright ok (sin waits ciegos)
 - [ ] Docs actualizados
-- [ ] IA log actualizado
 - [ ] CI/CD pasa
 
 ---
@@ -495,7 +485,6 @@ Flujo: Visualización de Perfil
 | T7 | Frontend: Ruta /perfil y navegación | ✅ COMPLETADO |
 | T8 | E2E: Tests Playwright para perfil | ✅ COMPLETADO |
 | T9 | Docs: Documentar endpoint | ✅ COMPLETADO |
-| T10 | Docs: Registrar en ia-log.md | ✅ COMPLETADO |
 
 ---
 
@@ -524,7 +513,6 @@ Flujo: Visualización de Perfil
 
 ### Docs
 - `docs/backend/autenticacion.md` (MODIFICADO) - Endpoint de perfil documentado
-- `docs/ia-log.md` (MODIFICADO) - Entrada #12 agregada
 - `.cursor/Docs/TR-006-profile-view-2026-01-28.md` (CREADO) - Documentación del componente
 
 ---

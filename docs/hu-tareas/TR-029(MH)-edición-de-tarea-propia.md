@@ -304,7 +304,6 @@ Feature: Edición de Tarea Propia
 | T15 | Tests | E2E Playwright sin permisos | Verificar error 403 | T9 | S |
 | T16 | Tests | Frontend unit tests (Vitest) | Tests para task.service.ts getTask/updateTask (mock API, manejo errores 2110/403) | T7, T8 | S |
 | T17 | Docs | Actualizar docs/backend/tareas.md | Documentar endpoints GET y PUT | T3, T4 | S |
-| T18 | Docs | Registrar en ia-log.md | Entrada de implementación | T17 | S |
 
 **Total:** 18 tareas (11S + 6M + 1L implícito)
 

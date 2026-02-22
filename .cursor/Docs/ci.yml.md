@@ -39,5 +39,5 @@ En caso de fallo de tests E2E se sube `playwright-report/` como artefacto (reten
 
 ## Referencias
 - `docs/deploy-ci-cd.md`
-- `docs/testing.md`
+- `.cursor/rules/12-testing.md`
 - AGENTS.md §6.4 Trazabilidad

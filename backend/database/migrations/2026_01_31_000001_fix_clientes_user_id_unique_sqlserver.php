@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
  * por lo que no requiere ninguna acción adicional.
  *
  * @see TR-009(MH)-creación-de-cliente.md
- * @see docs/version-mysql.md
+ * @see docs/migracion-mssql-a-mysql.md
  */
 return new class extends Migration
 {

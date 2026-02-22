@@ -261,9 +261,7 @@ Feature: Creación de Cliente
 | T9 | Tests    | E2E creación con acceso y validación duplicado | Crear con habilitar acceso; intentar crear con mismo código → ver error. | T6 | S |
 | T10| Frontend | Tests unit (Vitest) servicio creación | createCliente(body), manejo 201, 422, 409. | T5 | S |
 | T11| Docs     | Actualizar specs/endpoints/clientes-create.md | Reflejar habilitar_acceso y user_id si aplica; códigos 2116, 1104. | T2 | S |
-| T12| Docs     | Registrar en ia-log.md | Entrada implementación TR-009. | T11 | S |
-
-**Total:** 12 tareas (4S + 6M + 1L).
+**Total:** 11 tareas (4S + 6M + 1L).
 
 ---
 
@@ -311,7 +309,7 @@ Feature: Creación de Cliente
 - [ ] Integration tests endpoint ok
 - [ ] Frontend unit tests (Vitest) servicio ok
 - [ ] ≥1 E2E Playwright creación cliente ok
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 
@@ -326,7 +324,6 @@ Feature: Creación de Cliente
 - Por definir: ClientesNuevaPage (o CrearClientePage), client.service.ts createCliente(), ruta /clientes/nueva, SupervisorRoute.
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-009.
 - `specs/endpoints/clientes-create.md` – Actualizar si se añade habilitar_acceso y códigos 2116, 1104.
 
 ### Tests

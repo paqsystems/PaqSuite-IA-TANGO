@@ -238,7 +238,7 @@ Lee estos archivos en orden para entender el proyecto:
 
 ### Fase 6: Testing y Calidad (20 minutos)
 
-22. **`docs/testing.md`**
+22. **`.cursor/rules/12-testing.md`**
    - Estrategia de testing
    - Tipos de tests (unit, integración, E2E)
    - Cómo ejecutar tests
@@ -308,7 +308,6 @@ Lidr-AI4Devs2025-ProyectoFinal/
 │   ├── historias-y-tickets.md # Historias de usuario (CENTRAL)
 │   ├── arquitectura.md        # Arquitectura del sistema
 │   ├── modelo-datos.md        # Modelo de datos
-│   ├── testing.md             # Estrategia de testing
 │   ├── deploy-ci-cd.md        # Infraestructura y deploy
 │   ├── backend/               # Documentación backend
 │   ├── frontend/              # Documentación frontend
@@ -331,6 +330,7 @@ Lidr-AI4Devs2025-ProyectoFinal/
 │       ├── 01-project-context.md
 │       ├── 10-i18n-and-testid.md   # i18n y Test IDs
 │       ├── 11-playwright-testing-rules.md
+│       ├── 12-testing.md      # Estrategia de testing
 │       └── ...
 │
 ├── _PROJECT_CONTEXT.md         # Contexto general (LEER PRIMERO)
@@ -529,7 +529,7 @@ Lee y ejecuta el flujo E2E principal:
 | **Contrato API** | `docs/api/CONTRATO_BASE.md` | Formato de respuestas |
 | **UI Layer** | `docs/frontend/ui-layer-wrappers.md` | Reglas de componentes UI |
 | **i18n** | `docs/frontend/i18n.md` | Internacionalización |
-| **Testing** | `docs/testing.md` | Estrategia de tests |
+| **Testing** | `.cursor/rules/12-testing.md` | Estrategia de tests |
 
 ### Especificaciones Técnicas
 
@@ -546,10 +546,6 @@ Lee y ejecuta el flujo E2E principal:
 - **Reglas de Negocio:** `docs/reglas-negocio.md`
 - **Business Rules:** `specs/rules/business-rules.md`
 
-### Logs y Trazabilidad
-
-- **IA Log:** `docs/ia-log.md` - Registro de uso de IA
-- **Prompts:** `prompts.md` - Prompts clave utilizados
 
 ### Proceso de Documentación
 
@@ -589,7 +585,7 @@ En `specs/rules/business-rules.md` y `docs/reglas-negocio.md`.
 
 ### ¿Cómo ejecuto los tests?
 
-Ver `docs/testing.md` para instrucciones detalladas. En general:
+Ver `.cursor/rules/12-testing.md` para instrucciones detalladas. En general:
 - Backend: `php artisan test`
 - Frontend unitarios: `npm test` o `npm run test:watch`
 - Frontend E2E (Playwright): 

@@ -138,7 +138,7 @@ Feature: Validación de Selección
 | T1 | Backend  | Validar task_ids no vacío en bulk-toggle-close; 422 con mensaje claro si vacío | No ejecutar UPDATE; 422 | TR-042 | S |
 | T2 | Frontend | Asegurar disabled cuando selectedTasks.length === 0; mostrar mensaje 422 | Cumple AC | TR-042 | S |
 | T3 | Tests    | Integration: POST con task_ids [] → 422; E2E botón deshabilitado sin selección | Tests pasan | T1, T2 | S |
-| T4 | Docs     | Código error selección vacía en domain-error-codes si se añade; ia-log | Docs actualizados | T1 | S |
+| T4 | Docs     | Código error selección vacía en domain-error-codes si se añade | Docs actualizados | T1 | S |
 
 ---
 

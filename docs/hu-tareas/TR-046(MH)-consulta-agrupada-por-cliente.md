@@ -247,7 +247,6 @@ Feature: Consulta Agrupada por Cliente
 | T12| Tests    | E2E Playwright empleado/cliente | Login empleado → solo sus grupos; login cliente → un grupo o vacío. | T6 | M |
 | T13| Tests    | Frontend unit (Vitest) getReportByClient | Params, transformación, manejo error 1305. | T5 | S |
 | T14| Docs     | Actualizar docs/backend o specs | Documentar GET /reports/by-client y código 1305. | T2 | S |
-| T15| Docs     | Registrar en ia-log.md | Entrada de implementación TR-046. | T14 | S |
 
 **Total:** 15 tareas (6S + 7M + 1L).
 
@@ -300,7 +299,7 @@ Feature: Consulta Agrupada por Cliente
 - [ ] Integration tests endpoint ok
 - [ ] Frontend unit tests (Vitest) servicio ok
 - [ ] ≥1 E2E Playwright ok (supervisor filtrar y expandir; empleado/cliente)
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 

@@ -162,7 +162,6 @@ Feature: Resumen de dedicación por cliente en dashboard
 | T5 | Frontend | Estado vacío sección dedicación | Si top_clientes vacío: mensaje (HU-050), no tabla vacía. | T2 | S |
 | T6 | Tests    | E2E dashboard con sección dedicación | Login empleado/supervisor → dashboard → sección "Dedicación por Cliente" visible; al menos un cliente o mensaje vacío. | T2 | M |
 | T7 | Docs     | Actualizar TR-051 o docs si se amplía API | Si se añade porcentaje u otro campo. | T1 | S |
-| T8 | Docs     | Registrar en ia-log.md | Entrada TR-052. | T7 | S |
 
 **Total:** 8 tareas. Si TR-051 ya expone top_clientes y total_general, T1 puede ser nula.
 
@@ -191,7 +190,7 @@ Feature: Resumen de dedicación por cliente en dashboard
 - [ ] Total general y enlace a detalle por cliente
 - [ ] Estado vacío (HU-050)
 - [ ] E2E con sección dedicación
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 

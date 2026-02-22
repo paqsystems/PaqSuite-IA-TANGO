@@ -154,7 +154,6 @@ Feature: Filtrado de Tipos de Tarea por Cliente
 | T6 | Tests | E2E Playwright filtrado | Verificar que tipos se actualizan al cambiar cliente | T4 | S |
 | T7 | Tests | Frontend unit tests (Vitest) | Tests para task.service getTaskTypes(clienteId) (mock API, con/sin cliente) | T4 | S |
 | T8 | Docs | Documentar comportamiento | Actualizar docs de API | T1 | S |
-| T9 | Docs | Registrar en ia-log.md | Entrada de validación | T8 | S |
 
 **Total:** 9 tareas (9S)
 

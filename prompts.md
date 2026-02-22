@@ -29,7 +29,6 @@ El proyecto es un MVP web para consultorías y empresas de servicios que permite
 - Se priorizó simplicidad y coherencia por sobre sobre-ingeniería
 - Se validó que toda la documentación reflejara un único producto consistente
 
-**Referencia:** `docs/ia-log.md` - Entrada #1
 
 ---
 
@@ -394,7 +393,7 @@ podrías revisar si es necesario actualizar el archivo "manual-del-programador.m
 
 3. **Iteración:** El proceso fue iterativo: se generaba un artefacto, se revisaba, se ajustaba, y se refinaba hasta alcanzar la calidad requerida.
 
-4. **Trazabilidad:** Se mantuvo registro de los prompts utilizados y los ajustes humanos realizados en `docs/ia-log.md`.
+4. **Trazabilidad:** Se mantuvo registro de los prompts utilizados y los ajustes humanos realizados.
 
 ### Herramientas Utilizadas
 

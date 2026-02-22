@@ -251,7 +251,6 @@ Feature: Visualización de Lista de Todas las Tareas (Supervisor)
 | T12 | Tests | E2E Playwright acceso empleado | Verificar que empleado no puede acceder | T8 | S |
 | T13 | Tests | Frontend unit tests (Vitest) | Tests para task.service.ts getAllTasks() (params, filtro empleado, transformación) | T5 | S |
 | T14 | Docs | Actualizar docs/backend/tareas.md | Documentar endpoint GET /tasks/all | T2 | S |
-| T15 | Docs | Registrar en ia-log.md | Entrada de implementación | T14 | S |
 
 **Total:** 15 tareas (8S + 6M + 1L implícito)
 

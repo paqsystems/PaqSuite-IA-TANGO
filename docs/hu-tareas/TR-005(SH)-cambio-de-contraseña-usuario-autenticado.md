@@ -204,7 +204,7 @@ Feature: Cambio de contraseña (usuario autenticado)
 | T4 | Frontend | Formulario cambiar contraseña | Campos contraseña actual, nueva, confirmación; validaciones frontend; llamada API; mensaje éxito/error; opcional redirección a login si sesión invalidada. | T2 | M |
 | T5 | Tests    | Unit + integration backend | Servicio: contraseña actual correcta/incorrecta; nueva válida/inválida. Endpoint: 200, 401, 422 (actual incorrecta, nueva no cumple). | T2 | M |
 | T6 | Tests    | E2E Playwright cambio contraseña | Login → Perfil → Cambiar contraseña → llenar formulario válido → éxito; contraseña actual incorrecta → error. | T3, T4 | M |
-| T7 | Docs     | Actualizar specs/endpoints y ia-log | Documentar endpoint; registro en ia-log.md. | T2 | S |
+| T7 | Docs     | Actualizar specs/endpoints | Documentar endpoint. | T2 | S |
 
 **Total:** 7 tareas.
 
@@ -245,7 +245,6 @@ Feature: Cambio de contraseña (usuario autenticado)
 - [x] Integration tests endpoint ok
 - [x] ≥1 E2E Playwright flujo cambio contraseña ok (profile-change-password.spec.ts; requiere backend + frontend y usuario JPEREZ sembrado)
 - [x] Docs/specs actualizados
-- [x] ia-log.md actualizado
 
 ---
 
@@ -266,7 +265,6 @@ Feature: Cambio de contraseña (usuario autenticado)
 
 ### Docs
 - `specs/endpoints/auth-change-password.md` (nuevo)
-- `docs/ia-log.md` – entrada TR-005(SH)
 
 ### Tests
 - `frontend/tests/e2e/profile-change-password.spec.ts` (nuevo, 3 tests serial)

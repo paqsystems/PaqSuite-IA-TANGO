@@ -250,7 +250,6 @@ return (
 
 - `docs/frontend/frontend-specifications.md` - Especificaciones generales
 - `.cursor/rules/07-frontend-norms.md` - Normas de frontend
-- `docs/ia-log.md` - Entrada "Migración SQL Server → MySQL" y correcciones de deploy
 - Vite env variables: https://vitejs.dev/guide/env-and-mode.html
 
 ---

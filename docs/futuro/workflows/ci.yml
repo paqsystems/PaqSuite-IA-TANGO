@@ -5,7 +5,7 @@
 # Pasos: instalación → tests backend → tests frontend → Swagger → E2E
 # @see docs/futuro/DOCKER-CICD.md
 # @see docs/deploy-ci-cd.md
-# @see docs/testing.md
+# @see .cursor/rules/12-testing.md
 
 name: CI
 

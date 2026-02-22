@@ -161,7 +161,7 @@ Feature: Edición de Tipo de Cliente
 | T3 | Frontend | Página edición tipo de cliente (código readonly) | Cumple AC | T1 | M |
 | T4 | Tests    | Unit + integration (actualizar ok, validación, 404, 403) | Tests pasan | T1, T2 | S |
 | T5 | Tests    | E2E: listado → Editar → modificar → guardar → listado | ≥1 E2E | T3 | M |
-| T6 | Docs     | Specs GET/PUT tipos-cliente/{id}; ia-log | Docs actualizados | T1 | S |
+| T6 | Docs     | Specs GET/PUT tipos-cliente/{id} | Docs actualizados | T1 | S |
 
 ---
 
@@ -186,7 +186,7 @@ Feature: Edición de Tipo de Cliente
 - [x] Backend GET + PUT + validaciones
 - [x] Frontend formulario edición + código readonly
 - [x] Unit/integration/E2E ok
-- [x] Docs y ia-log actualizados
+- [x] Docs actualizados
 
 ---
 

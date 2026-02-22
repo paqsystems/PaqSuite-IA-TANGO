@@ -281,7 +281,6 @@ Feature: Visualización de Lista de Tareas Propias
 | T18 | Tests | E2E Playwright acciones | Verificar botones editar/eliminar | T12 | S |
 | T19 | Tests | Frontend unit tests (Vitest) | Tests para task.service.ts getTasks() (params, transformación respuesta, paginación) | T6 | S |
 | T20 | Docs | Actualizar docs/backend/tareas.md | Documentar endpoint GET /tasks | T2 | S |
-| T21 | Docs | Registrar en ia-log.md | Entrada de implementación | T20 | S |
 
 **Total:** 21 tareas (8S + 9M + 4L)
 

@@ -35,7 +35,6 @@ Cierre obligatorio (trazabilidad):
   - ## Notas y decisiones
   - ## Pendientes / follow-ups
 - Listar paths relativos al repositorio, agrupados por tipo (Backend, Frontend, DB, Tests, Docs).
-- Registrar el uso de IA en docs/ia-log.md.
 
 Restricción:
 - No ejecutar tareas fuera del alcance de esta TR.

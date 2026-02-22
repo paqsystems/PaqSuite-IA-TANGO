@@ -93,5 +93,5 @@ cd frontend && npm run test:e2e
 ## Referencias
 
 - `docs/deploy-ci-cd.md` – Infraestructura y despliegue
-- `docs/testing.md` – Estrategia de tests
+- `.cursor/rules/12-testing.md` – Estrategia de tests
 - `.cursor/Docs/ci.yml.md` – Documentación del workflow

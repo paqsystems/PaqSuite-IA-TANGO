@@ -166,7 +166,7 @@ Feature: Creación de Tipo de Cliente
 | T2 | Frontend | Formulario creación tipo de cliente | Cumple AC | T1 | M |
 | T3 | Tests    | Unit + integration (crear ok, validación, duplicado, 403) | Tests pasan | T1 | S |
 | T4 | Tests    | E2E: listado → Crear → llenar → guardar → listado | ≥1 E2E | T2 | M |
-| T5 | Docs     | Specs POST tipos-cliente; ia-log | Docs actualizados | T1 | S |
+| T5 | Docs     | Specs POST tipos-cliente | Docs actualizados | T1 | S |
 
 ---
 
@@ -190,7 +190,7 @@ Feature: Creación de Tipo de Cliente
 - [x] Backend POST + validaciones
 - [x] Frontend formulario + mensajes
 - [x] Unit/integration/E2E ok
-- [x] Docs y ia-log actualizados
+- [x] Docs actualizados
 
 ---
 

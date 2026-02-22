@@ -2,7 +2,7 @@
 
 ## Contexto
 
-El proyecto utiliza **MySQL** como base de datos. MySQL maneja fechas de forma diferente a SQL Server y requiere un enfoque específico.
+cuando se diseñe el proyecto con **MySQL** como base de datos, considerar que MySQL maneja fechas de forma diferente a SQL Server y requiere un enfoque específico.
 
 ## Problema
 
@@ -192,7 +192,7 @@ public function boot(): void
 
 ## Referencias
 
-- [docs/version-mysql.md](../../docs/version-mysql.md) - Documentación completa de migración a MySQL
+- [docs/migracion-mssql-a-mysql.md](../../docs/migracion-mssql-a-mysql.md) - Documentación completa de migración a MySQL
 - [Laravel Database Configuration](https://laravel.com/docs/10.x/database)
 - [MySQL Date and Time Functions](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html)
 

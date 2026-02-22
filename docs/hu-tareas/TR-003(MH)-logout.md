@@ -273,15 +273,6 @@ Accept: application/json
 | Dependencias| T1 |
 | Estimación  | S |
 
-### T9 - Docs: Registrar en ia-log.md
-| Campo       | Valor |
-|-------------|-------|
-| Tipo        | Docs |
-| Descripción | Registrar implementación de logout en el log de IA |
-| DoD         | Entrada con prompt, archivos, decisiones |
-| Dependencias| T1-T8 |
-| Estimación  | S |
-
 ---
 
 ## 8) Estrategia de Tests
@@ -343,7 +334,6 @@ Flujo: Logout desde Dashboard
 - [x] Integration tests ok
 - [x] ≥1 E2E Playwright ok (sin waits ciegos)
 - [x] Docs actualizados (autenticacion.md)
-- [x] IA log actualizado
 - [ ] CI/CD pasa (pendiente ejecución)
 
 ---
@@ -362,7 +352,6 @@ Flujo: Logout desde Dashboard
 | T6 | Frontend: Manejo de errores | ✅ DONE |
 | T7 | E2E: Tests Playwright | ✅ DONE |
 | T8 | Docs: Actualizar autenticacion.md | ✅ DONE |
-| T9 | Docs: Registrar en ia-log.md | ✅ DONE |
 
 ---
 
@@ -384,7 +373,6 @@ Flujo: Logout desde Dashboard
 
 ### Docs
 - `docs/backend/autenticacion.md` - Agregada sección completa de logout
-- `docs/ia-log.md` - Agregada Entrada #9
 
 ---
 

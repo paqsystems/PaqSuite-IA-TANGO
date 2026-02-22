@@ -256,7 +256,6 @@ Feature: Consulta Detallada de Tareas
 | T12| Tests    | E2E Playwright consulta empleado/cliente | Login empleado → solo sus tareas; login cliente → solo su cliente. | T6 | M |
 | T13| Tests    | Frontend unit (Vitest) servicio consulta | getDetailReport(params), transformación, manejo error 1305. | T5 | S |
 | T14| Docs     | Actualizar docs/backend o specs | Documentar GET /reports/detail y códigos 1305, 403. | T2 | S |
-| T15| Docs     | Registrar en ia-log.md | Entrada de implementación TR-044. | T14 | S |
 
 **Total:** 15 tareas (6S + 7M + 1L).
 
@@ -309,7 +308,7 @@ Feature: Consulta Detallada de Tareas
 - [ ] Integration tests endpoint ok
 - [ ] Frontend unit tests (Vitest) servicio ok
 - [ ] ≥1 E2E Playwright ok (supervisor y al menos empleado o cliente)
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 
@@ -329,7 +328,6 @@ Feature: Consulta Detallada de Tareas
 - `frontend/src/app/Dashboard.tsx` – Botón “Consulta Detallada”.
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-044.
 - `docs/backend/tareas.md` – Sección GET /api/v1/reports/detail y código 1305.
 
 ### Tests

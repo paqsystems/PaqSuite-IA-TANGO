@@ -182,7 +182,7 @@ Si la exportación se implementa en **frontend** (generar XLSX en el cliente a p
 | T3 | Frontend | Botón "Exportar a Excel" en Tareas por Empleado, por Cliente, por Tipo, por Fecha; misma lógica habilitado/mensaje | Cumple AC | TR-045, TR-046, TR-047, TR-048 | M |
 | T4 | Frontend | Generación XLSX: columnas detallada; agrupaciones con totales y detalle; horas decimal; fechas formateadas; nombre archivo descriptivo | Cumple AC | T2, T3 | M |
 | T5 | Tests    | Unit: lógica de nombre de archivo y formato; E2E: usuario con resultados hace clic Exportar y se descarga archivo; sin resultados botón deshabilitado | Tests pasan | T2, T3, T4 | M |
-| T6 | Docs     | Documentar opción elegida (backend vs frontend); ia-log si aplica | Docs actualizados | T1 o T4 | S |
+| T6 | Docs     | Documentar opción elegida (backend vs frontend) | Docs actualizados | T1 o T4 | S |
 
 ---
 

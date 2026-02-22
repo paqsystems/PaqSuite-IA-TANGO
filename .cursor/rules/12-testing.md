@@ -1,4 +1,7 @@
-# Testing – Estrategia del MVP
+---
+alwaysApply: false
+---
+# Regla: Testing – Estrategia del MVP
 
 ## Objetivo
 Garantizar que el flujo E2E principal funcione correctamente y que la lógica
@@ -142,4 +145,3 @@ El pipeline debe:
 - El alcance de tests es coherente con un MVP.
 - La estrategia puede ampliarse en etapas posteriores.
 - Las decisiones de testing forman parte del diseño del producto.
-

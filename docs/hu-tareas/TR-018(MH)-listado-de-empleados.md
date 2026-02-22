@@ -246,7 +246,6 @@ Feature: Listado de Empleados
 | T13| Tests    | E2E empleado no accede | Login empleado → intentar acceder a /empleados → 403 o redirección. | T7 | S |
 | T14| Frontend | Tests unit (Vitest) servicio listado | getEmpleados(params), transformación, manejo 403. | T6 | S |
 | T15| Docs     | Actualizar docs/specs si se añade endpoint | Especificación GET /api/v1/empleados (o referenciar specs/endpoints/empleados-list.md). | T3 | S |
-| T16| Docs     | Registrar en ia-log.md | Entrada implementación TR-018. | T15 | S |
 
 **Total:** 16 tareas (6S + 8M + 2L implícitos en M).
 
@@ -296,7 +295,7 @@ Feature: Listado de Empleados
 - [ ] Integration tests endpoint ok
 - [ ] Frontend unit tests (Vitest) servicio ok
 - [ ] ≥1 E2E Playwright ok (supervisor listado + empleado 403)
-- [ ] Docs/specs y ia-log actualizados
+- [ ] Docs/specs actualizados
 
 ---
 
@@ -322,7 +321,6 @@ Feature: Listado de Empleados
 - `frontend/tests/e2e/empleados-list.spec.ts` - Tests E2E con Playwright para listado de empleados
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-018.
 
 ## Comandos ejecutados
 

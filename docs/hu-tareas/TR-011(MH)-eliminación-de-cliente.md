@@ -223,9 +223,7 @@ Feature: Eliminación de Cliente
 | T9 | Tests    | E2E intentar eliminar cliente con tareas (opcional) | Si hay cliente con tareas, eliminar → ver mensaje 2112 y cliente sigue en listado. | T6 | S |
 | T10| Frontend | Tests unit (Vitest) deleteCliente | deleteCliente(id); manejo 200, 422 (2112), 404. | T5 | S |
 | T11| Docs     | Actualizar specs/endpoints/clientes-delete.md | Verificar códigos 2112, 4003, 3101. | T2 | S |
-| T12| Docs     | Registrar en ia-log.md | Entrada implementación TR-011. | T11 | S |
-
-**Total:** 12 tareas (3S + 7M + 0L).
+**Total:** 11 tareas (3S + 7M + 0L).
 
 ---
 
@@ -269,7 +267,7 @@ Feature: Eliminación de Cliente
 - [ ] Integration tests DELETE ok
 - [ ] Frontend unit tests (Vitest) ok
 - [ ] ≥1 E2E Playwright eliminar cliente sin tareas ok
-- [ ] Docs y ia-log actualizados
+- [ ] Docs actualizados
 
 ---
 
@@ -284,7 +282,6 @@ Feature: Eliminación de Cliente
 - Por definir: Modal de confirmación (DeleteClienteModal o similar), botón Eliminar en listado/detalle, client.service.ts deleteCliente(), recarga listado.
 
 ### Docs
-- `docs/ia-log.md` – Entrada implementación TR-011.
 - `specs/endpoints/clientes-delete.md` – Verificar códigos 2112, 4003, 3101.
 
 ### Tests

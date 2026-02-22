@@ -401,7 +401,7 @@ php artisan test --filter=TaskServiceTest
 ### Documentación
 - [ ] `docs/deploy-ci-cd.md` actualizado
 - [ ] `.cursor/rules/20-mysql-datetime-format.md` creado
-- [ ] `docs/version-mysql.md` creado (este documento)
+- [ ] `docs/migracion-mssql-a-mysql.md` creado (este documento)
 
 ### Post-Migración
 - [ ] Flujo E2E verificado

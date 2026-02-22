@@ -148,7 +148,7 @@ Feature: Resumen de dedicación por empleado en dashboard (supervisor)
 | T3 | Frontend | Sección "Dedicación por Empleado" (solo supervisor) | Condicional por rol; tabla/lista con datos de top_empleados; total general; data-testid. | TR-051 frontend | M |
 | T4 | Frontend | Enlace "Ver detalle" por empleado | Navegación a /informes/tareas-por-empleado con filtro por ese empleado. | T3 | S |
 | T5 | Tests    | E2E dashboard supervisor: sección empleados | Login supervisor → dashboard → ve sección Dedicación por Empleado; empleado no ve sección. | T3 | M |
-| T6 | Docs     | OpenAPI/ia-log | Actualizar si se modifica contrato dashboard; registrar TR-053 en ia-log si aplica. | T1 | S |
+| T6 | Docs     | OpenAPI | Actualizar si se modifica contrato dashboard. | T1 | S |
 
 **Total:** 6 tareas.
 

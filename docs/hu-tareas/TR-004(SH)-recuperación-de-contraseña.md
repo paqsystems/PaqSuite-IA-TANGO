@@ -240,7 +240,7 @@ o `"code_or_email": "juan@ejemplo.com"`
 | T8 | Frontend | Pantalla restablecer contraseña | Ruta con token (query); formulario password + confirmación; llamada API; redirección a login o mensaje éxito. | T5 | M |
 | T9 | Tests    | Unit + integration backend | Servicio forgot: usuario existe con email, sin email, no existe. Servicio reset: token válido, expirado, ya usado. Endpoints 200/422. | T3, T5 | M |
 | T10| Tests    | E2E Playwright recuperación | Login → "¿Olvidaste tu contraseña?" → ingresar código → mensaje; (opcional con mock email) enlace → nueva contraseña → login. | T6, T7, T8 | M |
-| T11| Docs     | Actualizar specs/endpoints y ia-log | Documentar endpoints; registro en ia-log.md. | T5 | S |
+| T11| Docs     | Actualizar specs/endpoints | Documentar endpoints. | T5 | S |
 
 **Total:** 11 tareas.
 
@@ -282,7 +282,6 @@ o `"code_or_email": "juan@ejemplo.com"`
 - [x] Integration tests endpoints ok
 - [x] ≥1 E2E Playwright flujo recuperación ok
 - [x] Docs/specs actualizados
-- [x] ia-log.md actualizado
 
 ---
 
@@ -308,7 +307,6 @@ o `"code_or_email": "juan@ejemplo.com"`
 ### Docs
 - `specs/endpoints/auth-forgot-password.md` – Contrato POST forgot-password.
 - `specs/endpoints/auth-reset-password.md` – Contrato POST reset-password.
-- `docs/ia-log.md` – Entrada TR-004.
 
 ### Tests
 - Backend: `tests/Feature/Api/V1/Auth/PasswordResetTest.php` (forgot/reset 200/422).

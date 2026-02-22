@@ -138,7 +138,6 @@ Feature: Validación de Duración en Tramos de 15 Minutos
 | T5 | Tests | E2E Playwright validación | Verificar mensaje de error al ingresar duración inválida | T4 | S |
 | T6 | Tests | Frontend unit tests (Vitest) | Tests para durationUtils (múltiplos 15, formato hh:mm, límites 0/1440) | T4 | S |
 | T7 | Docs | Documentar código error 1210 | Actualizar docs de errores | T1 | S |
-| T8 | Docs | Registrar en ia-log.md | Entrada de validación | T7 | S |
 
 **Total:** 8 tareas (8S)
 

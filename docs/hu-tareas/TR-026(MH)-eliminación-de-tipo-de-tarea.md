@@ -159,7 +159,7 @@ Feature: Eliminación de Tipo de Tarea
 | T3 | Frontend | Integrar eliminación en listado (y detalle si aplica) | Mensajes 2114 y éxito; actualizar listado | T2 | S |
 | T4 | Tests    | Unit + integration (eliminar ok, 422 con 2114, 404, 403) | Tests pasan | T1 | S |
 | T5 | Tests    | E2E: eliminar tipo sin referencias; intentar eliminar con referencias | ≥1 E2E | T3 | M |
-| T6 | Docs     | Specs DELETE tipos-tarea; código 2114 en domain-error-codes; ia-log | Docs actualizados | T1 | S |
+| T6 | Docs     | Specs DELETE tipos-tarea; código 2114 en domain-error-codes | Docs actualizados | T1 | S |
 
 ---
 
@@ -184,7 +184,7 @@ Feature: Eliminación de Tipo de Tarea
 - [x] Backend DELETE + verificación referencias + código 2114
 - [x] Frontend diálogo + mensajes
 - [x] Unit/integration/E2E ok
-- [x] Docs (incl. código 2114) y ia-log actualizados
+- [x] Docs (incl. código 2114) actualizados
 
 ---
 

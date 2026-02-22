@@ -1,28 +1,32 @@
 # Arquitectura del Sistema – MVP
 
 ## Visión general
-Arquitectura web clásica de tres capas, optimizada para un MVP.
+Arquitectura clásica de tres capas, optimizada para un MVP. Un solo código base de frontend sirve tanto web como mobile.
 
-Frontend (Web)
-|
-v
+```
+Clientes (Web + Mobile)
+         |
+         v
 Backend API (REST)
-|
-v
-Base de Datos
-
+         |
+         v
+    Base de Datos
+```
 
 ---
 
 ## Componentes
 
 ### Frontend
-- Aplicación web SPA
+- **Web:** Aplicación SPA (React + Vite)
+- **Mobile:** Misma aplicación empaquetada como app nativa iOS/Android mediante Capacitor
+- Un solo código base; Capacitor copia el build (`dist/`) a proyectos nativos
 - Funciones:
   - Login
   - Registro de tareas
   - Listado y resumen
-- Comunicación vía API REST
+- Comunicación vía API REST (ambos clientes)
+- Diseño responsivo: breakpoints Mobile (< 768px), Tablet (768–1024px), Desktop (> 1024px)
 
 ---
 
@@ -47,3 +51,11 @@ Base de Datos
 - No se usan microservicios.
 - No se usan colas ni eventos.
 - Se prioriza claridad sobre escalabilidad futura.
+- Web y mobile comparten código; Capacitor empaqueta el mismo build para iOS/Android.
+- **API agnóstica de cliente:** La API REST sirve a todos los frontends (web, mobile, etc.); un solo contrato compartido.
+
+---
+
+## Referencias
+- **Frontend mobile:** `docs/mobile/README.md` – Build, comandos y configuración Capacitor
+- **Migración PAQSuite:** `MIGRACION-PAQSUITE-IA.md` – Plan de migración y stack completo

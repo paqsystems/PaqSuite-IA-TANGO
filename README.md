@@ -347,7 +347,7 @@ npm run test:e2e:ui      # Con UI interactiva
 npm run test:e2e:headed # Ver navegador
 ```
 
-**Documentación completa:** Ver `docs/testing.md` y `docs/frontend/testing.md`
+**Documentación completa:** Ver `.cursor/rules/12-testing.md` y `docs/frontend/testing.md`
 
 ### Pull Requests
 
@@ -395,7 +395,6 @@ Los cambios están en la rama `feature-entrega2-PAQ`. PR hacia `main` con backen
 - **Consignas del MVP:** `.cursor/consignas.md`
 - **Contexto del proyecto:** `PROJECT_CONTEXT.md`
 - **Reglas para el agente IA:** `AGENTS.md`
-- **Registro de uso de IA:** `docs/ia-log.md`
 - **Prompts utilizados:** `prompts.md`
 
 ## Mi comportamiento con la IA

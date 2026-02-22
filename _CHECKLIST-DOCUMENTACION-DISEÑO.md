@@ -212,7 +212,7 @@
 - [ ] Instalar herramientas de testing (Playwright, PHPUnit, etc.)
 - [ ] Configurar archivos de configuración
 - [ ] Crear estructura de carpetas para tests
-- [ ] Documentar en `docs/testing.md`:
+- [ ] Documentar en `.cursor/rules/12-testing.md`:
   - [ ] Estrategia de testing
   - [ ] Cómo ejecutar tests
   - [ ] Estructura de tests E2E
@@ -277,40 +277,20 @@
 
 ---
 
-## FASE 12: REGISTRO DE USO DE IA (si aplica)
+## FASE 12: VALIDACIÓN Y REVISIÓN
 
-### 12.1 Plantilla de IA Log
-- [ ] Crear plantilla en `docs/plantillas/ia-log.md`
-- [ ] Definir formato de registro:
-  - [ ] Fecha
-  - [ ] Etapa del proyecto
-  - [ ] Herramientas de IA utilizadas
-  - [ ] Prompt o instrucción
-  - [ ] Resultado generado
-  - [ ] Ajustes humanos
-  - [ ] Motivo del ajuste
-
-### 12.2 Registro Inicial
-- [ ] Crear `docs/ia-log.md`
-- [ ] Registrar actividad inicial de documentación
-- [ ] Documentar decisiones importantes
-
----
-
-## FASE 13: VALIDACIÓN Y REVISIÓN
-
-### 13.1 Revisión de Completitud
+### 12.1 Revisión de Completitud
 - [ ] Verificar que todas las fases están completas
 - [ ] Validar coherencia entre documentos
 - [ ] Revisar que no hay duplicaciones
 - [ ] Asegurar que todas las referencias están actualizadas
 
-### 13.2 Validación del Flujo E2E
+### 12.2 Validación del Flujo E2E
 - [ ] Verificar que el flujo E2E está completamente documentado
 - [ ] Validar que las historias MUST-HAVE cubren el flujo
 - [ ] Asegurar que hay especificaciones técnicas para cada paso
 
-### 13.3 Organización de Archivos
+### 12.3 Organización de Archivos
 - [ ] Eliminar archivos obsoletos o duplicados
 - [ ] Organizar estructura de carpetas
 - [ ] Verificar que los READMEs están actualizados
@@ -318,9 +298,9 @@
 
 ---
 
-## FASE 14: COMMIT Y VERSIONADO
+## FASE 13: COMMIT Y VERSIONADO
 
-### 14.1 Control de Versiones
+### 13.1 Control de Versiones
 - [ ] Crear rama de documentación (ej: `feature-entrega1-docs`)
 - [ ] Hacer commit de documentación
 - [ ] Crear Pull Request con descripción completa
@@ -328,9 +308,9 @@
 
 ---
 
-## FASE 15: CODIFICACIÓN Y DOCUMENTACIÓN DE CÓDIGO
+## FASE 14: CODIFICACIÓN Y DOCUMENTACIÓN DE CÓDIGO
 
-### 15.1 Reglas de Documentación Durante la Codificación
+### 14.1 Reglas de Documentación Durante la Codificación
 - [ ] Establecer que **TODAS las clases** deben documentarse (públicas, privadas, internas)
 - [ ] Establecer que **TODOS los métodos** deben documentarse (públicos, privados, protegidos, estáticos)
 - [ ] Establecer que **TODAS las propiedades** deben documentarse (públicas, privadas, protegidas, constantes)
@@ -342,7 +322,7 @@
 - [ ] Incluir ejemplos de documentación correcta en las reglas
 - [ ] Establecer que código sin documentación se considera incompleto
 
-### 15.2 Validación de Documentación
+### 14.2 Validación de Documentación
 - [ ] Configurar herramientas de validación (si aplica):
   - [ ] Linters que verifiquen presencia de documentación
   - [ ] Herramientas de análisis estático
@@ -357,8 +337,8 @@
 1. **Fases 1-3 son FUNDAMENTALES**: Sin estas, no se puede avanzar
 2. **Fases 4-6 son CRÍTICAS**: Definen la implementación
 3. **Fases 7-9 son IMPORTANTES**: Detallan la implementación
-4. **Fases 10-12 son DE SOPORTE**: Facilitan el trabajo futuro
-5. **Fases 13-14 son DE VALIDACIÓN**: Aseguran calidad
+4. **Fases 10-11 son DE SOPORTE**: Facilitan el trabajo futuro
+5. **Fases 12-14 son DE VALIDACIÓN**: Aseguran calidad
 
 ### Iteración
 - Este proceso puede ser iterativo
@@ -366,8 +346,6 @@
 - Las especificaciones técnicas pueden ajustarse durante el desarrollo
 
 ### Uso de IA
-- Documentar TODOS los usos significativos de IA en `docs/ia-log.md`
-- Incluir prompts, herramientas, resultados y ajustes humanos
 - Ser crítico con los resultados de IA
 
 ---
