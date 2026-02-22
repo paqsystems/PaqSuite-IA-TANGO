@@ -1,0 +1,287 @@
+/**
+ * Estilos: EmpleadosPage (TR-018, TR-021)
+ * @see TR-018(MH)-listado-de-empleados.md
+ * @see TR-021(MH)-eliminación-de-empleado.md
+ */
+
+.empleados-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+}
+
+.empleados-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.empleados-page-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.empleados-page-btn-create {
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.empleados-page-btn-create:hover {
+  background-color: #1d4ed8;
+}
+
+.empleados-page-btn-detail {
+  padding: 0.35rem 0.75rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  margin-right: 0.25rem;
+}
+
+.empleados-page-btn-detail:hover {
+  background-color: #1d4ed8;
+}
+
+.empleados-page-btn-edit {
+  padding: 0.35rem 0.75rem;
+  background-color: #059669;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.empleados-page-btn-edit:hover {
+  background-color: #047857;
+}
+
+.empleados-page-btn-delete {
+  padding: 0.35rem 0.75rem;
+  margin-left: 0.5rem;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.empleados-page-btn-delete:hover {
+  background-color: #b91c1c;
+}
+
+.empleados-page-filters {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.empleados-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem 1.5rem;
+}
+
+.empleados-filter-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.empleados-filter-label-text {
+  font-weight: 500;
+}
+
+.empleados-filter-input,
+.empleados-filter-select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  min-width: 140px;
+}
+
+.empleados-filter-input {
+  min-width: 200px;
+}
+
+.empleados-filter-select {
+  min-width: 160px;
+}
+
+.empleados-filter-btn-apply {
+  padding: 0.5rem 1rem;
+  background-color: #059669;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.empleados-filter-btn-apply:hover {
+  background-color: #047857;
+}
+
+.empleados-page-loading,
+.empleados-page-error {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.empleados-page-loading {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+
+.empleados-page-error {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+.empleados-page-total {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9375rem;
+  color: #374151;
+}
+
+.empleados-page-empty {
+  padding: 1.5rem;
+  text-align: center;
+  color: #6b7280;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.empleados-table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.empleados-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.empleados-table th,
+.empleados-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.empleados-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+
+.empleados-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.empleados-table-row-inhabilitado {
+  background-color: #fef3c7;
+}
+
+.empleados-table-row-inhabilitado:hover {
+  background-color: #fde68a;
+}
+
+.empleados-delete-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.empleados-delete-modal {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  max-width: 420px;
+  width: 90%;
+}
+
+.empleados-delete-modal-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: #1f2937;
+}
+
+.empleados-delete-modal-text {
+  margin: 0 0 1rem 0;
+  font-size: 0.9375rem;
+  color: #374151;
+}
+
+.empleados-delete-modal-error {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #dc2626;
+  font-size: 0.875rem;
+}
+
+.empleados-delete-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.empleados-delete-modal-btn-cancel {
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.empleados-delete-modal-btn-cancel:hover:not(:disabled) {
+  background-color: #f9fafb;
+}
+
+.empleados-delete-modal-btn-cancel:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.empleados-page-btn-delete:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

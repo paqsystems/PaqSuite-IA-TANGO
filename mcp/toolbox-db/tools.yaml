@@ -1,0 +1,167 @@
+sources:
+  mi-sqlserver:
+    kind: mssql
+    host: 192.168.41.2
+    port: 1433
+    database: QUENTO_Vimag
+    user: Axoft
+    password: Axoft
+
+tools:
+  consultar-clientes:
+    kind: mssql-sql
+    source: mi-sqlserver
+    description: Buscar clientes en la base de datos
+    parameters:
+      - name: nombre
+        type: string
+        description: Nombre del cliente a buscar
+    statement: |
+      SELECT * FROM Gva14
+      WHERE Razon_soci LIKE '%' + @nombre + '%'
+
+  listar-tablas:
+    kind: mssql-sql
+    source: mi-sqlserver
+    description: Listar todas las tablas de la base de datos
+    statement: |
+      SELECT TABLE_SCHEMA, TABLE_NAME, TABLE_TYPE
+      FROM INFORMATION_SCHEMA.TABLES
+      WHERE TABLE_TYPE = 'BASE TABLE'
+      ORDER BY TABLE_SCHEMA, TABLE_NAME
+
+  describir-tabla:
+    kind: mssql-sql
+    source: mi-sqlserver
+    description: Obtener la estructura de una tabla específica
+    parameters:
+      - name: tabla
+        type: string
+        description: Nombre de la tabla a describir
+    statement: |
+      SELECT 
+        COLUMN_NAME,
+        DATA_TYPE,
+        CHARACTER_MAXIMUM_LENGTH,
+        IS_NULLABLE,
+        COLUMN_DEFAULT
+      FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = @tabla
+      ORDER BY ORDINAL_POSITION
+
+  verificar-campo:
+    kind: mssql-sql
+    source: mi-sqlserver
+    description: Verificar si un campo existe en una tabla
+    parameters:
+      - name: tabla
+        type: string
+        description: Nombre de la tabla
+      - name: campo
+        type: string
+        description: Nombre del campo a verificar
+    statement: |
+      SELECT 
+        CASE WHEN EXISTS (
+          SELECT 1 
+          FROM INFORMATION_SCHEMA.COLUMNS 
+          WHERE TABLE_NAME = @tabla 
+          AND COLUMN_NAME = @campo
+        ) THEN 'SI' ELSE 'NO' END AS Existe,
+        DATA_TYPE,
+        IS_NULLABLE
+      FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_NAME = @tabla 
+      AND COLUMN_NAME = @campo
+
+  listar-foreign-keys:
+    kind: mssql-sql
+    source: mi-sqlserver
+    description: Listar todas las relaciones de foreign keys
+    parameters:
+      - name: tabla
+        type: string
+        description: Nombre de la tabla (opcional, dejar vacío para ver todas)
+    statement: |
+      SELECT 
+        fk.name AS FK_Name,
+        tp.name AS Parent_Table,
+        cp.name AS Parent_Column,
+        tr.name AS Referenced_Table,
+        cr.name AS Referenced_Column
+      FROM sys.foreign_keys AS fk
+      INNER JOIN sys.foreign_key_columns AS fkc 
+        ON fk.object_id = fkc.constraint_object_id
+      INNER JOIN sys.tables AS tp 
+        ON fkc.parent_object_id = tp.object_id
+      INNER JOIN sys.columns AS cp 
+        ON fkc.parent_object_id = cp.object_id 
+        AND fkc.parent_column_id = cp.column_id
+      INNER JOIN sys.tables AS tr 
+        ON fkc.referenced_object_id = tr.object_id
+      INNER JOIN sys.columns AS cr 
+        ON fkc.referenced_object_id = cr.object_id 
+        AND fkc.referenced_column_id = cr.column_id
+      WHERE (@tabla IS NULL OR @tabla = '' OR tp.name = @tabla)
+      ORDER BY tp.name, fk.name
+
+  verificar-integridad:
+    kind: mssql-sql
+    source: mi-sqlserver
+    description: Verificar la integridad referencial entre dos tablas
+    parameters:
+      - name: tabla_padre
+        type: string
+        description: Nombre de la tabla padre
+      - name: tabla_hija
+        type: string
+        description: Nombre de la tabla hija
+    statement: |
+      SELECT 
+        fk.name AS FK_Name,
+        cp.name AS Parent_Column,
+        cr.name AS Referenced_Column,
+        fk.is_disabled AS Esta_Deshabilitada
+      FROM sys.foreign_keys AS fk
+      INNER JOIN sys.foreign_key_columns AS fkc 
+        ON fk.object_id = fkc.constraint_object_id
+      INNER JOIN sys.tables AS tp 
+        ON fkc.parent_object_id = tp.object_id
+      INNER JOIN sys.columns AS cp 
+        ON fkc.parent_object_id = cp.object_id 
+        AND fkc.parent_column_id = cp.column_id
+      INNER JOIN sys.tables AS tr 
+        ON fkc.referenced_object_id = tr.object_id
+      INNER JOIN sys.columns AS cr 
+        ON fkc.referenced_object_id = cr.object_id 
+        AND fkc.referenced_column_id = cr.column_id
+      WHERE tr.name = @tabla_padre 
+      AND tp.name = @tabla_hija
+
+  listar-indices:
+    kind: mssql-sql
+    source: mi-sqlserver
+    description: Listar todos los índices de una tabla
+    parameters:
+      - name: tabla
+        type: string
+        description: Nombre de la tabla
+    statement: |
+      SELECT 
+        i.name AS Index_Name,
+        i.type_desc AS Index_Type,
+        i.is_unique AS Is_Unique,
+        i.is_primary_key AS Is_Primary_Key,
+        c.name AS Column_Name
+      FROM sys.indexes AS i
+      INNER JOIN sys.index_columns AS ic 
+        ON i.object_id = ic.object_id 
+        AND i.index_id = ic.index_id
+      INNER JOIN sys.columns AS c 
+        ON ic.object_id = c.object_id 
+        AND ic.column_id = c.column_id
+      INNER JOIN sys.tables AS t 
+        ON i.object_id = t.object_id
+      WHERE t.name = @tabla
+      ORDER BY i.name, ic.key_ordinal
+      

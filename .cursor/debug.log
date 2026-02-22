@@ -1,0 +1,6 @@
+{"location":"auth.service.ts:login:entry","message":"Login attempt","data":{"usuario":"JPEREZ","apiUrl":"http://localhost:8000/api/v1/auth/login"},"timestamp":1769604001959,"sessionId":"debug-session","hypothesisId":"H4"}
+{"location":"auth.service.ts:login:response","message":"API response received","data":{"status":200,"ok":true,"statusText":"OK"},"timestamp":1769604006450,"sessionId":"debug-session","hypothesisId":"H2"}
+{"location":"auth.service.ts:login:data","message":"API data parsed","data":{"error":0,"respuesta":"Autenticación exitosa"},"timestamp":1769604006451,"sessionId":"debug-session","hypothesisId":"H1"}
+{"location":"auth.service.ts:login:entry","message":"Login attempt","data":{"usuario":"jperez","apiUrl":"http://localhost:8000/api/v1/auth/login"},"timestamp":1769604045296,"sessionId":"debug-session","hypothesisId":"H4"}
+{"location":"auth.service.ts:login:response","message":"API response received","data":{"status":200,"ok":true,"statusText":"OK"},"timestamp":1769604046797,"sessionId":"debug-session","hypothesisId":"H2"}
+{"location":"auth.service.ts:login:data","message":"API data parsed","data":{"error":0,"respuesta":"Autenticación exitosa"},"timestamp":1769604046801,"sessionId":"debug-session","hypothesisId":"H1"}

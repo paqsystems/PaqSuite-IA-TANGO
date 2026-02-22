@@ -1,0 +1,104 @@
+// Modelo de Datos - MVP Sistema de Registro de Tareas
+// Compatible con dbdiagram.io
+// Sincronizado con docs/modelo-datos.md
+//
+// Nota: La tabla USERS es la única tabla SIN prefijo PQ_PARTES_ (autenticación centralizada)
+
+Table USERS {
+  id bigint [pk, increment, note: 'PK']
+  code varchar(50) [unique, not null, note: 'Código de usuario para autenticación']
+  password_hash varchar(255) [not null, note: 'Hash de contraseña']
+  activo boolean [default: true, note: 'Indica si el usuario está activo']
+  inhabilitado boolean [default: false, note: 'Indica si el usuario está inhabilitado']
+  created_at datetime [note: 'Fecha de creación']
+  updated_at datetime [note: 'Fecha de actualización']
+
+  Note: 'Tabla de autenticación centralizada. ÚNICA tabla sin prefijo PQ_PARTES_.'
+}
+
+Table PQ_PARTES_TIPOS_CLIENTE {
+  id bigint [pk, increment, note: 'PK']
+  code varchar(50) [unique, not null, note: 'Código único del tipo de cliente']
+  descripcion varchar(255) [not null, note: 'Descripción del tipo de cliente']
+  activo boolean [default: true, note: 'Indica si el tipo está activo']
+  inhabilitado boolean [default: false, note: 'Indica si el tipo está inhabilitado']
+  created_at datetime [note: 'Fecha de creación']
+  updated_at datetime [note: 'Fecha de actualización']
+
+  Note: 'Catálogo de tipos de cliente (ej: Corporativo, PyME, Startup)'
+}
+
+Table PQ_PARTES_TIPOS_TAREA {
+  id bigint [pk, increment, note: 'PK']
+  code varchar(50) [unique, not null, note: 'Código único del tipo de tarea']
+  descripcion varchar(255) [not null, note: 'Descripción del tipo de tarea']
+  is_generico boolean [default: false, note: 'Si true: disponible para todos los clientes']
+  is_default boolean [default: false, note: 'Si true: tipo de tarea predeterminado del sistema']
+  activo boolean [default: true, note: 'Indica si el tipo está activo']
+  inhabilitado boolean [default: false, note: 'Indica si el tipo está inhabilitado']
+  created_at datetime [note: 'Fecha de creación']
+  updated_at datetime [note: 'Fecha de actualización']
+
+  Note: 'Catálogo de tipos de tarea. Regla: solo uno puede tener is_default=true. Si is_default=true entonces is_generico=true.'
+}
+
+Table PQ_PARTES_USUARIOS {
+  id bigint [pk, increment, note: 'PK']
+  user_id bigint [unique, not null, ref: > USERS.id, note: 'FK → USERS, relación 1:1 obligatoria']
+  code varchar(50) [unique, not null, note: 'Código de usuario (debe coincidir con User.code)']
+  nombre varchar(255) [not null, note: 'Nombre completo del empleado']
+  email varchar(255) [unique, note: 'Email del empleado (opcional)']
+  supervisor boolean [default: false, note: 'Indica si es supervisor']
+  activo boolean [default: true, note: 'Indica si el usuario está activo']
+  inhabilitado boolean [default: false, note: 'Indica si el usuario está inhabilitado']
+  created_at datetime [note: 'Fecha de creación']
+  updated_at datetime [note: 'Fecha de actualización']
+
+  Note: 'Empleados que cargan tareas. Relación 1:1 con USERS. Supervisor puede gestionar tareas de cualquier usuario.'
+}
+
+Table PQ_PARTES_CLIENTES {
+  id bigint [pk, increment, note: 'PK']
+  user_id bigint [unique, ref: > USERS.id, note: 'FK → USERS, opcional, relación 1:1 (acceso al sistema)']
+  nombre varchar(255) [not null, note: 'Nombre/Descripción del cliente']
+  tipo_cliente_id bigint [not null, ref: > PQ_PARTES_TIPOS_CLIENTE.id, note: 'FK → PQ_PARTES_TIPOS_CLIENTE']
+  code varchar(50) [unique, not null, note: 'Código único del cliente']
+  email varchar(255) [unique, note: 'Email del cliente (opcional)']
+  activo boolean [default: true, note: 'Indica si el cliente está activo']
+  inhabilitado boolean [default: false, note: 'Indica si el cliente está inhabilitado']
+  created_at datetime [note: 'Fecha de creación']
+  updated_at datetime [note: 'Fecha de actualización']
+
+  Note: 'Clientes para los cuales se registran tareas. Si tiene user_id puede autenticarse (solo lectura).'
+}
+
+Table PQ_PARTES_REGISTRO_TAREA {
+  id bigint [pk, increment, note: 'PK']
+  usuario_id bigint [not null, ref: > PQ_PARTES_USUARIOS.id, note: 'FK → PQ_PARTES_USUARIOS']
+  cliente_id bigint [not null, ref: > PQ_PARTES_CLIENTES.id, note: 'FK → PQ_PARTES_CLIENTES']
+  tipo_tarea_id bigint [not null, ref: > PQ_PARTES_TIPOS_TAREA.id, note: 'FK → PQ_PARTES_TIPOS_TAREA']
+  fecha date [not null, note: 'Fecha de la tarea']
+  duracion_minutos int [not null, note: 'Duración en minutos (múltiplo de 15, máximo 1440)']
+  sin_cargo boolean [default: false, note: 'Indica si la tarea es sin cargo para el cliente']
+  presencial boolean [default: false, note: 'Indica si la tarea es presencial']
+  observacion text [not null, note: 'Descripción de la tarea (obligatorio)']
+  cerrado boolean [default: false, note: 'Si true: no se puede modificar ni eliminar']
+  created_at datetime [note: 'Fecha de creación']
+  updated_at datetime [note: 'Fecha de actualización']
+
+  Note: 'Tabla principal. Registros de tareas diarias. duracion_minutos debe ser múltiplo de 15 (15-1440).'
+}
+
+Table PQ_PARTES_CLIENTE_TIPO_TAREA {
+  id bigint [pk, increment, note: 'PK']
+  cliente_id bigint [not null, ref: > PQ_PARTES_CLIENTES.id, note: 'FK → PQ_PARTES_CLIENTES']
+  tipo_tarea_id bigint [not null, ref: > PQ_PARTES_TIPOS_TAREA.id, note: 'FK → PQ_PARTES_TIPOS_TAREA']
+  created_at datetime [note: 'Fecha de creación']
+  updated_at datetime [note: 'Fecha de actualización']
+
+  indexes {
+    (cliente_id, tipo_tarea_id) [unique, name: 'idx_ctt_unique']
+  }
+
+  Note: 'Asociación N:M entre Cliente y TipoTarea. Para tipos NO genéricos.'
+}

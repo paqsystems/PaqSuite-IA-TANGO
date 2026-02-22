@@ -1,0 +1,118 @@
+sources:
+  mysql-forge:
+    kind: mysql
+    host: 127.0.0.1
+    port: 3306
+    database: Lidr_testing
+    user: forge
+    password: Go4QQnC3vmPQ8YwlOaw7
+
+tools:
+  listar-tablas:
+    kind: mysql-sql
+    source: mysql-forge
+    description: Listar todas las tablas de la base de datos actual
+    statement: |
+      SHOW TABLES
+
+  listar-bases-datos:
+    kind: mysql-sql
+    source: mysql-forge
+    description: Listar todas las bases de datos disponibles
+    statement: |
+      SHOW DATABASES
+
+  describir-tabla:
+    kind: mysql-sql
+    source: mysql-forge
+    description: Obtener la estructura de una tabla específica
+    parameters:
+      - name: tabla
+        type: string
+        description: Nombre de la tabla a describir
+    statement: |
+      DESCRIBE {{ .tabla }}
+
+  ejecutar-sql:
+    kind: mysql-sql
+    source: mysql-forge
+    description: Ejecutar una consulta SQL personalizada
+    parameters:
+      - name: query
+        type: string
+        description: La consulta SQL a ejecutar
+    statement: |
+      {{ .query }}
+
+  ver-columnas:
+    kind: mysql-sql
+    source: mysql-forge
+    description: Ver información detallada de las columnas de una tabla
+    parameters:
+      - name: tabla
+        type: string
+        description: Nombre de la tabla
+    statement: |
+      SELECT 
+        COLUMN_NAME,
+        DATA_TYPE,
+        CHARACTER_MAXIMUM_LENGTH,
+        IS_NULLABLE,
+        COLUMN_DEFAULT,
+        COLUMN_KEY
+      FROM INFORMATION_SCHEMA.COLUMNS
+      WHERE TABLE_SCHEMA = DATABASE()
+      AND TABLE_NAME = '{{ .tabla }}'
+      ORDER BY ORDINAL_POSITION
+
+  ver-indices:
+    kind: mysql-sql
+    source: mysql-forge
+    description: Ver los índices de una tabla
+    parameters:
+      - name: tabla
+        type: string
+        description: Nombre de la tabla
+    statement: |
+      SHOW INDEX FROM {{ .tabla }}
+
+  ver-foreign-keys:
+    kind: mysql-sql
+    source: mysql-forge
+    description: Ver las foreign keys de una tabla
+    parameters:
+      - name: tabla
+        type: string
+        description: Nombre de la tabla
+    statement: |
+      SELECT 
+        CONSTRAINT_NAME,
+        COLUMN_NAME,
+        REFERENCED_TABLE_NAME,
+        REFERENCED_COLUMN_NAME
+      FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+      WHERE TABLE_SCHEMA = DATABASE()
+      AND TABLE_NAME = '{{ .tabla }}'
+      AND REFERENCED_TABLE_NAME IS NOT NULL
+
+  contar-registros:
+    kind: mysql-sql
+    source: mysql-forge
+    description: Contar registros en una tabla
+    parameters:
+      - name: tabla
+        type: string
+        description: Nombre de la tabla
+    statement: |
+      SELECT COUNT(*) as total FROM {{ .tabla }}
+
+  cambiar-base-datos:
+    kind: mysql-sql
+    source: mysql-forge
+    description: Cambiar a otra base de datos
+    parameters:
+      - name: database
+        type: string
+        description: Nombre de la base de datos
+    statement: |
+      USE {{ .database }}

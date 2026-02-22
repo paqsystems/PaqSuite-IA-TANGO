@@ -1,0 +1,187 @@
+/**
+ * Estilos: ConsultaDetalladaPage (TR-044)
+ * Consulta detallada de tareas con filtros y tabla.
+ */
+
+.consulta-detallada-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+}
+
+.consulta-detallada-header {
+  margin-bottom: 1.5rem;
+}
+
+.consulta-detallada-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.consulta-detallada-filters {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.consulta-detallada-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem 1.5rem;
+}
+
+.consulta-detallada-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.consulta-detallada-label input[type="date"],
+.consulta-detallada-label select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  min-width: 140px;
+}
+
+.consulta-detallada-label select {
+  min-width: 180px;
+}
+
+.consulta-detallada-label-text {
+  margin-bottom: 0.25rem;
+}
+
+.consulta-detallada-btn-apply {
+  padding: 0.5rem 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.consulta-detallada-btn-apply:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+.consulta-detallada-btn-apply:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.consulta-detallada-error {
+  padding: 1rem;
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.consulta-detallada-total-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.consulta-detallada-total {
+  font-size: 1rem;
+  color: #374151;
+}
+
+.consulta-detallada-export {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.consulta-detallada-export-no-data {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.consulta-detallada-btn-export {
+  padding: 0.5rem 1rem;
+  background-color: #059669;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.consulta-detallada-btn-export:hover:not(:disabled) {
+  background-color: #047857;
+}
+
+.consulta-detallada-btn-export:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.consulta-detallada-loading,
+.consulta-detallada-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.consulta-detallada-table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.consulta-detallada-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.consulta-detallada-table th,
+.consulta-detallada-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.consulta-detallada-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+
+.consulta-detallada-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.consulta-detallada-th-sort {
+  background: none;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  padding: 0;
+}
+
+.consulta-detallada-th-sort:hover {
+  color: #2563eb;
+}

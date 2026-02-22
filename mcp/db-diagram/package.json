@@ -1,0 +1,22 @@
+{
+  "name": "mcp-db-diagram",
+  "version": "1.0.0",
+  "description": "MCP server para visualizar modelo de datos desde archivo DBML",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0"
+  },
+  "keywords": [
+    "mcp",
+    "database",
+    "diagram",
+    "dbml",
+    "mermaid"
+  ],
+  "author": "",
+  "license": "MIT"
+}

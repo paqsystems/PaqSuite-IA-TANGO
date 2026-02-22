@@ -1,0 +1,30 @@
+{
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "loading": "Cargando...",
+    "noData": "No hay datos disponibles"
+  },
+  "auth": {
+    "login": {
+      "title": "Iniciar Sesión",
+      "submitButton": "Entrar",
+      "emailLabel": "Usuario / Email",
+      "passwordLabel": "Contraseña"
+    }
+  },
+  "tasks": {
+    "table": {
+      "empty": "No hay tareas encontradas",
+      "emptyState": "Sin tareas"
+    },
+    "filters": {
+      "searchInput": "Buscar"
+    },
+    "summary": {
+      "totalHours": "Total de horas: {{hours}}"
+    }
+  }
+}

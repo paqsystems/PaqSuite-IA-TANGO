@@ -1,0 +1,295 @@
+/**
+ * Estilos: Dashboard
+ */
+
+.dashboard-container {
+  background-color: #f3f4f6;
+}
+
+.dashboard-loading {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.dashboard-main {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.welcome-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.welcome-card h2 {
+  margin: 0 0 1rem;
+  color: #333;
+}
+
+.welcome-card p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.supervisor-text {
+  color: #667eea !important;
+  font-weight: 500;
+}
+
+.welcome-card-actions {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.profile-link-button {
+  background-color: #667eea;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.profile-link-button:hover {
+  background-color: #5568d3;
+}
+
+.dashboard-placeholder {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  color: #999;
+}
+
+/* TR-051: Secciones dashboard */
+.dashboard-section {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-section h3 {
+  margin: 0 0 1rem;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.dashboard-period-section .dashboard-period-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.dashboard-period-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dashboard-period-controls label span {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.dashboard-period-controls input[type="date"] {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.dashboard-btn-secondary {
+  background: #e5e7eb;
+  color: #374151;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.dashboard-btn-secondary:hover {
+  background: #d1d5db;
+}
+
+.dashboard-btn-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.dashboard-ultima-actualizacion {
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.dashboard-kpis .dashboard-kpi-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.dashboard-kpi-card {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.dashboard-kpi-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.dashboard-kpi-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.dashboard-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-list-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  align-items: center;
+}
+
+.dashboard-list-item-with-action {
+  grid-template-columns: 1fr auto auto auto auto;
+}
+
+.dashboard-link-detalle {
+  color: #667eea;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.dashboard-link-detalle:hover {
+  text-decoration: underline;
+}
+
+.dashboard-total-general {
+  margin: 1rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.dashboard-total-general strong {
+  color: #111827;
+}
+
+.dashboard-list-item:last-child {
+  border-bottom: none;
+}
+
+.dashboard-list-name {
+  font-weight: 500;
+  color: #374151;
+}
+
+.dashboard-list-hours,
+.dashboard-list-count {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.dashboard-list-pct {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+.dashboard-empty {
+  color: #6b7280;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.dashboard-empty-global {
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 1rem;
+}
+
+.dashboard-loading-block {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-error {
+  background: #fef2f2;
+  color: #b91c1c;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #fecaca;
+}
+
+@media (max-width: 640px) {
+  .dashboard-list-item {
+    grid-template-columns: 1fr auto;
+  }
+
+  .dashboard-list-item-with-action {
+    grid-template-columns: 1fr auto;
+  }
+
+  .dashboard-list-count,
+  .dashboard-list-pct {
+    grid-column: 2;
+  }
+
+  .dashboard-link-detalle {
+    grid-column: 1 / -1;
+  }
+}
+
+/* TR-054: Gráficos */
+.dashboard-grafico {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-grafico-titulo {
+  margin: 0 0 1rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.dashboard-grafico-container {
+  min-height: 280px;
+}

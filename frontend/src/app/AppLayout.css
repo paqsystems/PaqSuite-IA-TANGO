@@ -1,0 +1,145 @@
+/**
+ * Estilos: AppLayout (header común para todas las pantallas autenticadas)
+ */
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f3f4f6;
+}
+
+.app-layout-loading {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.app-layout-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-layout-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-layout-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.app-layout-volver {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.app-layout-volver:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.language-selector {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.app-layout-user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-layout-user-name {
+  font-weight: 500;
+}
+
+.app-layout-supervisor-badge {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.app-layout-logout {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.app-layout-logout:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.app-layout-logout:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.app-layout-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.app-layout-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-layout-menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: background-color 0.2s;
+}
+
+.app-layout-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.app-layout-menu-icon {
+  line-height: 1;
+}
+
+@media (min-width: 769px) {
+  .app-layout-menu-toggle {
+    display: none;
+  }
+}

@@ -1,0 +1,57 @@
+services:
+  mcp-toolbox-db:
+    image: us-central1-docker.pkg.dev/database-toolbox/toolbox/toolbox:0.23.0
+    container_name: mcp-toolbox-db
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    volumes:
+      - ./mcp/toolbox-db/tools.yaml:/app/tools.yaml
+    command: ["--tools-file", "/app/tools.yaml"]
+
+
+
+# version: '3.8'
+# 
+# services:
+#   # Servicio de backend
+#   backend:
+#     build:
+#       context: ./backend
+#       dockerfile: Dockerfile
+#     container_name: lidr-backend
+#     ports:
+#       - "3000:3000"
+#     environment:
+#       - NODE_ENV=development
+#     volumes:
+#       - ./backend:/app
+#       - /app/node_modules
+#     networks:
+#       - lidr-network
+#     restart: unless-stopped
+# 
+#   # Servicio de frontend
+#   frontend:
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile
+#     container_name: lidr-frontend
+#     ports:
+#       - "5173:5173"
+#     environment:
+#       - NODE_ENV=development
+#     volumes:
+#       - ./frontend:/app
+#       - /app/node_modules
+#     networks:
+#       - lidr-network
+#     depends_on:
+#       - backend
+#     restart: unless-stopped
+# 
+# networks:
+#   lidr-network:
+#     driver: bridge
+

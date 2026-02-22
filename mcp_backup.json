@@ -1,0 +1,65 @@
+   // AZURE
+    "mssql": {
+      "command": "C:\\Users\\Pabloq\\toolbox.exe",
+      "args": [
+        "--prebuilt",
+        "mssql",
+        "--stdio"
+      ],
+      "env": {
+        "MSSQL_HOST": "paqsuite.database.windows.net",
+        "MSSQL_PORT": "1433",
+        "MSSQL_DATABASE": "pq_ankasdelsur",
+        "MSSQL_USER": "paqadmin",
+        "MSSQL_PASSWORD": "L96gDrKHmrmwPGE"
+      }
+    },
+    // AWS RDS
+    "mssql": {
+      "command": "C:\\Users\\Pabloq\\toolbox.exe",
+      "args": [
+        "--prebuilt",
+        "mssql",
+        "--stdio"
+      ],
+      "env": {
+        "MSSQL_HOST": "database-1.cf2tcvmvcot6.us-east-2.rds.amazonaws.com",
+        "MSSQL_PORT": "1433",
+        "MSSQL_DATABASE": "_datosempresa_prueba",
+        "MSSQL_USER": "admin",
+        "MSSQL_PASSWORD": "f30CuP217zHau0pKCNpAgEpv3O",
+        "MSSQL_TRUST_SERVER_CERTIFICATE": "true"
+      },
+    // Tec-Ser
+    "mssql": {
+        "command": "C:\\Users\\Pabloq\\toolbox.exe",
+        "args": [
+          "--prebuilt",
+          "mssql",
+          "--stdio"
+        ],
+        "env": {
+          "MSSQL_HOST": "192.168.41.2",
+          "MSSQL_PORT": "1433",
+          "MSSQL_DATABASE": "Lidr",
+          "MSSQL_USER": "Axoft",
+          "MSSQL_PASSWORD": "Axoft"
+        }  
+    // PAQ-GAUSS
+    "mssql": {
+      "command": "C:\\Users\\Pabloq\\toolbox.exe",
+      "args": [
+        "--prebuilt",
+        "mssql",
+        "--stdio"
+      ],
+      "env": {
+        "MSSQL_HOST": "PAQ-GAUSS",
+        "MSSQL_PORT": "2544",
+        "MSSQL_DATABASE": "Lidr",
+        "MSSQL_USER": "Axoft",
+        "MSSQL_PASSWORD": "Tango2005",
+        "MSSQL_TRUST_SERVER_CERTIFICATE": "true"
+      }
+    }    
+    }   

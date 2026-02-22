@@ -1,0 +1,17 @@
+# Herramientas y utilidades del proyecto
+# Configuración de herramientas disponibles
+
+tools:
+  # Herramientas de desarrollo
+  development:
+    - name: "Script de Jira"
+      description: "Lista issues asignados en Jira"
+      path: "../listarIssuesJira.py"
+      type: "python"
+    
+  # Herramientas de utilidad
+  utilities:
+    - name: "placeholder"
+      description: "Herramienta de ejemplo"
+      type: "utility"
+

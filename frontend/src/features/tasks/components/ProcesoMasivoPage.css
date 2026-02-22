@@ -1,0 +1,237 @@
+/**
+ * Estilos: ProcesoMasivoPage (TR-039 a TR-043)
+ */
+
+.proceso-masivo-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #f3f4f6;
+  min-height: 100vh;
+}
+
+.proceso-masivo-header {
+  margin-bottom: 1.5rem;
+}
+
+.proceso-masivo-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1f2937;
+}
+
+.proceso-masivo-filtros {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.proceso-masivo-filtros-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem 1.5rem;
+}
+
+.proceso-masivo-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.proceso-masivo-label input[type="date"],
+.proceso-masivo-label select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  min-width: 140px;
+}
+
+.proceso-masivo-cliente select,
+.proceso-masivo-empleado select {
+  min-width: 180px;
+}
+
+/* Alinear Cliente y Empleado en el mismo eje Y que fechas y botón: anular margen del form-group */
+.proceso-masivo-cliente .form-group,
+.proceso-masivo-empleado .form-group {
+  margin-bottom: 0;
+}
+
+/* Misma altura de control que los inputs de fecha (alineación vertical) */
+.proceso-masivo-cliente .form-group select,
+.proceso-masivo-empleado .form-group select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  min-height: 2.25rem;
+  box-sizing: border-box;
+}
+
+.proceso-masivo-btn-apply {
+  padding: 0.5rem 1rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.proceso-masivo-btn-apply:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.proceso-masivo-btn-apply:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.proceso-masivo-error {
+  padding: 0.75rem 1rem;
+  background: #fef2f2;
+  color: #b91c1c;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.proceso-masivo-success {
+  padding: 0.75rem 1rem;
+  background: #f0fdf4;
+  color: #15803d;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.proceso-masivo-loading {
+  padding: 1rem;
+  text-align: center;
+  color: #6b7280;
+}
+
+.proceso-masivo-total {
+  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+  color: #374151;
+}
+
+.proceso-masivo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.proceso-masivo-btn-link {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.proceso-masivo-btn-link:hover:not(:disabled) {
+  color: #1d4ed8;
+}
+
+.proceso-masivo-btn-link:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.proceso-masivo-contador {
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.proceso-masivo-btn-procesar {
+  padding: 0.5rem 1.25rem;
+  background: #059669;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.proceso-masivo-btn-procesar:hover:not(:disabled) {
+  background: #047857;
+}
+
+.proceso-masivo-btn-procesar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.proceso-masivo-table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+.proceso-masivo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.proceso-masivo-table th,
+.proceso-masivo-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.proceso-masivo-table th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+
+.proceso-masivo-th-checkbox,
+.proceso-masivo-td-checkbox {
+  width: 3rem;
+  text-align: center;
+}
+
+.proceso-masivo-row-closed {
+  background: #f9fafb;
+}
+
+.proceso-masivo-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+  background: white;
+  border-radius: 8px;
+}
+
+.proceso-masivo-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.proceso-masivo-btn-cancel {
+  padding: 0.5rem 1rem;
+  background: #e5e7eb;
+  color: #374151;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.proceso-masivo-btn-cancel:hover {
+  background: #d1d5db;
+}

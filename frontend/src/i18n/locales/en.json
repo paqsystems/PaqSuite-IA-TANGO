@@ -1,0 +1,30 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "noData": "No data available"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "submitButton": "Sign In",
+      "emailLabel": "User / Email",
+      "passwordLabel": "Password"
+    }
+  },
+  "tasks": {
+    "table": {
+      "empty": "No tasks found",
+      "emptyState": "No tasks"
+    },
+    "filters": {
+      "searchInput": "Search"
+    },
+    "summary": {
+      "totalHours": "Total hours: {{hours}}"
+    }
+  }
+}

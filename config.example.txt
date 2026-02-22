@@ -1,0 +1,16 @@
+# Configuración de Jira
+# Copia este contenido a un archivo llamado .env en la raíz del proyecto
+
+# URL de tu servidor de Jira (ej: https://tu-empresa.atlassian.net)
+JIRA_URL=https://tu-empresa.atlassian.net
+
+# Email de tu cuenta de Jira
+JIRA_EMAIL=tu-email@ejemplo.com
+
+# Token de API de Jira
+# Para generar un token:
+# 1. Ve a https://id.atlassian.com/manage-profile/security/api-tokens
+# 2. Crea un nuevo token de API
+# 3. Copia el token aquí
+JIRA_API_TOKEN=tu-token-de-api-aqui
+

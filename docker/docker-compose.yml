@@ -1,0 +1,42 @@
+# PAQSuite IA - Backend y Frontend en Docker
+# Base de datos administrada por separado (DB_HOST apuntar a RDS, PlanetScale, etc.)
+
+services:
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: paqsuite-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - DB_CONNECTION=${DB_CONNECTION:-mysql}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT:-3306}
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - APP_URL=${APP_URL:-http://localhost:8000}
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost:80}
+    networks:
+      - paqsuite-network
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: paqsuite-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - paqsuite-network
+    restart: unless-stopped
+
+networks:
+  paqsuite-network:
+    driver: bridge

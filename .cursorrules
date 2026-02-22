@@ -1,0 +1,52 @@
+# Cursor Rules - Sistema de Registro de Tareas MVP
+
+## Contexto del Proyecto
+
+Este es un MVP web para consultorías y empresas de servicios que permite a empleados registrar tareas diarias, asociándolas a clientes y tipos de tarea, con el objetivo de analizar la dedicación.
+
+## Principios Generales
+
+- Priorizar siempre el flujo E2E: Login → Registro de tarea → Visualización de resumen
+- Simplicidad sobre sofisticación
+- No sobre-ingeniería
+- Todo código debe ser testeable y comprensible
+- Evitar funcionalidades fuera del alcance del MVP
+
+## Stack Tecnológico
+
+- **Backend:** Laravel (PHP) + Sanctum
+- **Frontend:** React
+- **Base de Datos:** SQL Server / PostgreSQL / MySQL
+- **ORM:** Eloquent (nativo de Laravel)
+
+## Convenciones
+
+- Usar herramientas nativas de Laravel (NO PSL/Prisma)
+- Prefijo de tablas: `PQ_PARTES_`
+- API REST con formato de respuesta estándar (envelope)
+- Autenticación por código de usuario (no email)
+
+## Calidad de Código
+
+### Evitar Duplicidad de Código
+
+**Regla fundamental:** En toda la programación, tanto back-end como front-end, evitar la duplicidad de código.
+
+**Principios:**
+- Generar métodos o funciones apropiadas para su reutilización
+- Si se detecta que un código se puede incorporar a un método existente agregando algún/os parámetro/s y modificando la codificación del mismo, **proponerlo antes de realizarlo**
+- Priorizar DRY (Don't Repeat Yourself) sobre duplicación
+- Crear utilidades compartidas cuando el código se repite en múltiples lugares
+
+**Ejemplos de aplicación:**
+- Validaciones comunes → Funciones de validación reutilizables
+- Transformaciones de datos → Utilidades de formateo
+- Llamadas API similares → Servicios base con parámetros
+- Lógica de negocio repetida → Métodos compartidos en servicios/modelos
+
+## Testing
+
+- Tests unitarios para lógica crítica
+- Tests de integración para API-DB
+- Al menos 1 test E2E del flujo principal
+
