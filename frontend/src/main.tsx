@@ -3,6 +3,11 @@
  * Incluye estilos y tema de DevExtreme, configuración i18n
  */
 
+import config from 'devextreme/core/config';
+import { licenseKey } from './devextreme-license';
+
+config({ licenseKey });
+
 import './i18n';
 import 'devextreme/dist/css/dx.light.css';
 import React from 'react';

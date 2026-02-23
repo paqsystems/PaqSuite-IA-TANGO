@@ -13,6 +13,9 @@ playwright/.cache/
 dist/
 build/
 
+# DevExtreme license (cada desarrollador usa su propia clave)
+src/devextreme-license.ts
+
 # Environment variables
 .env
 .env.local

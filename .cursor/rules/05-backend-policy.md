@@ -1,7 +1,7 @@
 # 00 — Política general para Cursor (NO programar todavía)
 
 ## Objetivo
-Definir reglas obligatorias para el BackEnd del **Sistema de Partes de Atención** usando **Laravel + PHP** con **Laravel Sanctum** para autenticación.
+Definir reglas obligatorias para el BackEnd de todo el proyecto usando **Laravel + PHP** con **Laravel Sanctum** para autenticación.
 
 ## Alcance
 Estas reglas aplican a:

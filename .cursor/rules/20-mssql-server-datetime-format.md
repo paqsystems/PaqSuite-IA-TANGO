@@ -2,7 +2,7 @@
 
 ## Contexto
 
-El proyecto utiliza **SQL Server** como base de datos. SQL Server tiene particularidades en el manejo de fechas que pueden causar errores si no se manejan correctamente.
+Cuando el proyecto utiliza **SQL Server** como base de datos, considerar que SQL Server tiene particularidades en el manejo de fechas que pueden causar errores si no se manejan correctamente.
 
 ## Problema
 
