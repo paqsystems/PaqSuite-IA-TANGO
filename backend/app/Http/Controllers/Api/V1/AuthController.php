@@ -110,7 +110,13 @@ class AuthController extends Controller
             ], $httpCode);
 
         } catch (\Exception $e) {
-            // Error inesperado
+            // Error inesperado - registrar para diagnóstico
+            Log::error('AuthController::login - Error inesperado', [
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTraceAsString(),
+            ]);
             return response()->json([
                 'error' => 9999,
                 'respuesta' => 'Error inesperado del servidor',

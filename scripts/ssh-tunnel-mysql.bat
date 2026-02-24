@@ -24,7 +24,7 @@ REM -L: redirección de puerto local
 REM -N: no ejecutar comandos remotos, solo redirigir
 REM -i: archivo de clave SSH
 
-ssh -i "C:\Users\Pabloq\pablo-notebook" -L 3306:127.0.0.1:3306 -N forge@18.218.140.170
+ssh -i "C:\Users\PabloQ\pablo-notebook" -L 3306:127.0.0.1:3306 -N forge@18.218.140.170
 
 echo.
 echo Túnel SSH cerrado.

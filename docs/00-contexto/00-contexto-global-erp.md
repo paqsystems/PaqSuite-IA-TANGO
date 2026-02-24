@@ -1,5 +1,7 @@
 # Contexto Global – Plataforma ERP Corporativa
 
+**Nivel : Operativo (Uso General)**
+
 ## 1. Propósito del Proyecto
 
 La plataforma ERP tiene como objetivo constituir un sistema de gestión empresarial integral, adaptable a múltiples organizaciones, con capacidad de operar bajo un modelo multiempresa dentro de una misma instalación.
