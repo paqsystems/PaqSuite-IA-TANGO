@@ -37,3 +37,7 @@ En modo app, la URL base de la API debe apuntar al servidor (no localhost). Conf
 1. `npm run build` - Vite genera `dist/`
 2. `cap sync` - Copia `dist/` a proyectos Android/iOS
 3. Abrir en Android Studio / Xcode y ejecutar
+
+## Testing E2E mobile (Appium)
+
+Para testing E2E en la app empaquetada (emulador/dispositivo), ver `docs/mobile/APPIUM-E2E-TESTING.md`. Appium no está instalado por defecto; el documento define cuándo y cómo implementarlo.
