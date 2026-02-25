@@ -231,3 +231,14 @@ Items:
 - Truncado de nombre de empresa en TopBar.
 - Sidebar items accesibles con teclado (desktop).
 - Drawer mobile fácil de cerrar (swipe/backdrop).
+
+# Comportamiento cuando no hay permisos
+
+Si el usuario no posee módulos habilitados:
+- Mostrar EmptyState en DesktopHome
+- Mostrar lista vacía con mensaje en MobileHome
+- No romper layout
+
+# Performance considerations
+- No cargar widgets hasta que estén visibles
+- Lazy load de procesos

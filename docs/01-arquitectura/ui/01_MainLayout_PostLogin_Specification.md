@@ -118,4 +118,24 @@ Pantalla de home mobile (propuesta mínima):
   - abrir procesos en `TabPanel`
 - Si `false`:
   - navegación normal a pantalla única
-  
+
+
+# Secuencia de Inicialización Post-Login
+
+1) Usuario autenticado
+2) Usuario selecciona empresa
+3) Backend valida pertenencia
+4) Backend retorna:
+   - Permisos
+   - Menú permitido
+   - UI Settings (ThemeName)
+5) Frontend:
+   - Aplica Theme
+   - Carga stores globales (auth, company, menu)
+   - Monta MainLayout
+
+# Mobile - Particularidades
+
+MobileHome NO es una versión simplificada del dashboard.
+Es una pantalla orientada exclusivamente a ejecución de procesos.
+No contiene KPIs, gráficos ni widgets analíticos.
