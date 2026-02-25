@@ -35,8 +35,8 @@ erDiagram
         int id PK
         nvarchar text "Descripción en pantalla"
         bit expanded
-        int Idparent "0 = rama principal"
-        smallint order
+        int Idparent "0 = rama principal, UK(parent+order)"
+        smallint order "UK(parent+order)"
         char tipo "ABM / INF / ..."
         nvarchar procedimiento "Vincula APIs, reportes"
         bit enabled
@@ -193,8 +193,8 @@ erDiagram
     pq_menus {
         int id PK
         nvarchar text
-        int Idparent
-        smallint order
+        int Idparent "UK(parent+order)"
+        smallint order "UK(parent+order)"
         char tipo "ABM/INF"
         nvarchar procedimiento
         bit enabled
@@ -286,6 +286,8 @@ erDiagram
     pq_menus {
         int id PK
         nvarchar text
+        int Idparent "UK(parent+order)"
+        smallint order "UK(parent+order)"
         nvarchar procedimiento "Clave de vinculación"
     }
     
