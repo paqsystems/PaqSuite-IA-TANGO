@@ -34,7 +34,7 @@ F --> F4[Stock]
 F --> F5[Tesorería]
 ```
 
-# Estructura Documental
+# 2️⃣ Estructura Documental
 
 ```mermaid
 flowchart TD
@@ -49,7 +49,7 @@ G --> H[06-operacion]
 H --> I[07-seguridad]
 ```
 
-# Flujo de Desarrollo
+# 3️⃣ Flujo de Desarrollo
 
 ```mermaid
 flowchart LR
@@ -65,7 +65,7 @@ G --> H[Validación]
 
 Nunca se comienza en "Código".
 
-# Modelo de Gobernanza
+# 4️⃣ Modelo de Gobernanza
 
 ```mermaid
 flowchart TD

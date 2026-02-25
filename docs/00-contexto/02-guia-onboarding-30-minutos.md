@@ -19,8 +19,8 @@ Esta guía debe leerse el primer día de incorporación.
 
 Leer en este orden:
 
-1. `docs/00-contexto/contexto-global-erp.md`
-2. `docs/00-contexto/guia-estructura-documental-corporativa.md`
+1. `docs/00-contexto/00-contexto-global-erp.md`
+2. `docs/00-contexto/01-guia-estructura-documental-corporativa.md`
 
 Objetivo:
 
@@ -35,7 +35,7 @@ Objetivo:
 
 Leer:
 
-- `docs/01-arquitectura/arquitectura-proyecto.md`
+- `docs/01-arquitectura/01-arquitectura-proyecto.md`
 - ADR existentes
 
 Objetivo:

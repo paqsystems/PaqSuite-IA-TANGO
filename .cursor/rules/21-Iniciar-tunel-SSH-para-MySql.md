@@ -7,7 +7,7 @@ El túnel SSH es **obligatorio** para:
 Ejecutar **uno** de estos dos comandos cuando se abre el proyecto (y antes de usar el MCP mysql en Cursor):
 
 ```
-cd "C:\Programacion\Lidr\Lidr-AI4Devs2025-ProyectoFinal"
+cd "C:\Programacion\PaqSuite-IA-ERP"
 .\scripts\ssh-tunnel-mysql.ps1
 ```
 ó

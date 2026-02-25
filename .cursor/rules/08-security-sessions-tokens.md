@@ -1,5 +1,18 @@
 # 02 — Seguridad (Sanctum) — obligatorio, OWASP-aligned
 
+## 0) Modelo multiempresa y tenant (OBLIGATORIO)
+
+El ERP opera con modelo multiempresa. En cada request de gestión:
+
+- **Header `X-Company-Id`:** Identificador de la empresa activa (tenant).
+- **Validación obligatoria:** El usuario debe tener asignación y permisos sobre esa empresa.
+- **Dictionary DB:** Contiene usuarios, empresas, roles, permisos, asignaciones.
+- **Company DB:** Contiene datos operativos de cada empresa (clientes, tareas, etc.).
+
+**Regla:** Nunca confiar en `X-Company-Id` sin validar contra las asignaciones del usuario en Dictionary DB.
+
+**Documentación detallada:** `docs/01-arquitectura/06-mapa-visual-seguridad-roles-permisos-menu.md`, `docs/01-arquitectura/07-mapa-visual-tenancy-resolucion-db.md`
+
 ## 1) Estándares adoptados
 - OWASP API Security Top 10
 - OWASP ASVS (nivel 2 recomendado)

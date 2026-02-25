@@ -14,7 +14,7 @@ Debe utilizarse como guía obligatoria antes, durante y después del desarrollo.
 
 Antes de escribir código:
 
-- [ ] Leer `docs/00-contexto/contexto-global-erp.md`
+- [ ] Leer `docs/00-contexto/00-contexto-global-erp.md`
 - [ ] Confirmar comprensión del modelo multiusuario, multiempresa y multirroles
 - [ ] Definir objetivo conceptual del módulo
 - [ ] Definir alcance (qué incluye y qué no incluye)

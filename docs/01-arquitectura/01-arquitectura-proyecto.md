@@ -175,3 +175,23 @@ La arquitectura debe facilitar testabilidad.
 - Seguridad validada en cada request.
 - No mezclar configuración con operación.
 - Escalabilidad estructural.
+
+## 10. Evolución de la Arquitectura
+
+Este documento define la arquitectura fundacional del ERP.
+
+A medida que el sistema crezca en:
+
+- Número de empresas
+- Volumen de datos
+- Complejidad de módulos
+- Integraciones externas
+
+Se incorporarán nuevas secciones que detallen:
+
+- Estrategia multi-DB avanzada
+- Optimización de performance
+- Escalabilidad
+- Observabilidad
+- Gestión de cache
+- Manejo de transacciones complejas

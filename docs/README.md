@@ -1,84 +1,103 @@
-# Guía de Navegación – Documentación del Proyecto
+# Guía de Navegación – Documentación del Proyecto ERP PaqSuite
 
-Este documento sirve como **índice de navegación** para toda la documentación del MVP de registro de tareas. Su objetivo es orientar al programador hacia los documentos correctos según su necesidad.
-
----
-
-## Documentos Principales (raíz de `docs/`)
-
-| Documento | Propósito | Cuándo leerlo |
-|-----------|-----------|---------------|
-| **`producto.md`** | Objetivo del producto, usuarios, funcionalidades del MVP | Al iniciar, para entender el qué |
-| **`historias-y-tickets.md`** | Historias de usuario (MUST/SHOULD), criterios de aceptación, tickets técnicos | **Documento central** – antes de implementar cualquier funcionalidad |
-| **`arquitectura.md`** | Arquitectura del sistema, componentes, decisiones de diseño | Para entender la estructura técnica |
-| **`modelo-datos.md`** | Entidades, relaciones, restricciones, convenciones de BD | Al trabajar con datos o migraciones |
-| **`.cursor/rules/12-testing.md`** | Estrategia de testing, tipos de tests, cómo ejecutarlos | Al escribir o ejecutar tests |
-| **`deploy-ci-cd.md`** | Infraestructura, pipeline, deploy, secretos | Al desplegar o configurar CI/CD |
-| **`reglas-negocio.md`** | Reglas de negocio adicionales, validaciones | Al implementar lógica de negocio |
+Este documento sirve como **índice de navegación** para toda la documentación del proyecto. Su objetivo es orientar al programador hacia los documentos correctos según su necesidad.
 
 ---
 
-## Por Área Técnica
+## Estructura Documental Principal
 
-### API
+| Carpeta | Propósito | Cuándo consultar |
+|---------|-----------|-------------------|
+| **`00-contexto/`** | Contexto institucional, guías, onboarding, gobierno | Al incorporarse o antes de decisiones estructurales |
+| **`01-arquitectura/`** | Arquitectura técnica, modelo de datos, seguridad, roadmap | Para entender diseño y decisiones técnicas |
+| **`_projects/SistemaPartes/`** | Historias de usuario (HU) y tareas técnicas (TR) del módulo Partes | Antes de implementar funcionalidades |
+| **`api/`** | Contrato API, OpenAPI | Al consumir o desarrollar endpoints |
+| **`backend/`** | Playbook Laravel, lógica de tareas | Al desarrollar backend |
+| **`frontend/`** | Especificaciones, UI Layer, i18n, testing | Al desarrollar frontend |
+
+---
+
+## Documentos Clave por Área
+
+### Contexto y Arquitectura
 
 | Documento | Propósito |
 |-----------|-----------|
-| **`api/CONTRATO_BASE.md`** | Formato estándar de respuestas API, manejo de errores |
-| **`api/openapi.md`** | Documentación OpenAPI de la API |
+| **`00-contexto/00-contexto-global-erp.md`** | Modelo multiempresa, Dictionary DB, Company DB, seguridad |
+| **`00-contexto/01-guia-estructura-documental-corporativa.md`** | Organización de la documentación |
+| **`00-contexto/02-guia-onboarding-30-minutos.md`** | Onboarding rápido para nuevos desarrolladores |
+| **`01-arquitectura/README.md`** | Índice de arquitectura |
+| **`01-arquitectura/01-arquitectura-proyecto.md`** | Capas, responsabilidades, tenancy |
+| **`arquitectura.md`** | Visión general MVP (3 capas, web+mobile) |
 
-### Backend (Laravel)
+### Historias y Tareas
 
 | Documento | Propósito |
 |-----------|-----------|
-| **`backend/PLAYBOOK_BACKEND_LARAVEL.md`** | **Guía principal** – convenciones, estructura, validación, PHPDoc |
-| **`backend/autenticacion.md`** | Flujo de autenticación |
+| **`_projects/SistemaPartes/hu-historias/`** | Historias de usuario (HU-001, HU-028, etc.) |
+| **`_projects/SistemaPartes/hu-tareas/`** | Tareas técnicas (TR-001, TR-028, etc.) |
+| **`_projects/SistemaPartes/RN-Sistema-Partes.md`** | Reglas de negocio del módulo Partes |
+
+### API y Backend
+
+| Documento | Propósito |
+|-----------|-----------|
+| **`api/CONTRATO_BASE.md`** | Formato estándar de respuestas API |
+| **`api/openapi.md`** | Documentación OpenAPI |
+| **`backend/PLAYBOOK_BACKEND_LARAVEL.md`** | Convenciones, estructura, validación Laravel |
 | **`backend/tareas.md`** | Lógica de registro de tareas |
 
-### Frontend (React)
+### Frontend
 
 | Documento | Propósito |
 |-----------|-----------|
-| **`frontend/frontend-specifications.md`** | Especificaciones generales, estructura de carpetas |
-| **`frontend/ui-layer-wrappers.md`** | **Crítico** – reglas de UI Layer, componentes reutilizables |
-| **`frontend/i18n.md`** | Internacionalización obligatoria, función `t()` |
+| **`frontend/frontend-specifications.md`** | Especificaciones generales |
+| **`frontend/ui-layer-wrappers.md`** | Reglas de UI Layer, componentes reutilizables |
 | **`frontend/features/features-structure.md`** | Organización de features |
-| **`frontend/testing.md`** | Testing frontend con Vitest y Playwright |
+
+### Operación y Testing
+
+| Documento | Propósito |
+|-----------|-----------|
+| **`deploy-ci-cd.md`** | Infraestructura, pipeline, deploy |
+| **`.cursor/rules/12-testing.md`** | Estrategia de testing, Vitest, Playwright |
 
 ---
 
-## Historias y Tareas
+## Reglas del Agente IA (.cursor/rules)
 
-- **`hu-historias/`** – Historias de usuario en detalle (HU-001, HU-028, etc.)
-- **`hu-tareas/`** – Tareas técnicas derivadas (TR-001, TR-028, etc.)
+Las reglas en `.cursor/rules/` complementan esta documentación:
 
-Cada archivo sigue el patrón `HU-XXX` o `TR-XXX` con clasificación MH (Must-Have) o SH (Should-Have).
-
----
-
-## Entregas y Plantillas
-
-- **`_ENTREGA-1/`** – Documentación técnica (instrucciones, verificación)
-- **`_ENTREGA-2/`** – Código funcional (instrucciones, verificación)
-- **`plantillas/`** – Plantillas para artefactos del proyecto
+| Regla | Propósito |
+|-------|-----------|
+| `01-project-context.md` | Contexto del proyecto para el agente |
+| `05-backend-policy.md` | Política backend Laravel |
+| `06-api-contract.md` | Contrato API obligatorio |
+| `08-security-sessions-tokens.md` | Seguridad, Sanctum, tenant |
+| `10-i18n-and-testid.md` | i18n y data-testid obligatorios |
+| `12-testing.md` | Estrategia de tests |
+| `16-prompt-dispatcher.md` | Comandos HU→TR, entorno de desarrollo |
+| `21-Iniciar-tunel-SSH-para-MySql.md` | Túnel SSH para MySQL remoto |
 
 ---
 
 ## Orden de Lectura Recomendado
 
-Para un programador nuevo, seguir el **Manual del Programador** (`_MANUAL-PROGRAMADOR.MD` en la raíz), que define una **Ruta de Lectura** por fases. Esta carpeta `docs/` complementa esa ruta.
+**Para desarrolladores nuevos:**
+1. `00-contexto/00-contexto-global-erp.md` → contexto del ERP
+2. `00-contexto/02-guia-onboarding-30-minutos.md` → onboarding
+3. `01-arquitectura/01-arquitectura-proyecto.md` → arquitectura
+4. HU y TR del módulo en el que se trabaja
 
-**Resumen rápido:**
-1. `producto.md` → contexto funcional
-2. `historias-y-tickets.md` → qué implementar
-3. `arquitectura.md` + `modelo-datos.md` → diseño técnico
-4. `backend/PLAYBOOK_BACKEND_LARAVEL.md` o `frontend/` según tu área
+**Para implementar una funcionalidad:**
+1. Leer la HU correspondiente en `_projects/SistemaPartes/hu-historias/`
+2. Leer la TR en `_projects/SistemaPartes/hu-tareas/`
+3. Consultar `backend/` o `frontend/` según el área
 
 ---
 
 ## Referencias Cruzadas
 
-- **Especificaciones técnicas detalladas:** `specs/` (ver `specs/README.md`)
-- **Manual del programador:** `_MANUAL-PROGRAMADOR.MD` (raíz)
-- **Contexto del proyecto:** `_PROJECT_CONTEXT.md` (raíz)
 - **Reglas del agente IA:** `AGENTS.md` (raíz)
+- **Migración MySQL:** `docs/migracion-mssql-a-mysql.md`
+- **Docker/CI-CD futuro:** `docs/futuro/DOCKER-CICD.md`

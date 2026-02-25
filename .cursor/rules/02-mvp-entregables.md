@@ -21,4 +21,4 @@ Este proyecto corresponde a un MVP académico/profesional con consignas explíci
    - Tests de integración
    - Al menos un test E2E
 ## Toda decisión relevante debe poder documentarse.
-## Facilitar la generación del registro de uso de IA (antes/después).
+
