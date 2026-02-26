@@ -34,8 +34,11 @@ Este documento sirve como **índice de navegación** para toda la documentación
 
 | Documento | Propósito |
 |-----------|-----------|
-| **`_projects/SistemaPartes/hu-historias/`** | Historias de usuario (HU-001, HU-028, etc.) |
-| **`_projects/SistemaPartes/hu-tareas/`** | Tareas técnicas (TR-001, TR-028, etc.) |
+| **`03-hu-historias/000-Generalidades/`** | Épica Generalidades: layouts persistentes de grillas |
+| **`03-hu-historias/001-Seguridad/`** | Épica Seguridad: login, selección empresa, logout, mantenimiento tablas (users, PQ_Empresa, roles, permisos, menú) |
+| **`03-hu-historias/Historia_PQ_MENUS_seed.md`** | Seed versionado del menú del sistema |
+| **`_projects/SistemaPartes/hu-historias/`** | Historias de usuario del módulo Partes (legacy) |
+| **`_projects/SistemaPartes/hu-tareas/`** | Tareas técnicas del módulo Partes |
 | **`_projects/SistemaPartes/RN-Sistema-Partes.md`** | Reglas de negocio del módulo Partes |
 
 ### API y Backend

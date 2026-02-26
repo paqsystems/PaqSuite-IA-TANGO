@@ -581,6 +581,7 @@ Si la base de datos está en un servidor remoto (ej. Laravel Forge), los scripts
 | **i18n** | `docs/frontend/i18n.md` | Internacionalización |
 | **Testing** | `.cursor/rules/12-testing.md` | Estrategia de tests |
 | **E2E Mobile (Appium)** | `docs/mobile/APPIUM-E2E-TESTING.md` | Cuándo y cómo instalar Appium para apps Capacitor (no instalado por defecto) |
+| **Grillas DevExtreme** | `.cursor/rules/24-devextreme-grid-standards.md` | Estándar de DataGrid: columnas, filtros, agrupación, layouts |
 | **Versionado y Deploy** | `.cursor/rules/23-versioning-and-deploy.md` | SemVer, VERSION, migrations, seeds, multiempresa |
 
 ### Especificaciones Técnicas

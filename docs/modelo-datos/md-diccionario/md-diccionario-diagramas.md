@@ -8,6 +8,8 @@ Este archivo contiene los diagramas de entidad-relación en formato Mermaid para
 - `md-diccionario.md` – Comandos SQL CREATE (sin cambios) + definiciones de módulos
 - `md-diccionario-diagramas.md` – Este archivo: diagramas Mermaid
 
+**Tablas no aplicadas:** La tabla `users_identities` (identidades externas: Google, Microsoft, etc.) no se implementa por el momento. Solo se usa autenticación local. Ver `md-diccionario.md` sección "Tablas no aplicadas".
+
 ---
 
 ## 1. Diagrama general (todas las tablas)
@@ -30,7 +32,16 @@ erDiagram
         datetime created_at
         datetime updated_at
     }
-    
+
+    users_identities{
+        bigint id PK
+        bigint id_user
+        nvarchar provider           "tipo de proveedor de acceso  (google, microsoft, local)"
+        nvarchar provider_subject   "código de acceso del proveedor"
+        datetime created_at
+    }
+    note for users_identities "NO APLICADA por el momento"
+
     pq_menus {
         int id PK
         nvarchar text "Descripción en pantalla"
@@ -75,6 +86,18 @@ erDiagram
         int IDRol FK
         int IDEmpresa FK
         int IDUsuario FK
+    }
+    
+    pq_grid_layouts {
+        bigint id PK
+        bigint user_id FK "Usuario creador"
+        varchar proceso "pq_menus.procedimiento"
+        varchar grid_id "default, master, detalle..."
+        varchar layout_name
+        nvarchar layout_data "JSON"
+        bit is_default
+        datetime created_at
+        datetime updated_at
     }
     
     PQ_GrupoEmpresario {
@@ -150,6 +173,8 @@ erDiagram
     }
     
     users ||--o{ Pq_Permiso : "IDUsuario"
+    users ||--o{ users_identities : "IDUsuario"
+    users ||--o{ pq_grid_layouts : "user_id"
     PQ_Empresa ||--o{ Pq_Permiso : "IDEmpresa"
     Pq_Rol ||--o{ Pq_Permiso : "IDRol"
     Pq_Rol ||--o{ PQ_RolAtributo : "IDRol"
@@ -190,6 +215,15 @@ erDiagram
         datetime updated_at
     }
     
+    users_identities{
+        bigint id PK
+        bigint id_user FK
+        nvarchar provider           "tipo de proveedor de acceso  (google, microsoft, local)"
+        nvarchar provider_subject   "código de acceso del proveedor"
+        datetime created_at
+    }
+    note for users_identities "NO APLICADA por el momento"
+
     pq_menus {
         int id PK
         nvarchar text
@@ -232,6 +266,7 @@ erDiagram
     }
     
     users ||--o{ Pq_Permiso : "1 usuario : N permisos"
+    users ||--o{ users_identities : "IDUsuario"
     PQ_Empresa ||--o{ Pq_Permiso : "1 empresa : N permisos"
     Pq_Rol ||--o{ Pq_Permiso : "1 rol : N permisos"
     Pq_Rol ||--o{ PQ_RolAtributo : "1 rol : N atributos"

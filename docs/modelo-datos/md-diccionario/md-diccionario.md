@@ -4,12 +4,20 @@
 
 ---
 
+## Tablas no aplicadas (por el momento)
+
+| Tabla | Propósito | Motivo |
+|-------|-----------|--------|
+| `users_identities` | Identidades externas (Google, Microsoft, etc.) vinculadas a usuarios | No se implementa login social/externo en este proyecto; solo autenticación local (código + contraseña). |
+
+---
+
 CREATE TABLE [dbo].[users](
 	[id] [bigint] IDENTITY(1,1) NOT NULL,
 	[codigo] [nvarchar](20) NOT NULL UNIQUE,			-- còdigo unico identificador usuario
 	[name_user] [nvarchar](255) NOT NULL,				-- nombre y apellido del usuario
 	[email] [nvarchar](255) NOT NULL UNIQUE,			-- email del usuario
-	[password] [nvarchar](255) NULL,					-- contraseña (encriptada)
+	[password_hash] [nvarchar](255) NULL,				-- contraseña (encriptada)
 	[first_login] [bit] NOT NULL,						-- 1er login (debe cambiarlo obligatoriamente si es verdad)
 	[supervisor] [bit] NOT NULL,						-- si es de tipo SUPERVISOR (atributos especiales)
 	[activo] [bit] NOT NULL,							-- si està activo (indispensable para poder acceder)
@@ -23,6 +31,14 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+-- NOTA: users_identities NO se aplica por el momento. Ver sección "Tablas no aplicadas" al inicio.
+CREATE TABLE [dbo].[users_identities](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[user_id] [bigint] NOT NULL,                        -- id de usuario al que pertenece
+    provider [varchar](20) NOT NULL,                    -- (google, microsoft, local)
+    provider_subject [varchar](100) NOT NULL,           -- codigo del provider
+    created_at [datetime] NULL
 
 CREATE TABLE [dbo].[pq_menus](
 	[id] [int] NOT NULL,
@@ -106,6 +122,23 @@ CREATE TABLE [dbo].[Pq_Permiso](
 ) ON [PRIMARY]
 GO
 
+CREATE TABLE [dbo].[pq_grid_layouts](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[user_id] [bigint] NOT NULL,							-- Usuario que creó el layout (solo él puede modificarlo/eliminarlo)
+	[proceso] [varchar](150) NOT NULL,					-- Identificador del proceso/pantalla (ej. pq_menus.procedimiento: "Clientes", "Empleados")
+	[grid_id] [varchar](50) NOT NULL DEFAULT 'default',	-- Identificador del grid cuando hay varios en la misma pantalla ("default", "master", "detalle")
+	[layout_name] [varchar](100) NOT NULL,				-- Nombre del layout (puede repetirse entre usuarios)
+	[layout_data] [nvarchar](max) NULL,					-- JSON: columnas visibles, orden, filtros, agrupaciones, ordenamiento, totalizadores
+	[is_default] [bit] NOT NULL DEFAULT 0,				-- 1 = layout por defecto para ese proceso+grid_id (por usuario o global según diseño)
+	[created_at] [datetime] NULL,
+	[updated_at] [datetime] NULL,
+ CONSTRAINT [PK_pq_grid_layouts] PRIMARY KEY CLUSTERED ([id] ASC),
+ CONSTRAINT [FK_pq_grid_layouts_users] FOREIGN KEY ([user_id]) REFERENCES [dbo].[users]([id])
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+CREATE NONCLUSTERED INDEX [IX_pq_grid_layouts_proceso_grid] ON [dbo].[pq_grid_layouts]([proceso], [layout_name], [grid_id])
+GO
 
 CREATE TABLE [dbo].[PQ_GrupoEmpresario](
 	[id] [bigint] IDENTITY(1,1) NOT NULL,
@@ -249,6 +282,28 @@ Definir autenticación, acceso a empresas y limitación de accesos que puede ten
 
 ### 6) Pendiente de definir
 - **PQ_RolAtributo.IDAtributo:** ¿Qué representa?
+
+---
+
+## LAYOUTS DE GRILLA
+
+### 1) Objetivo
+Almacenar formatos personalizados de grillas (DataGrid DevExtreme) para que los usuarios puedan guardar y recuperar configuraciones de columnas, filtros, agrupaciones, ordenamiento y totalizadores.
+
+### 2) Relaciones
+- 1 usuario → varios layouts creados (user_id = creador)
+- Los layouts son compartidos: todos los usuarios pueden usar cualquier layout.
+- `proceso` vincula con `pq_menus.procedimiento` (identificador de la pantalla).
+- `grid_id` distingue cuando una pantalla tiene varias grillas (ej. "default", "master", "detalle").
+
+### 3) Reglas de negocio
+- Solo el creador (user_id) puede modificar o eliminar un layout.
+- No existe UNIQUE que incluya user_id: los nombres pueden repetirse entre usuarios.
+- `layout_data` almacena JSON con la configuración serializada de la grilla.
+
+### 4) Definiciones acordadas
+- **proceso:** Valor de `pq_menus.procedimiento` (ej. "Clientes", "Empleados").
+- **grid_id:** "default" cuando hay una sola grilla; identificador específico cuando hay varias.
 
 ---
 

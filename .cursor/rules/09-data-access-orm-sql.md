@@ -43,6 +43,7 @@ Schema::create('clientes', function (Blueprint $table) {
 - Versionar migrations en control de versiones
 - No modificar migrations ya aplicadas en producción
 - Usar `php artisan migrate:fresh` solo en desarrollo
+- **No crear** la tabla `users_identities` (no aplica por el momento; ver `docs/modelo-datos/md-diccionario/md-diccionario.md` sección "Tablas no aplicadas")
 
 ---
 
