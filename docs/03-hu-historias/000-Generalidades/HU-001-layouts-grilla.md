@@ -7,7 +7,7 @@
 SHOULD-HAVE
 
 ## Rol
-Usuario que opera con grillas (listados)
+Usuario que opera con grillas (listados o ABMs de Tablas)
 
 ## Narrativa
 
@@ -21,6 +21,7 @@ Como usuario que trabajo frecuentemente con grillas quiero guardar y recuperar f
 - El layout incluye: columnas visibles, orden de columnas, filtros aplicados, agrupaciones, ordenamiento, totalizadores configurados.
 - "Guardar" sobre un layout seleccionado actualiza ese layout.
 - "Guardar como..." crea un nuevo layout a partir del actual, permitiendo asignar otro nombre.
+- "Guardar" sobre la plantilla original, actùa como "Guardar como..."
 - Los layouts son compartidos: todos los usuarios pueden ver y usar cualquier layout definido.
 
 ### Cargar layout
@@ -36,14 +37,12 @@ Como usuario que trabajo frecuentemente con grillas quiero guardar y recuperar f
 
 ### Identificación de grillas
 
-- Cada grilla se identifica por `proceso` (valor de `pq_menus.procedimiento`) y `grid_id` (cuando hay varias grillas en la misma pantalla, ej. "default", "master", "detalle").
+- Cada grilla se identifica por `proceso` (valor de `pq_menus.procedimiento`), `layout_name` y `grid_id`  (cuando hay varias grillas en la misma pantalla, ej. "default", "master", "detalle").
 - Los layouts se filtran por proceso + grid_id.
 
 ## Tabla involucrada
 
 - `pq_grid_layouts`: id, user_id, proceso, grid_id, layout_name, layout_data, is_default, created_at, updated_at
-
-**Nota:** No existe índice UNIQUE que incluya user_id. Los nombres pueden repetirse entre usuarios. En la selección se puede mostrar "layout_name (creado por X)" para distinguir cuando hay repetición.
 
 ## Reglas de negocio
 

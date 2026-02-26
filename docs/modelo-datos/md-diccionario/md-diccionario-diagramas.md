@@ -29,6 +29,8 @@ erDiagram
         bit activo
         bit inhabilitado
         nvarchar token "Validación APIs"
+        bit menu_abrir_nueva_pestana "0=misma pestaña, 1=nueva (HU-003)"
+        varchar locale "es, en, etc. NULL=browser (HU-004)"
         datetime created_at
         datetime updated_at
     }
@@ -211,10 +213,12 @@ erDiagram
         bit activo
         bit inhabilitado
         nvarchar token
+        bit menu_abrir_nueva_pestana "HU-003"
+        varchar locale "HU-004"
         datetime created_at
         datetime updated_at
     }
-    
+
     users_identities{
         bigint id PK
         bigint id_user FK

@@ -23,6 +23,8 @@ CREATE TABLE [dbo].[users](
 	[activo] [bit] NOT NULL,							-- si està activo (indispensable para poder acceder)
 	[inhabilitado] [bit] NOT NULL,						-- si està inhabilitado (impide acceso al sistema)
 	[token] [nvarchar](255) NULL,						-- validaciòn acceso durante el uso de APIs del sistema
+	[menu_abrir_nueva_pestana] [bit] NOT NULL DEFAULT 0,	-- 0 = misma pestaña, 1 = nueva pestaña (HU-003, solo frontend web)
+	[locale] [varchar](10) NULL,						-- idioma preferido: 'es', 'en', etc. NULL = usar idioma del navegador (HU-004)
 	[created_at] [datetime] NULL,						-- fecha de creaciòn del usuario
 	[updated_at] [datetime] NULL,						-- fecha ultima modificaciòn del usuario
 PRIMARY KEY CLUSTERED 
