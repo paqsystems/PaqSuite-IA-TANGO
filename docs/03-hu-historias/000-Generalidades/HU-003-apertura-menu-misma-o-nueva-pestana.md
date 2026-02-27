@@ -20,7 +20,7 @@ Como usuario que trabajo en el frontend web quiero elegir si las opciones del me
 - Si la preferencia es "misma pestaña": la navegación ocurre en la pestaña actual (comportamiento estándar de SPA).
 - Si la preferencia es "nueva pestaña": el proceso se abre en una nueva pestaña del navegador (`target="_blank"` o equivalente).
 - La preferencia se persiste en el campo `users.menu_abrir_nueva_pestana` (Dictionary DB) para que se mantenga ante nuevo acceso, en el mismo navegador, otro navegador u otro PC.
-- La opción de configuración está disponible en el menú de usuario (dropdown, configuración o perfil).
+- La opción de configuración está disponible en el **menú de usuario** (debajo del avatar en el header), como toggle "Abrir en nueva pestaña".
 - **Esta funcionalidad aplica solo al frontend web.** En aplicaciones móviles (app nativa o PWA en modo mobile) no se ofrece ni se aplica.
 
 ## Alcance técnico
@@ -48,6 +48,7 @@ Como usuario que trabajo en el frontend web quiero elegir si las opciones del me
 
 ## Referencias
 
+- `docs/design/paqsystems-main-shell-design.md` – Sección 4.2 Menú de usuario
+- `docs/ui/mockups/mockup-spec-mainlayout.md` – M01_UserMenu_Dropdown (toggle "Abrir procesos en solapas")
 - `docs/modelo-datos/md-diccionario/md-diccionario.md` – Esquema users
-- `specs/ui/screen-specifications.md` – Opción "Abrir en otra solapa" en menú usuario
 - `docs/01-arquitectura/ui/01_MainLayout_PostLogin_Specification.md` – TabPanel y modo solapas (desktop/tablet)

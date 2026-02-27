@@ -15,7 +15,7 @@ Como usuario autenticado quiero cerrar sesión de forma segura para que mi token
 
 ## Criterios de aceptación
 
-- El usuario puede cerrar sesión desde el menú de usuario (ícono/avatar en TopBar).
+- El usuario puede cerrar sesión desde el **menú de usuario** (debajo del avatar en el header).
 - La opción "Cerrar sesión" está visible en el DropDownButton/Menu del usuario.
 - Al seleccionar cerrar sesión, el sistema invalida el token en el backend (si aplica).
 - El frontend elimina el token de localStorage/sessionStorage.
@@ -36,4 +36,5 @@ Como usuario autenticado quiero cerrar sesión de forma segura para que mi token
 
 ## Referencias
 
+- `docs/design/paqsystems-main-shell-design.md` – Sección 4.2 Menú de usuario
 - `docs/ui/mockups/mockup-spec-mainlayout.md` – M01_UserMenu_Dropdown

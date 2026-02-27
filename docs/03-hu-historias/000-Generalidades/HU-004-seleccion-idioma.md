@@ -18,7 +18,8 @@ Como usuario quiero elegir el idioma en que se muestran los datos de la aplicaci
 ### Disponibilidad
 
 - El selector de idioma está disponible en la pantalla de login (antes de autenticarse).
-- El selector de idioma permanece disponible en el layout principal tras el login (menú usuario, header o barra superior).
+- El selector de idioma permanece disponible en el layout principal tras el login, usando el **control dedicado** diseñado para tal fin en el header (dropdown o grupo de botones según diseño PaqSystems).
+- El selector de idioma **no** forma parte del menú de usuario; es un control independiente en la barra superior.
 - El usuario puede cambiar el idioma en cualquier momento.
 
 ### Idioma inicial
@@ -67,6 +68,8 @@ Como usuario quiero elegir el idioma en que se muestran los datos de la aplicaci
 
 ## Referencias
 
+- `docs/design/paqsystems-main-shell-design.md` – Sección 4.1 Selector de idioma
+- `docs/ui/mockups/mockup-spec-mainlayout.md` – TopBar Language flags
 - `docs/modelo-datos/md-diccionario/md-diccionario.md` – Esquema users
 - `docs/frontend/i18n.md` – Estrategia de i18n
 - `frontend/src/i18n/` – Configuración actual de i18next

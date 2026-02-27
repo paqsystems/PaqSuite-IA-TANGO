@@ -15,7 +15,7 @@ Como usuario autenticado quiero cambiar mi contraseña para mantener la segurida
 
 ## Criterios de aceptación
 
-- El usuario puede acceder al cambio de contraseña desde el menú de usuario (Cambiar contraseña).
+- El usuario puede acceder al cambio de contraseña desde el **menú de usuario** (debajo del avatar en el header), ítem "Cambiar contraseña".
 - Se abre un Popup/Modal con formulario: contraseña actual, contraseña nueva, confirmación.
 - El sistema valida que la contraseña actual sea correcta.
 - El sistema valida que la contraseña nueva cumpla políticas (longitud mínima, complejidad si se define).
@@ -37,4 +37,5 @@ Como usuario autenticado quiero cambiar mi contraseña para mantener la segurida
 
 ## Referencias
 
-- `docs/ui/mockups/mockup-spec-mainlayout.md` – M05_ChangePassword_Popup
+- `docs/design/paqsystems-main-shell-design.md` – Sección 4.2 Menú de usuario
+- `docs/ui/mockups/mockup-spec-mainlayout.md` – M01_UserMenu_Dropdown, M05_ChangePassword_Popup

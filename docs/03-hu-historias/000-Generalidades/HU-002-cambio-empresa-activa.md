@@ -15,7 +15,7 @@ Como usuario que tengo acceso a varias empresas quiero cambiar la empresa activa
 
 ## Criterios de aceptación
 
-- El usuario puede cambiar la empresa activa desde la barra superior o menú principal (selector de empresa).
+- El usuario puede cambiar la empresa activa desde el **menú de usuario** (debajo del avatar en el header).
 - Solo se muestran las empresas a las que el usuario tiene permiso (`Pq_Permiso` con IDUsuario e IDEmpresa).
 - Al seleccionar otra empresa, el sistema actualiza el contexto (empresa activa) y recarga o ajusta la vista actual.
 - El cambio se refleja en el header/barra (nombre de empresa visible).
@@ -37,10 +37,12 @@ Como usuario que tengo acceso a varias empresas quiero cambiar la empresa activa
 ## Dependencias
 
 - HU-001 (Login) de épica 001 – flujo de autenticación y permisos
-- Layout principal implementado con barra superior o área de cabecera
+- Layout principal con menú de usuario (debajo del avatar)
 - API que acepte y valide `X-Company-Id`
 
 ## Referencias
 
+- `docs/design/paqsystems-main-shell-design.md` – Sección 4.2 Menú de usuario
+- `docs/ui/mockups/mockup-spec-mainlayout.md` – M03_CompanySwitcher_Popup
 - `docs/modelo-datos/md-diccionario/md-diccionario.md` – Esquema Pq_Permiso, PQ_Empresa
 - `docs/01-arquitectura/06-mapa-visual-seguridad-roles-permisos-menu.md` – Flujo de autorización
