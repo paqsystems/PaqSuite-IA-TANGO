@@ -87,6 +87,32 @@ cd frontend && npm run test:run
 # Frontend – tests E2E (requiere backend en http://localhost:8000)
 cd frontend && npm run test:e2e
 ```
+## Aclaraciones Conceptuales
+
+* CI y CD son independientes
+CI (ci.yml): tests (backend, frontend, Swagger, E2E). No hace deploy.
+CD (cd.yml): build y push de imágenes Docker a ghcr.io. No ejecuta tests.
+Puedes activar solo CI copiando el workflow correspondiente:
+    `cp docs/futuro/workflows/ci.yml .github/workflows/ci.yml`
+
+* Qué hace el CI (sin CD)
+Backend: PHPUnit con MySQL 8.0
+Frontend: Vitest + build de Vite
+Swagger: generación de OpenAPI
+E2E: Playwright con backend y frontend en ejecución
+No hay deploy ni URL externa; solo validación en cada push/PR.
+
+* Rama configurada en CI
+El CI está configurado para main:
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+* Posibles ajustes
+- TestUsersSeeder / TestTasksSeeder: el CI los usa; comprueba que existan en el backend.
+- l5-swagger: el job swagger usa php artisan l5-swagger:generate; si no usas Swagger, ese job puede fallar. Podrías quitarlo o condicionarlo.
 
 ---
 
