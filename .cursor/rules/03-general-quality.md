@@ -4,7 +4,7 @@
 
 ### Estructura del Proyecto
 
-- Mantener separación clara entre frontend y backend
+- Mantener separación clara entre los diferentes frontends y el backend
 - Seguir estructura de carpetas establecida
 - Documentar cada componente importante
 

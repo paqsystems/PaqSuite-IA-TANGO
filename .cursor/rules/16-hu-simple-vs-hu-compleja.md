@@ -25,7 +25,9 @@ generar el plan completo de tareas/tickets del MVP
 y guardarlo como archivo Markdown.
 
 Archivo a generar:
-- Ruta: `docs/hu-tareas/`
+- Ruta: `docs/hu-tareas/` en la **misma subcarpeta** en que se encuentra la HU.
+  Ejemplo: si la HU está en `docs/03-hu-historias/001-Seguridad/HU-010-xxx.md`,
+  el TR va en `docs/hu-tareas/001-Seguridad/TR-010-xxx.md`.
 - Nombre: igual al nombre del archivo HU,
   reemplazando el prefijo `HU-` por `TR-`.
 - Si el archivo existe, **regenerarlo desde cero**
@@ -107,7 +109,9 @@ Usar como regla obligatoria:
 `.cursor/rules/13-user-story-to-task-breakdown.md`
 
 Archivo a generar:
-- Ruta: `docs/hu-tareas/`
+- Ruta: `docs/hu-tareas/` en la **misma subcarpeta** en que se encuentra la HU.
+  Ejemplo: si la HU está en `docs/03-hu-historias/001-Seguridad/HU-010-xxx.md`,
+  el TR va en `docs/hu-tareas/001-Seguridad/TR-010-xxx.md`.
 - Nombre: igual al nombre del archivo HU,
   reemplazando el prefijo `HU-` por `TR-`.
 - Si el archivo existe, **regenerarlo completamente**.

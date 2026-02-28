@@ -48,7 +48,9 @@ Regla: toda historia/ticket/código/test debe soportar este flujo.
 
 ## 4) Historias Must / Should
 Definición y criterios de aceptación en:
-- `docs/historias-y-tickets.md`
+- `docs/_projects/SistemaPartes/hu-historias/` (historias)
+- `docs/_projects/SistemaPartes/hu-tareas/` (tareas técnicas)
+Esto es un ejemplo de un solo módulo o proyecto que contemplará toda la solución
 
 Reglas:
 - Must-Have: indispensables para que el flujo E2E tenga valor completo.
@@ -57,19 +59,19 @@ Reglas:
 ---
 
 ## 5) Artefactos y dónde se mantienen
-Este repo mantiene la documentación mínima en `/docs`:
+Este repo mantiene la documentación en `/docs`:
 
-- `docs/producto.md`  
-  Objetivo, usuarios, funcionalidades MVP, no-alcance.
+- `docs/00-contexto/`  
+  Contexto institucional, onboarding, guías corporativas.
 
-- `docs/historias-y-tickets.md`  
-  Historias + criterios de aceptación + tickets trazables por módulo.
+- `docs/01-arquitectura/`  
+  Arquitectura técnica, modelo de datos, seguridad, roadmap (ver `docs/01-arquitectura/README.md`).
+
+- `docs/_projects/SistemaPartes/`  
+  Historias de usuario (hu-historias/) y tareas técnicas (hu-tareas/) del módulo Partes.
 
 - `docs/arquitectura.md`  
-  Diagrama y decisiones de arquitectura.
-
-- `docs/modelo-datos.md`  
-  Entidades, relaciones, restricciones, decisiones (ej: soft delete, índices).
+  Visión general del sistema (3 capas, web+mobile).
 
 - `.cursor/rules/12-testing.md`  
   Estrategia, qué se testea, cómo correr tests, y el/los E2E.

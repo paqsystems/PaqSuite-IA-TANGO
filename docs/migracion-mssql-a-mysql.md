@@ -49,7 +49,7 @@ sources:
 **Opción 1: PowerShell**
 ```powershell
 # Comando exacto para establecer túnel SSH
-ssh -i "C:\Users\Pabloq\pablo-notebook" -L 3306:localhost:3306 forge@18.218.140.170
+ssh -i "C:\Users\PabloQ\pablo-notebook" -L 3306:localhost:3306 forge@18.218.140.170
 ```
 
 **Nota:** Este comando abrirá una sesión SSH que debe mantenerse abierta. Dejar la ventana de PowerShell abierta mientras trabajas con la base de datos.
@@ -60,7 +60,7 @@ ssh -i "C:\Users\Pabloq\pablo-notebook" -L 3306:localhost:3306 forge@18.218.140.
    - Host Name: `forge@18.218.140.170`
    - Port: `22`
 3. Ir a "Connection > SSH > Auth"
-4. En "Private key file for authentication", seleccionar: `C:\Users\Pabloq\pablo-notebook`
+4. En "Private key file for authentication", seleccionar: `C:\Users\PabloQ\pablo-notebook`
 5. Ir a "Connection > SSH > Tunnels"
 6. Agregar:
    - Source port: `3306`
@@ -279,7 +279,7 @@ Schema::create('personal_access_tokens', function (Blueprint $table) {
 
 1. **Establecer túnel SSH**
    ```powershell
-   ssh -i "C:\Users\Pabloq\pablo-notebook" -L 3306:localhost:3306 forge@18.218.140.170
+   ssh -i "C:\Users\PabloQ\pablo-notebook" -L 3306:localhost:3306 forge@18.218.140.170
    ```
    
    **Importante:** Mantener esta ventana de PowerShell abierta mientras trabajas con la base de datos. El túnel se cerrará si cierras la ventana.

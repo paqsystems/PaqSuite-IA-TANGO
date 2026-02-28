@@ -1,5 +1,15 @@
 # Normas de uso de DevExtreme en el frontend
 
+## Licencia
+
+Para activar la licencia de DevExtreme:
+
+1. Obtener la clave en [DevExpress Download Manager](https://www.devexpress.com/ClientCenter/DownloadManager/) (DevExtreme Subscription > expandir > copiar license key).
+2. Crear el archivo `frontend/src/devextreme-license.ts` (o copiar desde `devextreme-license.ts.example`).
+3. Reemplazar `'TU_LICENCIA_AQUI'` por tu clave real.
+
+El archivo `devextreme-license.ts` está en `.gitignore` para que cada desarrollador use su propia clave.
+
 ## Instalación
 
 ```bash

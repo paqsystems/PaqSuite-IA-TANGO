@@ -19,7 +19,9 @@ alwaysApply: true
 **Framework:** React  
 **Build Tool:** Vite (recomendado) o Webpack  
 **State Management:** Context API o Redux/Zustand (según necesidad)  
-**UI Library:** Tailwind CSS + shadcn/ui (Radix UI)
+**UI Library:** DevExtreme React Components (DevExpress)
+
+Ver `.cursor/rules/07b-frontend-mobile-norms.md` para normas específicas de mobile (Capacitor).
 
 ## Estructura de Carpetas
 
@@ -30,7 +32,7 @@ frontend/
 │   │   ├── ui/          # UI Layer Wrappers (OBLIGATORIO)
 │   │   │   ├── Button/
 │   │   │   ├── TextField/
-│   │   │   ├── DataTable/
+│   │   │   ├── DataGrid/
 │   │   │   ├── Modal/
 │   │   │   └── index.ts
 │   │   └── i18n/        # Función t() de traducción
@@ -54,8 +56,10 @@ frontend/
 
 **Las features solo importan desde:**
 ```typescript
-import { Button, TextField, DataTable, Modal } from '@/shared/ui';
+import { Button, TextField, DataGrid, Modal } from '@/shared/ui';
 ```
+
+Los wrappers encapsulan componentes DevExtreme (Button, TextBox, DataGrid, Popup, etc.). Ver `docs/frontend/devextreme-norms.md`.
 
 **Reglas de calidad:**
 - ✅ `testId` obligatorio en todos los wrappers de controles

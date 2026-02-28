@@ -4,7 +4,7 @@
 # Configuración
 $SSH_HOST = "18.218.140.170"
 $SSH_USER = "forge"
-$SSH_KEY = "C:\Users\Pabloq\pablo-notebook"
+$SSH_KEY = "C:\Users\PabloQ\pablo-notebook"
 $SSH_PASSWORD = "Go4QQnC3vmPQ8YwlOaw7"
 $LOCAL_PORT = 3306
 $REMOTE_HOST = "127.0.0.1"

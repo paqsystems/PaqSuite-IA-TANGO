@@ -11,7 +11,7 @@ El servidor MySQL está protegido y solo acepta conexiones desde el servidor SSH
 **Servidor SSH:**
 - Host: `18.218.140.170`
 - Usuario: `forge`
-- Clave SSH: `C:\Users\Pabloq\pablo-notebook`
+- Clave SSH: `C:\Users\PabloQ\pablo-notebook`
 - Contraseña SSH: `Go4QQnC3vmPQ8YwlOaw7`
 
 **MySQL (en el servidor remoto):**
@@ -51,7 +51,7 @@ El servidor MySQL está protegido y solo acepta conexiones desde el servidor SSH
 Si prefieres ejecutar el comando directamente:
 
 ```bash
-ssh -i "C:\Users\Pabloq\pablo-notebook" -L 3306:127.0.0.1:3306 -N forge@18.218.140.170
+ssh -i "C:\Users\PabloQ\pablo-notebook" -L 3306:127.0.0.1:3306 -N forge@18.218.140.170
 ```
 
 **Parámetros:**

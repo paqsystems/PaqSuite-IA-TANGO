@@ -1,7 +1,7 @@
 # Manual del Programador
 
-**Versión:** 1.4  
-**Última actualización:** 2025-02-15
+**Versión:** 1.5  
+**Última actualización:** 2025-02-23
 
 ---
 
@@ -13,7 +13,8 @@
 4. [Estructura del Proyecto](#estructura-del-proyecto)
 5. [Convenciones y Reglas](#convenciones-y-reglas)
 6. [Cómo Empezar a Trabajar](#cómo-empezar-a-trabajar)
-7. [Referencias Importantes](#referencias-importantes)
+7. [Archivos con Credenciales para Configurar](#archivos-con-credenciales-para-configurar)
+8. [Referencias Importantes](#referencias-importantes)
 
 ---
 
@@ -400,10 +401,10 @@ Lidr-AI4Devs2025-ProyectoFinal/
 
 1. **Clonar el repositorio**
    ```bash
-   git clone https://github.com/paqsystems/Lidr-AI4Devs2025-ProyectoFinal
-   cd Lidr-AI4Devs2025-ProyectoFinal
+   git clone https://github.com/paqsystems/PaqSuite-IA-ERP
+   cd PaqSuite-IA-ERP
    ```
-   > **Referencia:** URL pública de la aplicación: https://lidrproyectofinal.vercel.app/login
+   > **Referencia:** URL pública de la aplicación: https://paqsystems.vercel.app/login
 
 2. **Backend (Laravel)**
    ```bash
@@ -511,6 +512,55 @@ Lee y ejecuta el flujo E2E principal:
 
 ---
 
+## 🔐 Archivos con Credenciales para Configurar
+
+Antes de ejecutar el proyecto, debes configurar las credenciales en los siguientes archivos. **Nunca commitear archivos con credenciales reales** (están en `.gitignore`).
+
+### 1. Base de datos (Backend)
+
+| Archivo | Acción | Variables a configurar |
+|---------|--------|------------------------|
+| `backend/.env.example` | Copiar a `backend/.env` | `DB_CONNECTION`, `DB_HOST`, `DB_PORT`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` |
+| `docker/.env.example` | Copiar a `docker/.env` (si usas Docker) | `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` |
+
+Para MySQL con túnel SSH remoto, ver `docs/migracion-mssql-a-mysql.md` y `scripts/README-SSH-TUNNEL.md`.
+
+### 2. Licencia DevExtreme (Frontend)
+
+| Archivo | Acción | Descripción |
+|---------|--------|-------------|
+| `frontend/src/devextreme-license.ts.example` | Copiar a `frontend/src/devextreme-license.ts` | Reemplazar `'TU_LICENCIA_AQUI'` por tu clave de licencia DevExtreme (DevExpress Subscription > Download Manager > copiar license key) |
+
+El archivo `devextreme-license.ts` está en `.gitignore`. Ver `docs/frontend/devextreme-norms.md`.
+
+### 3. URL de la API (Frontend)
+
+| Archivo | Acción | Variables a configurar |
+|---------|--------|------------------------|
+| `frontend/.env.example` | Copiar a `frontend/.env` | `VITE_API_URL` (ej: `http://localhost:8000/api` en desarrollo, `https://tu-dominio.com/api` en producción) |
+
+### 4. Túnel SSH para MySQL remoto
+
+Si la base de datos está en un servidor remoto (ej. Laravel Forge), los scripts de túnel SSH contienen configuración que debe ajustarse localmente:
+
+| Archivo | Contiene | Nota |
+|---------|----------|------|
+| `scripts/ssh-tunnel-mysql.ps1` | `$SSH_HOST`, `$SSH_USER`, `$SSH_KEY`, `$SSH_PASSWORD` | Script PowerShell – ajustar rutas y credenciales según tu entorno |
+| `scripts/ssh-tunnel-mysql.bat` | Invoca el script `.ps1` | Mismo ajuste |
+| `mcp/mysql-toolbox/tools.yaml` | Configuración MCP MySQL (si existe) | `host`, `port`, `database`, `user`, `password` |
+
+**Importante:** No versionar credenciales reales. Usar variables de entorno o archivos locales fuera del repo cuando sea posible.
+
+### 5. Otros (según uso)
+
+| Archivo | Variables | Cuándo configurar |
+|---------|-----------|-------------------|
+| `backend/.env` | `APP_KEY` | Generar con `php artisan key:generate` |
+| `backend/.env` | `MAIL_*` | Si usas envío de correos (recuperación de contraseña, etc.) |
+| `backend/.env` | `AWS_*`, `PUSHER_*` | Solo si usas esos servicios |
+
+---
+
 ## 📖 Referencias Importantes
 
 ### Documentos Clave
@@ -530,6 +580,9 @@ Lee y ejecuta el flujo E2E principal:
 | **UI Layer** | `docs/frontend/ui-layer-wrappers.md` | Reglas de componentes UI |
 | **i18n** | `docs/frontend/i18n.md` | Internacionalización |
 | **Testing** | `.cursor/rules/12-testing.md` | Estrategia de tests |
+| **E2E Mobile (Appium)** | `docs/mobile/APPIUM-E2E-TESTING.md` | Cuándo y cómo instalar Appium para apps Capacitor (no instalado por defecto) |
+| **Grillas DevExtreme** | `.cursor/rules/24-devextreme-grid-standards.md` | Estándar de DataGrid: columnas, filtros, agrupación, layouts |
+| **Versionado y Deploy** | `.cursor/rules/23-versioning-and-deploy.md` | SemVer, VERSION, migrations, seeds, multiempresa |
 
 ### Especificaciones Técnicas
 
@@ -603,8 +656,11 @@ Ver `.cursor/rules/12-testing.md` para instrucciones detalladas. En general:
 
 Este documento se actualiza de forma específica cuando se indique. Las actualizaciones se registran en la sección de versión al inicio del documento.
 
-**Última actualización:** 2025-02-15  
-**Versión:** 1.4
+**Última actualización:** 2025-02-23  
+**Versión:** 1.5
+
+**Cambios en v1.5:**
+- Añadida sección "Archivos con Credenciales para Configurar" (BD, DevExtreme, API URL, túnel SSH, otros)
 
 **Cambios en v1.4:**
 - Reconstruidos `docs/README.md` (guía de navegación de documentación) y `backend/README.md` (guía del backend)

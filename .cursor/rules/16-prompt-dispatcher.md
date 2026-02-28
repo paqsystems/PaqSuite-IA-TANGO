@@ -76,13 +76,24 @@ El asistente debe:
 2. Indicar la ejecución de los siguientes comandos,
    **en terminales separadas**:
 
-1) Backend
+1) Si el backend es mysql, abrir el túnel SSH
+En una terminal (mantener abierta):
+```powershell
+cd "C:\Programacion\PaqSuite-IA-ERP"
+.\scripts\ssh-tunnel-mysql.ps1
+```
+O directamente:
+```bash
+ssh -i "C:\Users\PabloQ\pablo-notebook" -o StrictHostKeyChecking=no -L 3306:127.0.0.1:3306 -N forge@18.218.140.170
+```
+
+2) Backend
 en nueva terminal
 ```bash
 cd backend
 php artisan serve
 ```
-2) Frontend
+3) Frontend
 en otra terminal
 ```bash 
 cd frontend

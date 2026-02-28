@@ -1,0 +1,1332 @@
+[
+  {
+    "id": 10000,
+    "text": "ventas",
+    "expanded": 0,
+    "parent": 0,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 19000,
+    "text": "Pedidos web",
+    "expanded": 0,
+    "parent": 0,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 20000,
+    "text": "Stock",
+    "expanded": 0,
+    "parent": 0,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 30000,
+    "text": "Proveedores",
+    "expanded": 0,
+    "parent": 0,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 40000,
+    "text": "Compras",
+    "expanded": 0,
+    "parent": 0,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 50000,
+    "text": "Tesoreria",
+    "expanded": 0,
+    "parent": 0,
+    "order": 5,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 60000,
+    "text": "Sueldos",
+    "expanded": 0,
+    "parent": 0,
+    "order": 6,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 70000,
+    "text": "Contabilidad",
+    "expanded": 0,
+    "parent": 0,
+    "order": 7,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 80000,
+    "text": "Logistica",
+    "expanded": 0,
+    "parent": 0,
+    "order": 8,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 90000,
+    "text": "Producción",
+    "expanded": 0,
+    "parent": 0,
+    "order": 9,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 100000,
+    "text": "Administración",
+    "expanded": 0,
+    "parent": 0,
+    "order": 10,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 110000,
+    "text": "Activos Fijos",
+    "expanded": 0,
+    "parent": 0,
+    "order": 11,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 120000,
+    "text": "Tableros de Control",
+    "expanded": 0,
+    "parent": 0,
+    "order": 12,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10100,
+    "text": "Archivos",
+    "expanded": 0,
+    "parent": 10000,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10200,
+    "text": "Pedidos",
+    "expanded": 0,
+    "parent": 10000,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10300,
+    "text": "Facturación",
+    "expanded": 0,
+    "parent": 10000,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10400,
+    "text": "Cuenta Corriente",
+    "expanded": 0,
+    "parent": 10000,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10500,
+    "text": "Informes",
+    "expanded": 0,
+    "parent": 10000,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10800,
+    "text": "Acopios",
+    "expanded": 0,
+    "parent": 10000,
+    "order": 5,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10900,
+    "text": "Consultas Personalizadas",
+    "expanded": 0,
+    "parent": 10000,
+    "order": 6,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10105,
+    "text": "Clientes",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "vt_archivos_cliente",
+    "routeName": null
+  },
+  {
+    "id": 10110,
+    "text": "Alicuotas",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "vt_archivos_alicuota",
+    "routeName": null
+  },
+  {
+    "id": 10115,
+    "text": "Vendedores",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "vt_archivos_vendedor",
+    "routeName": null
+  },
+  {
+    "id": 10120,
+    "text": "Transportes",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "vt_archivos_transporte",
+    "routeName": null
+  },
+  {
+    "id": 10125,
+    "text": "Zonas",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": "vt_archivos_zona",
+    "routeName": null
+  },
+  {
+    "id": 10130,
+    "text": "Condiciones Venta",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 5,
+    "enabled": 0,
+    "procedimiento": "vt_archivos_condicionventa",
+    "routeName": null
+  },
+  {
+    "id": 10135,
+    "text": "Actividades Ingresos Brutos",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 6,
+    "enabled": 0,
+    "procedimiento": "vt_archivos_actividad",
+    "routeName": null
+  },
+  {
+    "id": 10140,
+    "text": "codigos Retenciones",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 7,
+    "enabled": 0,
+    "procedimiento": "vt_archivos_retencion",
+    "routeName": null
+  },
+  {
+    "id": 10145,
+    "text": "Tipos Comprobantes",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 8,
+    "enabled": 0,
+    "procedimiento": "vt_archivos_comprobante",
+    "routeName": null
+  },
+  {
+    "id": 10150,
+    "text": "Talonarios",
+    "expanded": 0,
+    "parent": 10100,
+    "order": 9,
+    "enabled": 0,
+    "procedimiento": "vt_artchivos_talonario",
+    "routeName": null
+  },
+  {
+    "id": 10310,
+    "text": "Facturación Mostrador",
+    "expanded": 0,
+    "parent": 10300,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "vt_facturar_mostrador",
+    "routeName": null
+  },
+  {
+    "id": 10320,
+    "text": "Facturación General",
+    "expanded": 0,
+    "parent": 10300,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "vt_facturar_general",
+    "routeName": null
+  },
+  {
+    "id": 10330,
+    "text": "Obtención CAEs",
+    "expanded": 0,
+    "parent": 10300,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10340,
+    "text": "Reemplazar Numeración",
+    "expanded": 0,
+    "parent": 10300,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10410,
+    "text": "Cobranzas",
+    "expanded": 0,
+    "parent": 10400,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 10510,
+    "text": "Iva Ventas",
+    "expanded": 0,
+    "parent": 10500,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "vt_informes_ivaventas",
+    "routeName": null
+  },
+  {
+    "id": 10520,
+    "text": "Ventas para SIFERE",
+    "expanded": 0,
+    "parent": 10500,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "vt_informes_sifere",
+    "routeName": null
+  },
+  {
+    "id": 10530,
+    "text": "Impuestos de Ventas",
+    "expanded": 0,
+    "parent": 10500,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "vt_informes_impuestos",
+    "routeName": null
+  },
+  {
+    "id": 10810,
+    "text": "Definir Facturas",
+    "expanded": 0,
+    "parent": 10800,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "vta_acopios_facturas",
+    "routeName": null
+  },
+  {
+    "id": 10820,
+    "text": "Asignar Pedidos",
+    "expanded": 0,
+    "parent": 10800,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "vta_acopios_pedidos",
+    "routeName": null
+  },
+  {
+    "id": 10830,
+    "text": "Informe Acopios",
+    "expanded": 0,
+    "parent": 10800,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "vta_acopios_informes",
+    "routeName": null
+  },
+  {
+    "id": 10901,
+    "text": "2da Unidad Medida",
+    "expanded": 0,
+    "parent": 10900,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "ventas_consultas_2daunidad",
+    "routeName": null
+  },
+  {
+    "id": 10902,
+    "text": "Pedidos",
+    "expanded": 0,
+    "parent": 10900,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "robinet_pedidos",
+    "routeName": null
+  },
+  {
+    "id": 10903,
+    "text": "Cobranzas",
+    "expanded": 0,
+    "parent": 10900,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "robinet_cobranzas",
+    "routeName": null
+  },
+  {
+    "id": 10904,
+    "text": "Deuda",
+    "expanded": 0,
+    "parent": 10900,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "composicion_saldos",
+    "routeName": null
+  },
+  {
+    "id": 19010,
+    "text": "Carga Pedidos",
+    "expanded": 0,
+    "parent": 19000,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "pw_cargapedidos",
+    "routeName": null
+  },
+  {
+    "id": 19020,
+    "text": "Presupuestos Ingresados",
+    "expanded": 0,
+    "parent": 19000,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "pw_presupuestosingresados",
+    "routeName": null
+  },
+  {
+    "id": 19030,
+    "text": "Pedidos Ingresados",
+    "expanded": 0,
+    "parent": 19000,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "pw_pedidosingresados",
+    "routeName": null
+  },
+  {
+    "id": 19040,
+    "text": "Pedidos Pendientes",
+    "expanded": 0,
+    "parent": 19000,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "pw_pedidospendientes",
+    "routeName": null
+  },
+  {
+    "id": 19050,
+    "text": "Deuda de Clientes",
+    "expanded": 0,
+    "parent": 19000,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": "pw_deudaclientes",
+    "routeName": null
+  },
+  {
+    "id": 19060,
+    "text": "Historial de Ventas",
+    "expanded": 0,
+    "parent": 19000,
+    "order": 5,
+    "enabled": 0,
+    "procedimiento": "pw_historialventas",
+    "routeName": null
+  },
+  {
+    "id": 19070,
+    "text": "Consulta Cheques",
+    "expanded": 0,
+    "parent": 19000,
+    "order": 6,
+    "enabled": 0,
+    "procedimiento": "pw_consultacheques",
+    "routeName": null
+  },
+  {
+    "id": 19080,
+    "text": "Consulta Stock",
+    "expanded": 0,
+    "parent": 19000,
+    "order": 7,
+    "enabled": 0,
+    "procedimiento": "pw_consultastock",
+    "routeName": null
+  },
+  {
+    "id": 20100,
+    "text": "Archivos",
+    "expanded": 0,
+    "parent": 20000,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 20300,
+    "text": "Movimientos Stock",
+    "expanded": 0,
+    "parent": 20000,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 20500,
+    "text": "Informes",
+    "expanded": 0,
+    "parent": 20000,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 20105,
+    "text": "Depositos",
+    "expanded": 0,
+    "parent": 20100,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "st_archivos_deposito",
+    "routeName": null
+  },
+  {
+    "id": 20110,
+    "text": "Tipos Comprobantes",
+    "expanded": 0,
+    "parent": 20100,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "st_archivos_comprobante",
+    "routeName": null
+  },
+  {
+    "id": 20115,
+    "text": "Talonarios",
+    "expanded": 0,
+    "parent": 20100,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "st_archivos_talonario",
+    "routeName": null
+  },
+  {
+    "id": 20510,
+    "text": "Movimientos Articulos",
+    "expanded": 0,
+    "parent": 20500,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "st_informes_mayor",
+    "routeName": null
+  },
+  {
+    "id": 20520,
+    "text": "Movimientos Articulos-Depósito",
+    "expanded": 0,
+    "parent": 20500,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "st_informe_mayordeposito",
+    "routeName": null
+  },
+  {
+    "id": 20530,
+    "text": "Listado de Saldos",
+    "expanded": 0,
+    "parent": 20500,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "st_informes_saldos",
+    "routeName": null
+  },
+  {
+    "id": 20540,
+    "text": "Stock Valorizado",
+    "expanded": 0,
+    "parent": 20500,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "st_informes_saldosvalorizado",
+    "routeName": null
+  },
+  {
+    "id": 20550,
+    "text": "Stock para Inventariar",
+    "expanded": 0,
+    "parent": 20500,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": "st_informes_auditoria",
+    "routeName": null
+  },
+  {
+    "id": 40100,
+    "text": "Archivos",
+    "expanded": 0,
+    "parent": 40000,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 40200,
+    "text": "Ordenes de Compra",
+    "expanded": 0,
+    "parent": 40000,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 40300,
+    "text": "Facturación",
+    "expanded": 0,
+    "parent": 40000,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 40400,
+    "text": "Cuenta Corriente",
+    "expanded": 0,
+    "parent": 40000,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 40500,
+    "text": "Informes",
+    "expanded": 0,
+    "parent": 40000,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 40105,
+    "text": "Proveedores",
+    "expanded": 0,
+    "parent": 40100,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "cp_archivos_proveedor",
+    "routeName": null
+  },
+  {
+    "id": 40110,
+    "text": "Compradores",
+    "expanded": 0,
+    "parent": 40100,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "cp_archivos_comprador",
+    "routeName": null
+  },
+  {
+    "id": 40115,
+    "text": "Alicuotas",
+    "expanded": 0,
+    "parent": 40100,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "cp_archivos_alicuota",
+    "routeName": null
+  },
+  {
+    "id": 40120,
+    "text": "Conceptos Compra",
+    "expanded": 0,
+    "parent": 40100,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "cp_archivos_concepto",
+    "routeName": null
+  },
+  {
+    "id": 40125,
+    "text": "Condiciones Compra",
+    "expanded": 0,
+    "parent": 40100,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": "cp_archivos_condicioncompra",
+    "routeName": null
+  },
+  {
+    "id": 40130,
+    "text": "Retenciones",
+    "expanded": 0,
+    "parent": 40100,
+    "order": 5,
+    "enabled": 0,
+    "procedimiento": "cp_archivos_retención",
+    "routeName": null
+  },
+  {
+    "id": 40135,
+    "text": "Tipos Comprobantes",
+    "expanded": 0,
+    "parent": 40100,
+    "order": 6,
+    "enabled": 0,
+    "procedimiento": "cp_archivos_comprobante",
+    "routeName": null
+  },
+  {
+    "id": 40310,
+    "text": "Comprobantes desde AFIP",
+    "expanded": 0,
+    "parent": 40300,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "cp_facturar_AFIP",
+    "routeName": null
+  },
+  {
+    "id": 40320,
+    "text": "Facturas sobre Remito",
+    "expanded": 0,
+    "parent": 40300,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "cp_facturar_remito",
+    "routeName": null
+  },
+  {
+    "id": 40330,
+    "text": "Facturación Compras",
+    "expanded": 0,
+    "parent": 40300,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "cp_compras_general",
+    "routeName": null
+  },
+  {
+    "id": 40340,
+    "text": "Facturación Gastos",
+    "expanded": 0,
+    "parent": 40300,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "cp_gastos_general",
+    "routeName": null
+  },
+  {
+    "id": 40410,
+    "text": "Pagos a Proveedores",
+    "expanded": 0,
+    "parent": 40400,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "cp_procesos_pagos",
+    "routeName": null
+  },
+  {
+    "id": 40420,
+    "text": "Imputacion Comprobantes",
+    "expanded": 0,
+    "parent": 40400,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "cp_procesos_imputaciones",
+    "routeName": null
+  },
+  {
+    "id": 40430,
+    "text": "Avisos Comprobantes AFIP",
+    "expanded": 0,
+    "parent": 40400,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "cp_procesos_avisos",
+    "routeName": null
+  },
+  {
+    "id": 40510,
+    "text": "Iva Compras",
+    "expanded": 0,
+    "parent": 40500,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "cp_informes_ivacompras",
+    "routeName": null
+  },
+  {
+    "id": 40520,
+    "text": "Impuestos de Compras",
+    "expanded": 0,
+    "parent": 40500,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "cp_informes_impuestos",
+    "routeName": null
+  },
+  {
+    "id": 40530,
+    "text": "Resulmen de Compras",
+    "expanded": 0,
+    "parent": 40500,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "cp_informes_resumencuenta",
+    "routeName": null
+  },
+  {
+    "id": 40540,
+    "text": "Composición de Saldos",
+    "expanded": 0,
+    "parent": 40500,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "cp_informes_composiciónsaldos",
+    "routeName": null
+  },
+  {
+    "id": 40550,
+    "text": "Listado de saldos",
+    "expanded": 0,
+    "parent": 40500,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": "cp_informes_listadosaldos",
+    "routeName": null
+  },
+  {
+    "id": 50100,
+    "text": "Archivos",
+    "expanded": 0,
+    "parent": 50000,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 50300,
+    "text": "Movimientos",
+    "expanded": 0,
+    "parent": 50000,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 50500,
+    "text": "Informes",
+    "expanded": 0,
+    "parent": 50000,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 50105,
+    "text": "Cuentas",
+    "expanded": 0,
+    "parent": 50100,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "sb_archivos_cuenta",
+    "routeName": null
+  },
+  {
+    "id": 50110,
+    "text": "Tipos Comprobantes",
+    "expanded": 0,
+    "parent": 50100,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "sb_archivos_comprobante",
+    "routeName": null
+  },
+  {
+    "id": 50115,
+    "text": "Talonarios",
+    "expanded": 0,
+    "parent": 50100,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "sb_archivos_talonario",
+    "routeName": null
+  },
+  {
+    "id": 50120,
+    "text": "Chequeras",
+    "expanded": 0,
+    "parent": 50100,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "sb_archivos_chequera",
+    "routeName": null
+  },
+  {
+    "id": 50125,
+    "text": "Tarjetas",
+    "expanded": 0,
+    "parent": 50100,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": "sb_archivos_tarjeta",
+    "routeName": null
+  },
+  {
+    "id": 50510,
+    "text": "Movimientos de Cuentas",
+    "expanded": 0,
+    "parent": 50500,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "sb_informes_mayor",
+    "routeName": null
+  },
+  {
+    "id": 50520,
+    "text": "Listado de saldos",
+    "expanded": 0,
+    "parent": 50500,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "sb_informes_saldos",
+    "routeName": null
+  },
+  {
+    "id": 50530,
+    "text": "Cheques en Cartera",
+    "expanded": 0,
+    "parent": 50500,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "sb_informes_chequescartera",
+    "routeName": null
+  },
+  {
+    "id": 50540,
+    "text": "Cheques Propios",
+    "expanded": 0,
+    "parent": 50500,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "sb_informes_chequespropios",
+    "routeName": null
+  },
+  {
+    "id": 90100,
+    "text": "Gestión de Partes",
+    "expanded": 0,
+    "parent": 90000,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 90110,
+    "text": "Mantenimiento",
+    "expanded": 0,
+    "parent": 90100,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 90111,
+    "text": "Análisis Multidimensiona",
+    "expanded": 0,
+    "parent": 90100,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 90120,
+    "text": "Asignación de Tareas",
+    "expanded": 0,
+    "parent": 90100,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 90130,
+    "text": "Carga de Tareas",
+    "expanded": 0,
+    "parent": 90100,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 90140,
+    "text": "Reporte de Tareas",
+    "expanded": 0,
+    "parent": 90100,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 90112,
+    "text": "Am Tipo de Tarea",
+    "expanded": 0,
+    "parent": 90110,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 90113,
+    "text": "Am Conceptos",
+    "expanded": 0,
+    "parent": 90110,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 100010,
+    "text": "Parámetros Generales",
+    "expanded": 0,
+    "parent": 100000,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "pg_cargaparametros",
+    "routeName": null
+  },
+  {
+    "id": 100100,
+    "text": "Gestión de Partes de Tareas",
+    "expanded": 0,
+    "parent": 100000,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 100200,
+    "text": "Seguridad",
+    "expanded": 0,
+    "parent": 100000,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 100300,
+    "text": "Grupo de Empresas",
+    "expanded": 0,
+    "parent": 100000,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 100400,
+    "text": "SoporteTecnico",
+    "expanded": 0,
+    "parent": 100000,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 100101,
+    "text": "Asistentes",
+    "expanded": 0,
+    "parent": 100100,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "partes_asistentes",
+    "routeName": null
+  },
+  {
+    "id": 100102,
+    "text": "Clientes",
+    "expanded": 0,
+    "parent": 100100,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "partes_clientes",
+    "routeName": null
+  },
+  {
+    "id": 100103,
+    "text": "Partes",
+    "expanded": 0,
+    "parent": 100100,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "partes_partes",
+    "routeName": null
+  },
+  {
+    "id": 100104,
+    "text": "Auditoria",
+    "expanded": 0,
+    "parent": 100100,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "partes_auditoria",
+    "routeName": null
+  },
+  {
+    "id": 100105,
+    "text": "Consulta",
+    "expanded": 0,
+    "parent": 100100,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": "partes_consulta",
+    "routeName": null
+  },
+  {
+    "id": 100201,
+    "text": "Usuarios",
+    "expanded": 0,
+    "parent": 100200,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "seguridad_usuarios",
+    "routeName": null
+  },
+  {
+    "id": 100202,
+    "text": "Roles",
+    "expanded": 0,
+    "parent": 100200,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "seguridad_roles",
+    "routeName": null
+  },
+  {
+    "id": 100203,
+    "text": "Permisos",
+    "expanded": 0,
+    "parent": 100200,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "seguridad_permisos",
+    "routeName": null
+  },
+  {
+    "id": 100204,
+    "text": "Empresas",
+    "expanded": 0,
+    "parent": 100200,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "seguridad_empresas",
+    "routeName": null
+  },
+  {
+    "id": 100310,
+    "text": "ABM Grupos Empresas",
+    "expanded": 0,
+    "parent": 100300,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "grupo_empresario_abm",
+    "routeName": null
+  },
+  {
+    "id": 100410,
+    "text": "Armado de Pantallas",
+    "expanded": 0,
+    "parent": 100400,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": "armadopantallas"
+  },
+  {
+    "id": 100420,
+    "text": "Armado de SpTablas",
+    "expanded": 0,
+    "parent": 100400,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": "armadosptablas"
+  },
+  {
+    "id": 100430,
+    "text": "Armado de SqlComandos",
+    "expanded": 0,
+    "parent": 100400,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": "armadosqlcomandos"
+  },
+  {
+    "id": 120100,
+    "text": "(golo Tap)",
+    "expanded": 0,
+    "parent": 120000,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": null,
+    "routeName": null
+  },
+  {
+    "id": 120110,
+    "text": "Resultado Económico",
+    "expanded": 0,
+    "parent": 120100,
+    "order": 0,
+    "enabled": 0,
+    "procedimiento": "golo_resultadoeconomico",
+    "routeName": null
+  },
+  {
+    "id": 120120,
+    "text": "ingresos",
+    "expanded": 0,
+    "parent": 120100,
+    "order": 1,
+    "enabled": 0,
+    "procedimiento": "golo_ingresos",
+    "routeName": null
+  },
+  {
+    "id": 120130,
+    "text": "Costos",
+    "expanded": 0,
+    "parent": 120100,
+    "order": 2,
+    "enabled": 0,
+    "procedimiento": "golo_costos",
+    "routeName": null
+  },
+  {
+    "id": 120140,
+    "text": "Gastos",
+    "expanded": 0,
+    "parent": 120100,
+    "order": 3,
+    "enabled": 0,
+    "procedimiento": "golo_gastos",
+    "routeName": null
+  },
+  {
+    "id": 120150,
+    "text": "Sueldos",
+    "expanded": 0,
+    "parent": 120100,
+    "order": 4,
+    "enabled": 0,
+    "procedimiento": "golo_sueldos",
+    "routeName": null
+  },
+  {
+    "id": 120160,
+    "text": "Saldos Pendientes",
+    "expanded": 0,
+    "parent": 120100,
+    "order": 5,
+    "enabled": 0,
+    "procedimiento": "golo_saldospendientes",
+    "routeName": null
+  }
+]

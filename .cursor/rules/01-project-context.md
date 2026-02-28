@@ -1,17 +1,20 @@
 ---
 alwaysApply: true
 ---
-# description: Contexto del Proyecto MVP
+# description: Contexto del Proyecto – ERP PaqSuite
 
 ## Propósito
 
-Este documento proporciona el contexto general del proyecto para que el agente IA comprenda el dominio, objetivos y restricciones del MVP.
+Este documento proporciona el contexto general del proyecto para que el agente IA comprenda el dominio, objetivos y restricciones.
 
 ## Contexto General
 
-Este proyecto es un **MVP web** para consultorías y empresas de servicios. El sistema permite que empleados registren las tareas realizadas diariamente, indicando cliente, tipo de tarea y duración, con el fin de obtener informes de dedicación para análisis operativo y comercial.
+Este proyecto es una **plataforma ERP** en evolución. Actualmente incluye:
 
-## Objetivo del MVP
+- **Módulo Sistema de Partes (MVP):** Registro de tareas diarias por empleados (cliente, tipo de tarea, duración) para informes de dedicación.
+- **Visión ERP:** Modelo multiempresa, multiusuario, multirrol; separación Dictionary DB / Company DB; arquitectura por capas.
+
+## Objetivo Actual (MVP Partes)
 
 - Registrar tareas diarias de forma simple
 - Asociar tareas a clientes y tipos de trabajo
@@ -20,21 +23,21 @@ Este proyecto es un **MVP web** para consultorías y empresas de servicios. El s
 
 ## Qué SÍ es este proyecto
 
-- Un sistema de registro de tareas (time tracking simple)
-- Un MVP con foco en claridad y valor completo
-- Una aplicación web con backend, frontend, tests y deploy
-- Un proyecto académico con entregables obligatorios
+- Una plataforma ERP con módulo de Partes operativo
+- Modelo multiempresa (Dictionary DB + Company DB por empresa)
+- Autenticación y autorización por roles/permisos
+- Una aplicación web con backend (Laravel), frontend (React), tests y deploy
 
-## Qué NO es este proyecto
+## Qué NO es este proyecto (en el MVP actual)
 
 - No es una plataforma de automatización
-- No es un integrador de Jira, MCP, Playwright u otras herramientas
-- No es un ERP
-- No incluye facturación ni reportes avanzados en el MVP
+- No incluye facturación ni reportes avanzados en el MVP de Partes
+- No incluye módulos comerciales/contables completos (en desarrollo)
 
 ## Usuarios
 
-- Empleado / Consultor (único rol en el MVP)
+- sòlo se distinguirà un usuario de nivel Supervisor por el rol d"supervisor que permite realizar todas las tareas.
+- El resto de alcances y limitaciones se definiràn por permisos de acco.
 
 ## Flujo E2E Prioritario
 
@@ -44,10 +47,11 @@ Todo el desarrollo debe soportar este flujo.
 
 ## Entidades Clave
 
-- Usuario
-- Cliente
-- Tipo de Tarea
-- Registro de Tarea
+a nivel "diccionario":
+- Usuario, roles, empresa, permisos, opciòn de menù
+- Modelo multiempresa: tenant vía header `X-Company-Id`
+- grupos empresarios, empresas que comprende cada grupo
+- tareas programadas, frecuencia, procesos
 
 ## Principios de Diseño
 
@@ -59,13 +63,13 @@ Todo el desarrollo debe soportar este flujo.
 
 ## Alcance Técnico
 
-- Arquitectura web simple (Frontend + Backend + DB)
-- API REST
-- Autenticación básica (Sanctum)
-- Tests unitarios, integración y al menos 1 E2E
+- Arquitectura por capas (Controller → Service → Domain → Repository)
+- API REST (`/api/v1/`)
+- Autenticación Sanctum
+- Tests unitarios, integración y E2E
 
 ## Referencias
 
-- `PROJECT_CONTEXT.md` - Contexto completo del proyecto
-- `docs/consignas-mvp.md` - Consignas del MVP
-- `specs/flows/e2e-core-flow.md` - Flujo E2E detallado
+- `docs/00-contexto/00-contexto-global-erp.md` - Contexto global del ERP
+- `docs/01-arquitectura/README.md` - Documentación de arquitectura
+- `docs/_projects/SistemaPartes/` - Historias y tareas del módulo Partes
