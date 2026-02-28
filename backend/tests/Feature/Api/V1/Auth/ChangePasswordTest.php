@@ -29,11 +29,6 @@ class ChangePasswordTest extends TestCase
     protected function seedTestUsers(): void
     {
         $testCodes = ['JPEREZ'];
-        $usuarioIds = DB::table('PQ_PARTES_USUARIOS')->whereIn('code', $testCodes)->pluck('id');
-        if ($usuarioIds->isNotEmpty()) {
-            DB::table('PQ_PARTES_REGISTRO_TAREA')->whereIn('usuario_id', $usuarioIds)->delete();
-        }
-        DB::table('PQ_PARTES_USUARIOS')->whereIn('code', $testCodes)->delete();
         $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
@@ -45,19 +40,9 @@ class ChangePasswordTest extends TestCase
 
         DB::table('USERS')->insert([
             'code' => 'JPEREZ',
-            'password_hash' => Hash::make('password123'),
-            'activo' => true,
-            'inhabilitado' => false,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        $jperezId = DB::table('USERS')->where('code', 'JPEREZ')->value('id');
-        DB::table('PQ_PARTES_USUARIOS')->insert([
-            'user_id' => $jperezId,
-            'code' => 'JPEREZ',
-            'nombre' => 'Juan Pérez',
+            'name' => 'Juan Pérez',
             'email' => 'juan.perez@ejemplo.com',
-            'supervisor' => false,
+            'password_hash' => Hash::make('password123'),
             'activo' => true,
             'inhabilitado' => false,
             'created_at' => now(),

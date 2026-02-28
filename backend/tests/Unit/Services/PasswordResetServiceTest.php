@@ -14,6 +14,8 @@ use Tests\TestCase;
 /**
  * Tests unitarios: PasswordResetService (requestReset, resetPassword)
  *
+ * Usa tabla USERS (code, name, email).
+ *
  * @see TR-004(SH)-recuperación-de-contraseña.md
  */
 class PasswordResetServiceTest extends TestCase
@@ -33,7 +35,6 @@ class PasswordResetServiceTest extends TestCase
     protected function seedTestUser(): void
     {
         $testCodes = ['PWUSER'];
-        DB::table('PQ_PARTES_USUARIOS')->whereIn('code', $testCodes)->delete();
         $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
@@ -46,19 +47,9 @@ class PasswordResetServiceTest extends TestCase
 
         DB::table('USERS')->insert([
             'code' => 'PWUSER',
-            'password_hash' => Hash::make('oldpass'),
-            'activo' => true,
-            'inhabilitado' => false,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        $userId = DB::table('USERS')->where('code', 'PWUSER')->value('id');
-        DB::table('PQ_PARTES_USUARIOS')->insert([
-            'user_id' => $userId,
-            'code' => 'PWUSER',
-            'nombre' => 'Password User',
+            'name' => 'Password User',
             'email' => 'pwuser@test.com',
-            'supervisor' => false,
+            'password_hash' => Hash::make('oldpass'),
             'activo' => true,
             'inhabilitado' => false,
             'created_at' => now(),
@@ -141,7 +132,7 @@ class PasswordResetServiceTest extends TestCase
             ->update(['created_at' => now()->subMinutes(61)]);
 
         $this->expectException(AuthException::class);
-        $this->expectExceptionMessage('El enlace de recuperación ha expirado.');
+        $this->expectExceptionMessage('El enlace de recuperación ha expirado');
 
         $this->service->resetPassword($row->token, 'newPassword123');
     }
