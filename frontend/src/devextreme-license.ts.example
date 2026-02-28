@@ -1,8 +1,12 @@
 /**
- * Ejemplo de configuración de licencia DevExtreme
- * Copiar este archivo como devextreme-license.ts y reemplazar la clave.
+ * DEPRECADO: La licencia DevExtreme se configura ahora vía variable de entorno.
+ *
+ * Añadir en .env:
+ *   VITE_DEVEXTREME_LICENSE=tu-clave-aqui
  *
  * Obtener tu clave en: https://www.devexpress.com/ClientCenter/DownloadManager/
  * (DevExtreme Subscription > expandir > copiar license key)
+ *
+ * Este archivo se mantiene solo como referencia; no es necesario copiarlo.
  */
 export const licenseKey = 'TU_LICENCIA_AQUI';
