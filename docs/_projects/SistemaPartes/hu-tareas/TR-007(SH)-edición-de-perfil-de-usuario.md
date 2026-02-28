@@ -154,7 +154,7 @@ El usuario accede a su perfil (pantalla TR-006) y dispone de una opción "Editar
 - `src/features/user/components/ProfileView.css` (estilos editar perfil)
 
 ### Docs
-- `docs/hu-tareas/TR-007(SH)-edición-de-perfil-de-usuario.md` (nuevo)
+- `docs/04-tareas/TR-007(SH)-edición-de-perfil-de-usuario.md` (nuevo)
 - `specs/endpoints/user-profile-update.md` (nuevo)
 
 ## Comandos ejecutados

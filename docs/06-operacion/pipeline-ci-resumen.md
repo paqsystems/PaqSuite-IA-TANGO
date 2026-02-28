@@ -13,7 +13,7 @@ Se creó un pipeline básico de **CI (Integración Continua)** con GitHub Action
 | Archivo | Cambio |
 |---------|--------|
 | `.github/workflows/ci.yml` | Pipeline principal con 4 jobs (backend, frontend, swagger, e2e) |
-| `docs/deploy-ci-cd.md` | Sección CI/CD ampliada con descripción del pipeline |
+| `docs/06-operacion/deploy-infraestructura.md` | Sección CI/CD ampliada con descripción del pipeline |
 | `.cursor/Docs/ci.yml.md` | Documentación del workflow |
 | `backend/database/seeders/TestUsersSeeder.php` | `GETDATE()` → `now()` (compatibilidad MySQL) |
 | `backend/database/seeders/TestTasksSeeder.php` | `GETDATE()` → `now()` (compatibilidad MySQL) |
@@ -118,6 +118,6 @@ on:
 
 ## Referencias
 
-- `docs/deploy-ci-cd.md` – Infraestructura y despliegue
+- `docs/06-operacion/deploy-infraestructura.md` – Infraestructura y despliegue
 - `.cursor/rules/12-testing.md` – Estrategia de tests
 - `.cursor/Docs/ci.yml.md` – Documentación del workflow

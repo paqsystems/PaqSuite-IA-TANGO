@@ -161,7 +161,7 @@ y guardarlo como archivo Markdown.
 El TR generado debe incluir al final las secciones de trazabilidad (archivos/comandos/notas/pendientes), inicialmente vacías.
 
 Archivo:
-- Ruta: docs/hu-tareas/
+- Ruta: docs/04-tareas/
 - Nombre: igual al nombre del HU, reemplazando "HU" por "TR".
 - Si existe, regenerarlo desde cero (overwrite total).
 
@@ -181,7 +181,7 @@ Historia de Usuario:
 ## Prompt 9 - Ejecutar una tarea específica
 
 Implementá la TR funcional ubicada en:
-"docs/tareas/[NOMBRE_DEL_TR].md"
+"docs/04-tareas/[NOMBRE_DEL_TR].md"
 
 Esta TR es la FUENTE DE VERDAD del alcance.
 
@@ -226,7 +226,7 @@ Restricción:
 
 Cuando se detecten errores o mejoras probando el proceso TR-033:
 
-1. Documentarlos en un archivo con el mismo nombre de la tarea TR-033 más el agregado **"-update"** (ej.: `docs/hu-tareas/TR-033(MH)-visualización-de-lista-de-tareas-propias-update.md`).
+1. Documentarlos en un archivo con el mismo nombre de la tarea TR-033 más el agregado **"-update"** (ej.: `docs/04-tareas/TR-033(MH)-visualización-de-lista-de-tareas-propias-update.md`).
 2. Resolver en la programación cada punto documentado.
 3. Cuando pasen todos los testings (automáticos y manuales) y el usuario dé confirmación, actualizar el documento TR original y eliminar el archivo "-update".
 
@@ -296,7 +296,7 @@ El proyecto estaba utilizando SQL Server como motor de base de datos y se requer
    - Adaptación de migraciones específicas de SQL Server
    - Actualización de seeders (reemplazo de `GETDATE()` por `now()`)
    - Actualización de tests (reemplazo de `GETDATE()` por `now()`)
-   - Actualización de documentación (`deploy-ci-cd.md`, nueva regla MySQL)
+   - Actualización de documentación (`06-operacion/deploy-infraestructura.md`, nueva regla MySQL)
 
 4. **Ejecución:**
    - Establecimiento de túnel SSH con datos proporcionados por el usuario

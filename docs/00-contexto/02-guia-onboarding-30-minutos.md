@@ -66,7 +66,7 @@ Objetivo:
 
 Leer:
 
-- HU activas en `docs/03-hu-historias/`
+- HU activas en `docs/03-historias-usuario/`
 - TR asociadas en `docs/04-tareas/`
 
 Objetivo:

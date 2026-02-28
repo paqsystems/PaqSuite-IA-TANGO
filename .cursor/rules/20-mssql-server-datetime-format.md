@@ -170,7 +170,7 @@ public function boot(): void
 
 ## Referencias
 
-- [TR-001(MH) - Login de Empleado](../../docs/hu-tareas/TR-001(MH)-login-de-empleado.md)
+- [TR-001(MH) - Login de Empleado](../../docs/04-tareas/TR-001(MH)-login-de-empleado.md)
 - [Laravel Database Configuration](https://laravel.com/docs/10.x/database)
 - [SQL Server GETDATE()](https://docs.microsoft.com/en-us/sql/t-sql/functions/getdate-transact-sql)
 

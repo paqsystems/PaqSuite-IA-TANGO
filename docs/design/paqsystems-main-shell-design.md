@@ -51,7 +51,7 @@ Este documento define el diseño base del proyecto, adaptado a DevExtreme.
 | **Nombre usuario** | `user.nombre` (AuthUser) | "Juan Pérez" |
 | **Versión app** | `appVersion` (inyectada en build desde `VERSION`) | "1.1.0" |
 
-La empresa se actualizará con HU-002 (cambio de empresa activa). La versión se lee automáticamente del archivo `VERSION` en el build (ver `docs/deploy-ci-cd.md`).
+La empresa se actualizará con HU-002 (cambio de empresa activa). La versión se lee automáticamente del archivo `VERSION` en el build (ver `docs/06-operacion/deploy-infraestructura.md`).
 
 ---
 

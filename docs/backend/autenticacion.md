@@ -288,8 +288,8 @@ php artisan test
 
 ## Referencias
 
-- [TR-001(MH) - Login de Empleado](../hu-tareas/TR-001(MH)-login-de-empleado.md)
-- [TR-002(SH) - Login de Cliente](../hu-tareas/TR-002(SH)-login-de-cliente.md)
-- [TR-003(MH) - Logout](../hu-tareas/TR-003(MH)-logout.md)
-- [TR-006(MH) - Visualización de Perfil de Usuario](../hu-tareas/TR-006(MH)-visualización-de-perfil-de-usuario.md)
+- [TR-001(MH) - Login de Empleado](../_projects/SistemaPartes/hu-tareas/TR-001(MH)-login-de-empleado.md)
+- [TR-002(SH) - Login de Cliente](../_projects/SistemaPartes/hu-tareas/TR-002(SH)-login-de-cliente.md)
+- [TR-003(MH) - Logout](../_projects/SistemaPartes/hu-tareas/TR-003(MH)-logout.md)
+- [TR-006(MH) - Visualización de Perfil de Usuario](../_projects/SistemaPartes/hu-tareas/TR-006(MH)-visualización-de-perfil-de-usuario.md)
 - [Laravel Sanctum Documentation](https://laravel.com/docs/10.x/sanctum)

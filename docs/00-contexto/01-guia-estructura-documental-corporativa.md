@@ -45,7 +45,7 @@ docs/
 00-contexto/
 01-arquitectura/
 02-producto/
-03-hu-historias/
+03-historias-usuario/
 04-tareas/
 05-testing/
 06-operacion/
@@ -126,7 +126,7 @@ No técnico.
 
 ---
 
-## 4.4 03-hu-historias/
+## 4.4 03-historias-usuario/
 
 Contiene las Historias de Usuario (HU).
 

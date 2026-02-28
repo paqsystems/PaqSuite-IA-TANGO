@@ -76,5 +76,5 @@ Así el enlace del correo apunta a tu frontend real.
 
 ## Referencias
 
-- TR-004(SH): `docs/hu-tareas/TR-004(SH)-recuperación-de-contraseña.md`
+- TR-004(SH): `docs/04-tareas/TR-004(SH)-recuperación-de-contraseña.md`
 - Variables de correo en backend: `backend/.env.example`

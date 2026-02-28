@@ -48,4 +48,4 @@ docker compose up -d
 - Backend: `http://localhost:8000`
 - Frontend: `http://localhost:80`
 
-Ver `docs/deploy-ci-cd.md` para más detalles.
+Ver `docs/06-operacion/deploy-infraestructura.md` para más detalles.

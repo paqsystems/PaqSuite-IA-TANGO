@@ -2,7 +2,7 @@
  * DEPRECADO: La licencia DevExtreme se configura ahora vía variable de entorno.
  *
  * Añadir en .env:
- *   VITE_DEVEXTREME_LICENSE=tu-clave-aqui
+ *   VITE_DEVEXTREME_LICENSE=
  *
  * Obtener tu clave en: https://www.devexpress.com/ClientCenter/DownloadManager/
  * (DevExtreme Subscription > expandir > copiar license key)

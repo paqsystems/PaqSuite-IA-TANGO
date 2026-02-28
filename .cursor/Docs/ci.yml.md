@@ -38,6 +38,6 @@ Pipeline CI/CD básico con GitHub Actions para el MVP Lidr. Ejecuta tests, gener
 En caso de fallo de tests E2E se sube `playwright-report/` como artefacto (retention 7 días).
 
 ## Referencias
-- `docs/deploy-ci-cd.md`
+- `docs/06-operacion/deploy-infraestructura.md`
 - `.cursor/rules/12-testing.md`
 - AGENTS.md §6.4 Trazabilidad

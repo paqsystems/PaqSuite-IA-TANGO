@@ -76,7 +76,7 @@ Migración del proyecto Lidr-AI4Devs2025-ProyectoFinal al repositorio **PaqSuite
 - Habilitar disparo automático en push y pull_request a main.
 - Añadir job para frontend-mobile (build Capacitor) si existe.
 - Añadir job de lint (ESLint, PHP CS Fixer) si se requiere.
-- Documentar en docs/deploy-ci-cd.md.
+- Documentar en docs/06-operacion/deploy-infraestructura.md.
 
 ---
 

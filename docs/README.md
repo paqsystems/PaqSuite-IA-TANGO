@@ -10,7 +10,9 @@ Este documento sirve como **índice de navegación** para toda la documentación
 |---------|-----------|-------------------|
 | **`00-contexto/`** | Contexto institucional, guías, onboarding, gobierno | Al incorporarse o antes de decisiones estructurales |
 | **`01-arquitectura/`** | Arquitectura técnica, modelo de datos, seguridad, roadmap | Para entender diseño y decisiones técnicas |
-| **`_projects/SistemaPartes/`** | Historias de usuario (HU) y tareas técnicas (TR) del módulo Partes | Antes de implementar funcionalidades |
+| **`03-historias-usuario/`** | Historias de usuario (HU) | Antes de implementar funcionalidades |
+| **`04-tareas/`** | Tareas técnicas (TR) | Al ejecutar o planificar implementación |
+| **`06-operacion/`** | Deploy, infraestructura, CI/CD | Al desplegar o configurar entorno |
 | **`api/`** | Contrato API, OpenAPI | Al consumir o desarrollar endpoints |
 | **`backend/`** | Playbook Laravel, lógica de tareas | Al desarrollar backend |
 | **`frontend/`** | Especificaciones, UI Layer, i18n, testing | Al desarrollar frontend |
@@ -34,12 +36,10 @@ Este documento sirve como **índice de navegación** para toda la documentación
 
 | Documento | Propósito |
 |-----------|-----------|
-| **`03-hu-historias/000-Generalidades/`** | Épica Generalidades: layouts persistentes de grillas |
-| **`03-hu-historias/001-Seguridad/`** | Épica Seguridad: login, selección empresa, logout, mantenimiento tablas (users, PQ_Empresa, roles, permisos, menú) |
-| **`03-hu-historias/Historia_PQ_MENUS_seed.md`** | Seed versionado del menú del sistema |
-| **`_projects/SistemaPartes/hu-historias/`** | Historias de usuario del módulo Partes (legacy) |
-| **`_projects/SistemaPartes/hu-tareas/`** | Tareas técnicas del módulo Partes |
-| **`_projects/SistemaPartes/RN-Sistema-Partes.md`** | Reglas de negocio del módulo Partes |
+| **`03-historias-usuario/000-Generalidades/`** | Épica Generalidades: layouts persistentes de grillas |
+| **`03-historias-usuario/001-Seguridad/`** | Épica Seguridad: login, selección empresa, logout, mantenimiento tablas (users, PQ_Empresa, roles, permisos, menú) |
+| **`03-historias-usuario/Historia_PQ_MENUS_seed.md`** | Seed versionado del menú del sistema |
+| **`04-tareas/`** | Tareas técnicas (TR) derivadas de las HU |
 
 ### API y Backend
 
@@ -62,7 +62,7 @@ Este documento sirve como **índice de navegación** para toda la documentación
 
 | Documento | Propósito |
 |-----------|-----------|
-| **`deploy-ci-cd.md`** | Infraestructura, pipeline, deploy |
+| **`06-operacion/deploy-infraestructura.md`** | Infraestructura, pipeline, deploy |
 | **`.cursor/rules/12-testing.md`** | Estrategia de testing, Vitest, Playwright |
 
 ---
@@ -93,8 +93,8 @@ Las reglas en `.cursor/rules/` complementan esta documentación:
 4. HU y TR del módulo en el que se trabaja
 
 **Para implementar una funcionalidad:**
-1. Leer la HU correspondiente en `_projects/SistemaPartes/hu-historias/`
-2. Leer la TR en `_projects/SistemaPartes/hu-tareas/`
+1. Leer la HU correspondiente en `03-historias-usuario/`
+2. Leer o generar la TR en `04-tareas/` (ver `.cursor/rules/16-prompt-dispatcher.md`)
 3. Consultar `backend/` o `frontend/` según el área
 
 ---

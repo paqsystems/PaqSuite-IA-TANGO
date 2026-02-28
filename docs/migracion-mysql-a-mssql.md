@@ -201,7 +201,7 @@ La conexión `sqlsrv` ya existe y debe incluir:
 
 ### 7. Documentación
 
-- Actualizar `docs/deploy-ci-cd.md` con requisitos de SQL Server
+- Actualizar `docs/06-operacion/deploy-infraestructura.md` con requisitos de SQL Server
 - Consultar `.cursor/rules/20-mssql-server-datetime-format.md` para reglas de fechas
 
 ---
@@ -369,7 +369,7 @@ php artisan test --filter=TaskServiceTest
 - [ ] Todos los tests pasando
 
 ### Documentación
-- [ ] `docs/deploy-ci-cd.md` actualizado (si aplica)
+- [ ] `docs/06-operacion/deploy-infraestructura.md` actualizado (si aplica)
 - [ ] `docs/migracion-mysql-a-mssql.md` creado (este documento)
 
 ### Post-Migración
@@ -438,7 +438,7 @@ php artisan migrate:fresh    # Recrear desde cero (solo desarrollo)
 - [Laravel Migrations](https://laravel.com/docs/10.x/migrations)
 - [`docs/migracion-mssql-a-mysql.md`](migracion-mssql-a-mysql.md) - Documentación de la migración inversa (MySQL ← MSSQL)
 - [`.cursor/rules/20-mssql-server-datetime-format.md`](../.cursor/rules/20-mssql-server-datetime-format.md) - Regla de formato de fechas en SQL Server
-- [`docs/deploy-ci-cd.md`](deploy-ci-cd.md) - Documentación de despliegue
+- [`docs/06-operacion/deploy-infraestructura.md`](06-operacion/deploy-infraestructura.md) - Documentación de despliegue
 
 ---
 

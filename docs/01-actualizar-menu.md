@@ -107,5 +107,5 @@ php artisan db:seed --class=PqMenuSeeder
 ## Referencias
 
 - `docs/backend/seed/PQ_MENUS/README.md` – Archivos y estructura del seed
-- `docs/03-hu-historias/Historia_PQ_MENUS_seed.md` – Flujo completo y criterios de aceptación
+- `docs/03-historias-usuario/Historia_PQ_MENUS_seed.md` – Flujo completo y criterios de aceptación
 - `.cursor/rules/13-user-story-to-task-breakdown.md` – Inclusión de la tarea de menú en TRs

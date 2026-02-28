@@ -289,7 +289,7 @@ Feature: Eliminación de Empleado
 - `frontend/tests/e2e/empleados-delete.spec.ts` – Tests E2E con Playwright para eliminación de empleados.
 
 ### Docs
-- `docs/hu-tareas/TR-021(MH)-eliminación-de-empleado.md` – Estado actualizado a COMPLETADO.
+- `docs/04-tareas/TR-021(MH)-eliminación-de-empleado.md` – Estado actualizado a COMPLETADO.
 
 ## Comandos ejecutados
 

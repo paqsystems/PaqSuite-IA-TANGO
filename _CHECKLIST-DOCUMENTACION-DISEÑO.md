@@ -44,7 +44,7 @@
 - [ ] Identificar 3-5 historias MUST-HAVE para el flujo E2E
 - [ ] Identificar 1-2 historias SHOULD-HAVE (opcionales)
 - [ ] Validar que las MUST-HAVE cubren el flujo completo
-- [ ] Documentar priorización en `docs/historias-y-tickets.md`
+- [ ] Documentar priorización en `docs/03-historias-usuario/`
 
 ---
 
@@ -128,7 +128,7 @@
 - [ ] Agregar criterios de aceptación detallados
 - [ ] Clasificar como MUST-HAVE o SHOULD-HAVE
 - [ ] Agrupar en épicas (si aplica)
-- [ ] Documentar en `docs/historias-y-tickets.md`
+- [ ] Documentar en `docs/03-historias-usuario/` (una HU por archivo, por subcarpeta de épica)
 
 ### 5.2 Validación de Historias
 - [ ] Validar que las MUST-HAVE cubren el flujo E2E
@@ -148,11 +148,11 @@
 ## FASE 6: TICKETS TÉCNICOS
 
 ### 6.1 Derivación de Tickets
-- [ ] Derivar tickets técnicos (TK) de las historias
-- [ ] Clasificar tickets por módulo (Backend, Frontend, Testing, Infra)
-- [ ] Asociar cada ticket a historia(es) relacionada(s)
-- [ ] Priorizar tickets según MUST-HAVE/SHOULD-HAVE
-- [ ] Documentar en `docs/historias-y-tickets.md`
+- [ ] Derivar tareas técnicas (TR) de las historias
+- [ ] Clasificar TR por módulo (Backend, Frontend, Testing, Infra)
+- [ ] Asociar cada TR a historia(es) relacionada(s)
+- [ ] Priorizar según MUST-HAVE/SHOULD-HAVE
+- [ ] Documentar en `docs/04-tareas/` (una TR por archivo)
 
 ### 6.2 Detalle de Tickets
 - [ ] Describir tareas técnicas específicas
@@ -224,7 +224,7 @@
 
 ### 9.3 CI/CD (si aplica)
 - [ ] Configurar pipeline básico
-- [ ] Documentar en `docs/deploy-ci-cd.md`
+- [ ] Documentar en `docs/06-operacion/deploy-infraestructura.md`
 - [ ] Configurar gestión de secretos
 
 ---
@@ -348,6 +348,9 @@
 ### Uso de IA
 - Ser crítico con los resultados de IA
 
+### Nota sobre docs/_projects
+La carpeta `docs/_projects/` contiene material histórico para re-aplicar a futuro; no forma parte del flujo activo de documentación (HU en `docs/03-historias-usuario/`, TR en `docs/04-tareas/`).
+
 ---
 
 ## Referencias
@@ -357,7 +360,8 @@ Este checklist está basado en el proceso seguido en este proyecto. Para más de
 - `_MANUAL-PROGRAMADOR.MD` - Manual de onboarding del programador
 - `docs/consignas-mvp.md` - Consignas del MVP
 - `docs/consignas-mvp-cursor.md` - Consignas para Cursor
-- `docs/historias-y-tickets.md` - Historias y tickets del proyecto
+- `docs/03-historias-usuario/` - Historias de usuario
+- `docs/04-tareas/` - Tareas técnicas (TR)
 
 --------------------------------------------------------------------------------------
 
@@ -452,6 +456,8 @@ Este checklist está basado en el proceso seguido en este proyecto. Para más de
 
 ---
 
-**Última actualización:** 2025-02-15
+**Última actualización:** 2026-02-28
+
+**Cambios 2026-02-28:** Actualizadas rutas a `docs/03-historias-usuario/` y `docs/04-tareas/`; añadida nota sobre `docs/_projects/`.
 
 

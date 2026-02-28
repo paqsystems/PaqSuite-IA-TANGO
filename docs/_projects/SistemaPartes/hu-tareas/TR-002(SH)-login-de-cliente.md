@@ -313,7 +313,7 @@ No se requieren cambios en el frontend. El formulario de login ya soporta el flu
 - `frontend/tests/e2e/auth-login.spec.ts` (MODIFICADO) - 4 tests de cliente agregados
 
 ### Docs
-- `docs/hu-tareas/TR-002(SH)-login-de-cliente.md` (CREADO)
+- `docs/04-tareas/TR-002(SH)-login-de-cliente.md` (CREADO)
 - `docs/backend/autenticacion.md` (MODIFICADO) - Agregada información de login de cliente
 
 ---

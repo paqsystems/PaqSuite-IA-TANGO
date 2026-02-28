@@ -277,7 +277,7 @@ El atributo `theme` se incluye en los endpoints existentes de administración de
 ## Referencias
 
 - `docs/01-arquitectura/ui/01_MainLayout_PostLogin_Specification.md` – Theming por Empresa (Opción A)
-- `docs/03-hu-historias/001-Seguridad/HU-011-administracion-empresas.md` – Administración de empresas
-- `docs/03-hu-historias/000-Generalidades/HU-002-cambio-empresa-activa.md` – Cambio de empresa
+- `docs/03-historias-usuario/001-Seguridad/HU-011-administracion-empresas.md` – Administración de empresas
+- `docs/03-historias-usuario/000-Generalidades/HU-002-cambio-empresa-activa.md` – Cambio de empresa
 - [DevExtreme Predefined Themes](https://js.devexpress.com/jQuery/Documentation/Guide/Themes_and_Styles/Predefined_Themes/)
 - `.cursor/rules/24-devextreme-grid-standards.md` – Estándar de grillas

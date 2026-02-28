@@ -55,7 +55,7 @@ Nunca tomar decisiones estructurales sin documentarlas.
 
 # FASE 4 – Historias de Usuario (HU)
 
-- [ ] Crear HU en `docs/03-hu-historias/`
+- [ ] Crear HU en `docs/03-historias-usuario/`
 - [ ] Redactar con formato:
   - Como [rol]
   - Quiero [acción]

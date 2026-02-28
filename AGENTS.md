@@ -76,7 +76,7 @@ Este repo mantiene la documentación en `/docs`:
 - `.cursor/rules/12-testing.md`  
   Estrategia, qué se testea, cómo correr tests, y el/los E2E.
 
-- `docs/deploy-ci-cd.md`  
+- `docs/06-operacion/deploy-infraestructura.md`  
   Infra, pipeline, secretos, URL, cómo desplegar local/remote.
 
 ---
@@ -111,7 +111,7 @@ Cada cambio relevante debe dejar rastro:
 Si el proyecto usa MCP (Jira, Playwright, DB), documentar configuración y variables en:
 - `docs/agentes-y-mcp.md` (si existiera)
 o en:
-- `docs/deploy-ci-cd.md` (si afecta ejecución)
+- `docs/06-operacion/deploy-infraestructura.md` (si afecta ejecución)
 
 Nunca incluir credenciales reales en el repo.
 Usar `.env.example` con placeholders.

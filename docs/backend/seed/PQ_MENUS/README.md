@@ -1,6 +1,6 @@
 # Seed PQ_MENUS
 
-Fuente de verdad del menú del sistema. Ver `docs/03-hu-historias/Historia_PQ_MENUS_seed.md` para el flujo completo.
+Fuente de verdad del menú del sistema. Ver `docs/03-historias-usuario/Historia_PQ_MENUS_seed.md` para el flujo completo.
 
 ## Archivos
 

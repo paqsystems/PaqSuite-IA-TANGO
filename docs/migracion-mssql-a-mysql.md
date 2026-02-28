@@ -224,7 +224,7 @@ Schema::create('personal_access_tokens', function (Blueprint $table) {
 
 ### 6. Documentación Actualizada
 
-#### 6.1 `docs/deploy-ci-cd.md`
+#### 6.1 `docs/06-operacion/deploy-infraestructura.md`
 - Actualizado requisitos de SQL Server a MySQL
 - Actualizada configuración de conexión
 - Actualizado troubleshooting con errores específicos de MySQL
@@ -399,7 +399,7 @@ php artisan test --filter=TaskServiceTest
 - [ ] Todos los tests pasando
 
 ### Documentación
-- [ ] `docs/deploy-ci-cd.md` actualizado
+- [ ] `docs/06-operacion/deploy-infraestructura.md` actualizado
 - [ ] `.cursor/rules/20-mysql-datetime-format.md` creado
 - [ ] `docs/migracion-mssql-a-mysql.md` creado (este documento)
 
@@ -468,7 +468,7 @@ php artisan migrate:fresh    # Recrear desde cero (solo desarrollo)
 - [MySQL Documentation](https://dev.mysql.com/doc/)
 - [Laravel Migrations](https://laravel.com/docs/10.x/migrations)
 - [`.cursor/rules/20-mysql-datetime-format.md`](../.cursor/rules/20-mysql-datetime-format.md) - Regla de formato de fechas
-- [`docs/deploy-ci-cd.md`](deploy-ci-cd.md) - Documentación de despliegue
+- [`docs/06-operacion/deploy-infraestructura.md`](06-operacion/deploy-infraestructura.md) - Documentación de despliegue
 
 ---
 
