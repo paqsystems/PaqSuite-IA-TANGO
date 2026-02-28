@@ -77,4 +77,4 @@ erDiagram
 ## Referencias
 
 - `docs/00-contexto/05-parametros-generales.md` – Objetivo y reglas
-- `docs/03-hu-historias/000-Generalidades/HU-007-Parametros-generales.md` – HU del proceso general
+- `docs/03-historias-usuario/000-Generalidades/HU-007-Parametros-generales.md` – HU del proceso general

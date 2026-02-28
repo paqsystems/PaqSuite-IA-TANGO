@@ -64,7 +64,7 @@ Según el caso de uso, algunos botones pueden ocultarse por permisos.
 
 ### 1.10 Layouts persistentes (cuando se implemente)
 
-- Ver HU en `docs/03-hu-historias/000-Generalidades/HU-001-layouts-grilla.md` para guardar/cargar formatos.
+- Ver HU en `docs/03-historias-usuario/000-Generalidades/HU-001-layouts-grilla.md` para guardar/cargar formatos.
 - Cada grilla debe identificar: `proceso` (de `pq_menus.procedimiento`) y `grid_id` (si hay varias grillas en la pantalla).
 
 ---
@@ -134,6 +134,6 @@ Ejemplo: `grid.clientes.default`, `grid.tareas.master`.
 ## 5) Referencias
 
 - **DevExtreme DataGrid:** [Documentación oficial](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/)
-- **Layouts:** `docs/03-hu-historias/000-Generalidades/HU-001-layouts-grilla.md`
+- **Layouts:** `docs/03-historias-usuario/000-Generalidades/HU-001-layouts-grilla.md`
 - **Tabla:** `docs/modelo-datos/md-diccionario/md-diccionario.md` – `pq_grid_layouts`
 - **UI Layer:** `docs/frontend/ui-layer-wrappers.md`, `docs/frontend/devextreme-norms.md`

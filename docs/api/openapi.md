@@ -56,7 +56,7 @@ php artisan l5-swagger:generate
 Se actualiza `storage/api-docs/api-docs.json`. Debe ejecutarse:
 
 - Tras añadir o modificar endpoints (el agente lo hace automáticamente si sigue la regla en `.cursor/rules/06-openapi-documentacion.md`).
-- En el pipeline de CI/CD (según `docs/deploy-ci-cd.md`).
+- En el pipeline de CI/CD (según `docs/06-operacion/deploy-infraestructura.md`).
 
 ## Estructura de la especificación
 
@@ -70,4 +70,4 @@ Se actualiza `storage/api-docs/api-docs.json`. Debe ejecutarse:
 
 - Contrato de API: `.cursor/rules/06-api-contract.md`
 - Playbook backend: `docs/backend/PLAYBOOK_BACKEND_LARAVEL.md` (sección Swagger/OpenAPI)
-- Deploy/CI: `docs/deploy-ci-cd.md` (generación de documentación)
+- Deploy/CI: `docs/06-operacion/deploy-infraestructura.md` (generación de documentación)

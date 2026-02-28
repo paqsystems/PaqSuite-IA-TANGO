@@ -33,7 +33,7 @@ Para cada parámetro configurable, definir:
 
 ### 4. Referencias
 
-- `docs/03-hu-historias/000-Generalidades/HU-007-Parametros-generales.md` – Proceso general
+- `docs/03-historias-usuario/000-Generalidades/HU-007-Parametros-generales.md` – Proceso general
 - `docs/modelo-datos/md-empresas/pq-parametros-gral.md` – Diseño de la tabla (Company DB)
 - `docs/00-contexto/05-parametros-generales.md` – Objetivo y reglas
 

@@ -4,7 +4,7 @@
 #
 # Disparado en push a main. Publica imágenes en GitHub Container Registry.
 # @see docs/futuro/DOCKER-CICD.md
-# @see docs/deploy-ci-cd.md
+# @see docs/06-operacion/deploy-infraestructura.md
 
 name: CD
 

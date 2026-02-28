@@ -223,7 +223,7 @@ Scenario: Sin datos no se puede exportar
 
 ## Referencias
 
-- `docs/03-hu-historias/000-Generalidades/HU-001-layouts-grilla.md` – Layouts y identificación de grillas
+- `docs/03-historias-usuario/000-Generalidades/HU-001-layouts-grilla.md` – Layouts y identificación de grillas
 - `.cursor/rules/24-devextreme-grid-standards.md` – Estándar de grillas DevExtreme
 - `frontend/src/features/tasks/utils/exportToExcel.ts` – Utilidad existente de exportación
 - [DevExtreme DataGrid - Export](https://js.devexpress.com/React/Documentation/ApiReference/UI_Components/dxDataGrid/Configuration/export/)

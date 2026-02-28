@@ -31,7 +31,7 @@ El build de Vite **lee automáticamente** el archivo `VERSION` y lo inyecta en l
 
 ### Requisitos
 - **Motor:** MySQL 5.7+ o MariaDB 10.3+ (recomendado MySQL 8.0+)
-- **Base de datos:** Configurada según entorno (ej: `_datosempresa`)
+- **Base de datos:** Base DICCIONARIO (según `docs/modelo-datos/md-diccionario/md-diccionario.md`). En MVP puede usarse una sola BD; en producción suele separarse Dictionary DB de Company DB por empresa.
 - **Driver Laravel:** `mysql` (extensión PHP PDO MySQL)
 - **Túnel SSH:** Requerido para conexión remota (ver `docs/migracion-mssql-a-mysql.md`)
 
@@ -48,17 +48,23 @@ DB_PASSWORD=tu_password
 
 **Nota:** El `DB_HOST=127.0.0.1` indica que se usa un túnel SSH local. El túnel debe estar activo antes de ejecutar migraciones o acceder a la base de datos. Ver instrucciones en `docs/migracion-mssql-a-mysql.md`.
 
-### Estructura de Tablas
+### Estructura de Tablas (base DICCIONARIO)
 
-| Tabla | Descripción |
-|-------|-------------|
-| `USERS` | Autenticación centralizada (base DICCIONARIO, no en bases de empresas) |
-| `PQ_PARTES_USUARIOS` | Empleados que cargan tareas |
-| `PQ_PARTES_CLIENTES` | Clientes para los cuales se registran tareas |
-| `PQ_PARTES_TIPOS_CLIENTE` | Catálogo de tipos de cliente |
-| `PQ_PARTES_TIPOS_TAREA` | Catálogo de tipos de tarea |
-| `PQ_PARTES_REGISTRO_TAREA` | Registros de tareas (tabla principal) |
-| `PQ_PARTES_CLIENTE_TIPO_TAREA` | Asociación N:M Cliente-TipoTarea |
+Las tablas siguen el diseño de `docs/modelo-datos/md-diccionario/md-diccionario.md`:
+
+| Tabla | Descripción | Estado |
+|-------|-------------|--------|
+| `users` / `USERS` | Autenticación centralizada (base DICCIONARIO) | Implementada |
+| `pq_menus` | Catálogo de opciones de menú del sistema | Implementada |
+| `pq_empresa` | Empresas del sistema (multiempresa) | Implementada |
+| `pq_rol` | Roles de usuario | Implementada |
+| `pq_permiso` | Usuario–Empresa–Rol (tripleta) | Implementada |
+| `PQ_RolAtributo` | Permisos por opción de menú | Pendiente |
+| `pq_grid_layouts` | Layouts persistentes de grillas (DevExtreme) | Pendiente |
+| `PQ_GrupoEmpresario` | Grupos de empresas | Pendiente |
+| `PQ_GrupoEmpresario_Empresas` | Asociación N:M grupos–empresas | Pendiente |
+
+**Nota:** Las tablas de módulos (ej. PQ_PARTES_*, PQ_SUELD_*, etc.) pertenecen a las bases Company DB (una por empresa) y se documentan en `docs/modelo-datos/md-empresas/`.
 
 ### Comandos de Migración
 
@@ -83,49 +89,37 @@ php artisan migrate:status
 
 Las migraciones se ejecutan en el siguiente orden (por dependencias):
 
-1. `create_users_table` - Tabla USERS
-2. `create_tipos_cliente_table` - PQ_PARTES_TIPOS_CLIENTE
-3. `create_tipos_tarea_table` - PQ_PARTES_TIPOS_TAREA
-4. `create_usuarios_table` - PQ_PARTES_USUARIOS (depende de USERS)
-5. `create_clientes_table` - PQ_PARTES_CLIENTES (depende de USERS, TIPOS_CLIENTE)
-6. `create_registro_tarea_table` - PQ_PARTES_REGISTRO_TAREA
-7. `create_cliente_tipo_tarea_table` - PQ_PARTES_CLIENTE_TIPO_TAREA
+1. `create_users_table` – Tabla USERS (autenticación centralizada)
+2. `create_pq_menus_table` – Tabla pq_menus (catálogo de menú)
+3. `create_pq_empresa_table` – Tabla pq_empresa (empresas)
+4. `create_pq_rol_table` – Tabla pq_rol (roles)
+5. `create_pq_permiso_table` – Tabla pq_permiso (usuario–empresa–rol)
+6. Migraciones por defecto de Laravel (password_reset_tokens, failed_jobs, personal_access_tokens)
 
 ### Datos de Seed
 
-Los seeders crean los siguientes datos mínimos para testing:
+Los seeders crean los siguientes datos mínimos:
 
-**Usuarios de autenticación (USERS):**
+**Usuarios (USERS):**
 | Code | Password | Descripción |
 |------|----------|-------------|
-| ADMIN | admin123 | Usuario supervisor |
-| CLI001 | cliente123 | Usuario cliente |
-| EMP001 | empleado123 | Usuario empleado |
+| ADMIN | admin123 | Usuario administrador |
+| EMP | emple123 | Usuario operativo |
 
-**Empleados (PQ_PARTES_USUARIOS):**
-| Code | Nombre | Supervisor |
-|------|--------|------------|
-| ADMIN | Administrador del Sistema | Sí |
-| EMP001 | Empleado Demo | No |
+**Rol (pq_rol):**
+| Nombre | Acceso total |
+|--------|--------------|
+| Supervisor | Sí |
 
-**Tipos de Cliente (PQ_PARTES_TIPOS_CLIENTE):**
-| Code | Descripción |
-|------|-------------|
-| CORP | Corporativo |
-| PYME | Pequeña y Mediana Empresa |
+**Empresa (pq_empresa):**
+| Nombre |
+|--------|
+| Empresa Desarrollo |
 
-**Tipos de Tarea (PQ_PARTES_TIPOS_TAREA):**
-| Code | Descripción | Genérico | Default |
-|------|-------------|----------|---------|
-| GENERAL | Tarea General | Sí | Sí |
-| SOPORTE | Soporte Técnico | Sí | No |
-| DESARROLLO | Desarrollo de Software | No | No |
+**Permisos (pq_permiso):** ADMIN y EMP con rol Supervisor en Empresa Desarrollo.
 
-**Clientes (PQ_PARTES_CLIENTES):**
-| Code | Nombre | Tipo | Con acceso |
-|------|--------|------|------------|
-| CLI001 | Cliente Demo S.A. | CORP | Sí |
-| CLI002 | Empresa PyME Ejemplo | PYME | No |
+**Menú (pq_menus):**
+- Carga desde archivo versionado (ej. `PQ_MENUS.seed.v2.json`). Ver `docs/03-historias-usuario/Historia_PQ_MENUS_seed.md` y `docs/backend/seed/PQ_MENUS/README.md`.
 
 ### Troubleshooting
 

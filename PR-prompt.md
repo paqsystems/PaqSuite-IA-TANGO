@@ -1,60 +1,45 @@
-# Pull Request – v1.1.0: diseño PaqSystems, parámetros generales, fix CI y tests
+# Pull Request – Selector de idioma en pantalla de login (HU-004)
 
 ## Título sugerido
 
 ```
-feat: diseño PaqSystems, parámetros generales (Company DB), fix CI DevExtreme, tests adaptados
+feat(auth): selector de idioma en pantalla de login (HU-004)
 ```
 
 ## Descripción
 
-Conjunto de cambios para la rama `v1.1.0`: diseño base del Main Shell, parámetros generales por módulo, corrección del build en CI (DevExtreme) y adaptación de los tests al esquema simplificado (solo tabla USERS).
+Implementación del criterio de aceptación de HU-004: el selector de idioma debe estar disponible en la pantalla de login (antes de autenticarse), además de permanecer en el layout principal tras el login.
 
 ## Cambios incluidos
 
-### 1. Diseño PaqSystems Main Shell
+### 1. Selector de idioma en login
 
-- **`docs/design/paqsystems-main-shell-design.md`**: diseño base Figma adaptado a DevExtreme.
-- Selector de idioma: control dedicado en el header (no en menú usuario).
-- Menú de usuario (debajo del avatar): Perfil, Cambiar empresa, Cambiar contraseña, Abrir en otra pestaña, Cerrar sesión.
-- HUs actualizadas (HU-002, HU-003, HU-004 idioma, HU-004 contraseña, HU-003 logout).
-- **Regla 26**: indicadores de dashboard por módulo (visibilidad y rol supervisor/no supervisor).
+- **`LoginForm`** o layout de pantallas públicas: añadir `LanguageSelector` visible en la pantalla de login.
+- Ubicación sugerida: esquina superior derecha o junto al formulario, según diseño PaqSystems.
+- El selector debe usar los mismos idiomas soportados (es, en) y aplicar el cambio de inmediato vía `i18n.changeLanguage()`.
 
-### 2. Parámetros generales (PQ_PARAMETROS_GRAL)
+### 2. Persistencia para usuarios no autenticados
 
-- **`docs/00-contexto/05-parametros-generales.md`**: objetivo, diseño y checklist.
-- **`docs/modelo-datos/md-empresas/pq-parametros-gral.md`**: tabla en **Company DB** (no en diccionario), CREATE TABLE, erDiagram.
-- **HU-007-Parametros-generales.md**: proceso general de mantenimiento (solo edición de valores).
-- **Reglas 27 y 28**: formato de HU de parámetros por módulo y plan de tareas.
+- Según HU-004: "Usuarios no autenticados (en login): la selección se guarda temporalmente (ej. localStorage) y al autenticarse se envía al backend para persistir en `users.locale`."
+- Si el backend ya expone endpoint para actualizar `locale`, enviar la preferencia tras login exitoso.
+- Si no existe aún, guardar en `localStorage` y documentar como pendiente la sincronización con backend.
 
-### 3. Fix CI – DevExtreme license
+### 3. Estilos del selector en login
 
-- **`frontend/src/devextreme-license.ts`**: usa `VITE_DEVEXTREME_LICENSE` (env); vacío = modo trial.
-- Archivo versionado (eliminado del `.gitignore`).
-- `.env.example` documentado.
-
-### 4. Fix tests – schema simplificado (solo USERS)
-
-- **TestUsersSeeder**: solo tabla USERS con `name` y `email`; eliminadas referencias a PQ_PARTES_*.
-- **Unit tests**: AuthServiceTest, PasswordResetServiceTest, UserProfileServiceTest adaptados.
-- **Feature tests**: LoginTest, LogoutTest, ChangePasswordTest, PasswordResetTest, UserProfileTest con seeds simplificados.
-- **Eliminados**: TipoClienteControllerTest, ClienteControllerTest, DashboardControllerTest, EmpleadoControllerTest, ReportControllerTest, TaskControllerTest, TipoTareaControllerTest, TaskServiceTest (controladores/modelos eliminados).
+- El selector en la pantalla de login tiene fondo claro (a diferencia del header oscuro post-login).
+- Ajustar estilos en `LoginForm.css` o crear clase `.language-selector--login` para que sea legible sobre el fondo del formulario.
 
 ## Referencias
 
-- `docs/design/paqsystems-main-shell-design.md`
-- `docs/00-contexto/05-parametros-generales.md`
-- `docs/modelo-datos/md-empresas/pq-parametros-gral.md`
-- `docs/03-hu-historias/000-Generalidades/HU-007-Parametros-generales.md`
-- `.cursor/rules/26-dashboard-indicadores-por-modulo.md`
-- `.cursor/rules/27-parametros-generales-por-modulo.md`
-- `.cursor/rules/28-plan-tareas-hu-parametros-generales.md`
+- `docs/03-historias-usuario/000-Generalidades/HU-004-seleccion-idioma.md`
+- `docs/design/paqsystems-main-shell-design.md` – Sección 4.1
+- `frontend/src/shared/components/LanguageSelector.tsx`
+- `frontend/src/app/AppLayout.css` – estilos actuales de `.language-selector`
 
 ## Checklist
 
-- [x] Documentación actualizada
-- [x] HUs alineadas con diseño
-- [x] Reglas de indicadores y parámetros creadas
-- [x] Fix CI DevExtreme
-- [x] Tests adaptados al schema USERS
-- [ ] CI pasa (verificar en GitHub Actions)
+- [ ] LanguageSelector visible en pantalla de login
+- [ ] Selector funcional (cambio de idioma sin recargar)
+- [ ] Estilos adecuados para fondo claro
+- [ ] Persistencia en localStorage (o envío a backend si aplica)
+- [ ] Tests E2E actualizados si el selector afecta flujo de login

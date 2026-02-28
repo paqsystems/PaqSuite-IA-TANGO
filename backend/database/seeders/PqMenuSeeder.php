@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\DB;
  *
  * Fuente: docs/backend/seed/PQ_MENUS/PQ_MENUS.seed.v2.json
  *
- * @see docs/03-hu-historias/Historia_PQ_MENUS_seed.md
- * @see docs/03-hu-historias/001-Seguridad/HU-015-menu-sistema.md
+ * @see docs/03-historias-usuario/Historia_PQ_MENUS_seed.md
+ * @see docs/03-historias-usuario/001-Seguridad/HU-015-menu-sistema.md
  */
 class PqMenuSeeder extends Seeder
 {

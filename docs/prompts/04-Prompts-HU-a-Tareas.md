@@ -110,5 +110,3 @@ Historia de Usuario:
 ---
 [TÍTULO EXACTO DE LA HU]
 ---
-
-

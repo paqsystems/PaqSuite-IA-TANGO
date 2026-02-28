@@ -49,7 +49,7 @@ Cuando el usuario escriba:
 
 El asistente debe:
 1. Leer el archivo:
-   `docs/tareas/TR-xxx.md`
+   `docs/04-tareas/TR-xxx.md`
 2. Leer el archivo de prompt:
    `docs/prompts/05-Ejecucion-de-una-TR.md`
 3. Reemplazar el placeholder `[NOMBRE_DEL_TR]`
@@ -138,12 +138,13 @@ npm run test:e2e
 
 Cuando el usuario escriba algo como:
 > Commiteá
+> Commitea
 > actualiza el GitHub
 
 el asistente debe:
 1. Hacer commit
-2. Hacer push
-3. Generar el texto para el PR en el archivo PR-prompt.md, borrado el contenido anterior
+2. consulta si quiero hacer el push
+3. Generar el texto para el PR en el archivo PR-prompt.md, borrando el contenido anterior
 
 ---
 

@@ -1,11 +1,9 @@
 # PROJECT_CONTEXT.md
 
 ## Contexto General
-Este proyecto es un **MVP web** para consultorías y empresas de servicios.
+Este proyecto es un **MVP web** con procesos e informes que complementan al sistema Tango Gestión.
 
-El sistema permite que empleados o asistentes registren las tareas realizadas
-diariamente, indicando cliente, tipo de tarea y duración, con el fin de obtener
-informes de dedicación para análisis operativo y comercial.
+El sistema permite que empleados ingresen al sistema, elijan una empresa de las que tienen habilitados en Tango y ejecuten cualquiera de los procesos que tienen habilitados a realizar.
 
 ---
 
@@ -28,19 +26,18 @@ informes de dedicación para análisis operativo y comercial.
 ## Qué NO es este proyecto
 - No es una plataforma de automatización.
 - No es un integrador de Jira, MCP, Playwright u otras herramientas.
-- No es un ERP.
+- No es un ERP , sino un complemento del mismo.
 - No incluye facturación ni reportes avanzados en el MVP.
 
 ---
 
 ## Usuarios
-- Empleado / Consultor 
-- Clientes (para consultas únicamente)
+- Empleados
 
 ---
 
 ## Flujo E2E Prioritario
-Login → Registro de tarea diaria → Visualización de tareas / resumen.
+Login → Selección Empresas -> (por módulo) : carga de datos de un módulo -> selección de informes de ese módulo -> actualización del dash
 
 Todo el desarrollo debe soportar este flujo.
 
@@ -48,9 +45,7 @@ Todo el desarrollo debe soportar este flujo.
 
 ## Entidades Clave
 - Usuario
-- Cliente
-- Tipo de Tarea
-- Registro de Tarea
+- Empresa
 
 ---
 
@@ -77,5 +72,6 @@ La IA se utiliza como asistente en:
 - Generación de código base
 - Testing
 - Documentación
+- Integración y Desplegado
 
 Las decisiones finales y ajustes son humanos.

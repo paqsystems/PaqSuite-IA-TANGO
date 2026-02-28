@@ -44,6 +44,6 @@ En el TR del HU-007, aclarar que el **nombre clave** (campo PROGRAMA) lo define 
 
 ## Referencias
 
-- `docs/03-hu-historias/000-Generalidades/HU-007-Parametros-generales.md`
+- `docs/03-historias-usuario/000-Generalidades/HU-007-Parametros-generales.md`
 - `docs/00-contexto/05-parametros-generales.md`
 - `docs/modelo-datos/md-empresas/pq-parametros-gral.md`

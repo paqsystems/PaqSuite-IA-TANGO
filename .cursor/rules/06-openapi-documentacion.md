@@ -40,4 +40,4 @@ Documentación detallada: **`docs/api/openapi.md`**.
 
 ## CI/CD
 
-- Incluir en el build/deploy la generación de la documentación: `php artisan l5-swagger:generate` (según `docs/deploy-ci-cd.md`).
+- Incluir en el build/deploy la generación de la documentación: `php artisan l5-swagger:generate` (según `docs/06-operacion/deploy-infraestructura.md`).

@@ -398,7 +398,7 @@ Feature: Edición de Empleado
 - `frontend/tests/e2e/empleados-edit.spec.ts` – Tests E2E nuevos.
 
 ### Docs
-- `docs/hu-tareas/TR-020(MH)-edición-de-empleado.md` – Estado actualizado a COMPLETADO.
+- `docs/04-tareas/TR-020(MH)-edición-de-empleado.md` – Estado actualizado a COMPLETADO.
 
 ## Comandos ejecutados
 

@@ -20,7 +20,7 @@ Permitir la generación masiva de TRs desde HUs y la ejecución de TRs en forma
 
 ### 1. Agente orquestador (padre)
 
-- Lista HUs en `docs/03-hu-historias/` (por carpeta o filtro).
+- Lista HUs en `docs/03-historias-usuario/` (por carpeta o filtro).
 - Decide qué HUs procesar (todas, subconjunto, por prioridad).
 - Lanza subagentes en paralelo o en serie según dependencias.
 
@@ -31,7 +31,7 @@ Para cada HU:
 1. Lee el archivo de la HU.
 2. Clasifica simple vs compleja según `16-hu-simple-vs-hu-compleja.md`.
 3. Ejecuta el prompt de `docs/prompts/04-Prompts-HU-a-Tareas.md`.
-4. Escribe el TR en `docs/hu-tareas/{subcarpeta}/TR-xxx.md`, en la misma subcarpeta que la HU.
+4. Escribe el TR en `docs/04-tareas/{subcarpeta}/TR-xxx.md`, en la misma subcarpeta que la HU.
 
 **Paralelismo:** HUs sin dependencias entre sí → un subagente por HU.
 
@@ -66,11 +66,11 @@ Para cada TR:
 subagent_type: generalPurpose
 description: "Generar TR para HU-010"
 prompt: |
-  Lee docs/03-hu-historias/001-Seguridad/HU-010-administracion-usuarios.md.
+  Lee docs/03-historias-usuario/001-Seguridad/HU-010-administracion-usuarios.md.
   Clasificala como HU simple o compleja según .cursor/rules/16-hu-simple-vs-hu-compleja.md.
   Genera el TR siguiendo .cursor/rules/13-user-story-to-task-breakdown.md
   y el prompt de docs/prompts/04-Prompts-HU-a-Tareas.md.
-  Guarda el resultado en docs/hu-tareas/001-Seguridad/TR-010-administracion-usuarios.md
+  Guarda el resultado en docs/04-tareas/001-Seguridad/TR-010-administracion-usuarios.md
   (misma subcarpeta que la HU).
   Devuelve un resumen de 2-3 líneas al finalizar.
 ```
@@ -94,4 +94,4 @@ prompt: |
 1. Remover o ajustar el aviso de "NO ACTIVA" al inicio.
 2. Crear una regla `.mdc` que referencie este documento y defina cuándo aplica.
 3. Verificar que existan `docs/prompts/04-Prompts-HU-a-Tareas.md` y `05-Ejecucion-de-una-TR.md`.
-4. Las rutas siguen `docs/hu-tareas/{subcarpeta}/` según la subcarpeta de la HU (ver regla 16).
+4. Las rutas siguen `docs/04-tareas/{subcarpeta}/` según la subcarpeta de la HU (ver regla 16).

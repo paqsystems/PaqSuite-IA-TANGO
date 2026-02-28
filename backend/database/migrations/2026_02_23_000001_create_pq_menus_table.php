@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Schema;
  * Catálogo de opciones de menú del sistema. Fuente de verdad: PQ_MENUS.seed.v2.json
  *
  * @see docs/modelo-datos/md-diccionario/md-diccionario.md
- * @see docs/03-hu-historias/Historia_PQ_MENUS_seed.md
+ * @see docs/03-historias-usuario/Historia_PQ_MENUS_seed.md
  */
 return new class extends Migration
 {

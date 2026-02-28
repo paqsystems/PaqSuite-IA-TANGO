@@ -66,7 +66,7 @@ El ERP se organiza en niveles:
 1. Contexto Institucional → `00-contexto/`
 2. Arquitectura → `01-arquitectura/`
 3. Producto y Flujos → `02-producto/`
-4. Historias de Usuario → `03-hu-historias/`
+4. Historias de Usuario → `03-historias-usuario/`
 5. Tareas Técnicas → `04-tareas/`
 6. Testing → `05-testing/`
 7. Operación → `06-operacion/`

@@ -41,7 +41,7 @@ flowchart TD
 
 A[00-contexto] --> B[01-arquitectura]
 B --> C[02-producto]
-C --> D[03-hu-historias]
+C --> D[03-historias-usuario]
 D --> E[04-tareas]
 E --> F[Backend / Frontend / DB]
 F --> G[05-testing]

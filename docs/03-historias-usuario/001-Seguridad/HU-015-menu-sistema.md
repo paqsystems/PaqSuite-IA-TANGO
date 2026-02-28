@@ -38,5 +38,5 @@ Como administrador quiero que el menú del sistema esté versionado y sea reprod
 
 ## Referencias
 
-- `docs/03-hu-historias/Historia_PQ_MENUS_seed.md` – Especificación completa del seed versionado
+- `docs/03-historias-usuario/Historia_PQ_MENUS_seed.md` – Especificación completa del seed versionado
 - `docs/modelo-datos/md-diccionario/md-diccionario.md` – Esquema pq_menus

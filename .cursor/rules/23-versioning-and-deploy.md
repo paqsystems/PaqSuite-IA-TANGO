@@ -56,7 +56,7 @@ Esta regla define la metodología de versionado de la aplicación y la actualiza
 
 ### Metodología documentada
 
-Para catálogos versionados (menús, tipos, etc.) se sigue la metodología de `docs/03-hu-historias/Historia_PQ_MENUS_seed.md`:
+Para catálogos versionados (menús, tipos, etc.) se sigue la metodología de `docs/03-historias-usuario/Historia_PQ_MENUS_seed.md`:
 
 - **Fuente de verdad:** archivo versionado en repo (ej: `PQ_MENUS.seed.json`).
 - **Aplicación:** script idempotente (MERGE/upsert) o seeder Laravel con `updateOrCreate` / `firstOrCreate`.
@@ -117,7 +117,7 @@ En cada deploy deben actualizarse:
 
 ### Documentación futura
 
-- Cuando se implemente el comando multiempresa, documentarlo en `docs/deploy-ci-cd.md` y en el pipeline de CD.
+- Cuando se implemente el comando multiempresa, documentarlo en `docs/06-operacion/deploy-infraestructura.md` y en el pipeline de CD.
 
 ---
 
@@ -154,6 +154,6 @@ Cuando el usuario solicite **push**, **PR** o **aplicar CI**:
 ## 8) Referencias
 
 - **Migrations:** `.cursor/rules/09-data-access-orm-sql.md`
-- **Deploy:** `docs/deploy-ci-cd.md`
-- **Menú versionado:** `docs/03-hu-historias/Historia_PQ_MENUS_seed.md`
+- **Deploy:** `docs/06-operacion/deploy-infraestructura.md`
+- **Menú versionado:** `docs/03-historias-usuario/Historia_PQ_MENUS_seed.md`
 - **Arquitectura multiempresa:** `docs/01-arquitectura/01-arquitectura-proyecto.md`, `docs/00-contexto/00-contexto-global-erp.md`

@@ -44,13 +44,13 @@
 ## Observaciones (sin cambios)
 
 ### Estructura documental planificada vs real
-- **docs/01-guia-estructura-documental-corporativa.md** describe carpetas `02-producto/`, `03-hu-historias/`, `04-tareas/` que no existen aún.
+- **docs/01-guia-estructura-documental-corporativa.md** describe carpetas `02-producto/`, `03-historias-usuario/`, `04-tareas/` que no existen aún.
 - **Realidad:** Las HU y TR están en `docs/_projects/SistemaPartes/hu-historias/` y `hu-tareas/`.
 - **Recomendación:** Decidir si migrar a la estructura corporativa o actualizar la guía para reflejar la estructura actual.
 
 ### 03-general-quality.md
 - Menciona "Integración con al menos un MCP server" y "Docker Compose funcionando" como entregables.
-- **docs/deploy-ci-cd.md** indica que Docker está desactivado.
+- **docs/06-operacion/deploy-infraestructura.md** indica que Docker está desactivado.
 - **Recomendación:** Revisar si estos entregables aplican al estado actual del proyecto.
 
 ### 07-frontend-norms.md
