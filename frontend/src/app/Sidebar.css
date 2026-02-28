@@ -1,12 +1,14 @@
 /**
- * Estilos: Sidebar (TR-056 / HU-056 – Menú lateral)
+ * Sidebar – PaqSystems Main Shell
+ * Fondo claro, items con icono, item activo destacado
+ * @see docs/design/paqsystems-main-shell-design.md
  */
 
 .sidebar {
   width: 260px;
   min-width: 260px;
-  background: #fff;
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+  background: var(--paq-sidebar-bg);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06);
   overflow-y: auto;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -28,7 +30,7 @@
 .sidebar-link {
   display: block;
   padding: 0.6rem 1.25rem;
-  color: #374151;
+  color: var(--paq-sidebar-text);
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
@@ -36,19 +38,19 @@
 }
 
 .sidebar-link:hover {
-  background-color: #f3f4f6;
-  color: #667eea;
+  background-color: var(--paq-sidebar-hover);
+  color: var(--paq-accent);
 }
 
 .sidebar-link-active {
-  background-color: #eef2ff;
-  color: #667eea;
-  border-right: 3px solid #667eea;
+  background-color: var(--paq-sidebar-active-bg);
+  color: var(--paq-sidebar-active-accent);
+  border-right: 3px solid var(--paq-sidebar-active-accent);
 }
 
 .sidebar-separator {
   height: 1px;
-  background: #e5e7eb;
+  background: #e2e8f0;
   margin: 0.75rem 1rem;
 }
 
@@ -58,7 +60,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #6b7280;
+  color: var(--paq-text-secondary);
 }
 
 .sidebar-overlay {

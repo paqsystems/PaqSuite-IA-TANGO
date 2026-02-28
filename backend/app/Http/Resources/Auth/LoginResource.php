@@ -16,8 +16,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
  *   - user_id: ID del usuario en tabla USERS
  *   - user_code: Código del usuario
  *   - tipo_usuario: "usuario" (empleado) o "cliente"
- *   - usuario_id: ID del empleado en PQ_PARTES_USUARIOS (null si es cliente)
- *   - cliente_id: ID del cliente en PQ_PARTES_CLIENTES (null si es empleado)
+ *   - usuario_id: ID del usuario en tabla USERS
+ *   - cliente_id: null (schema simplificado sin tabla de clientes)
  *   - es_supervisor: true si el empleado es supervisor
  *   - nombre: Nombre completo del empleado/cliente
  *   - email: Email del empleado/cliente

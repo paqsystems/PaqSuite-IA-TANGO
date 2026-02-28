@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 /**
  * Migración: Crear tabla USERS
- * 
+ *
  * Tabla de autenticación centralizada del sistema.
- * ÚNICA tabla SIN prefijo PQ_PARTES_.
- * 
- * @see docs/modelo-datos.md
+ * **Ubicación:** Base de datos DICCIONARIO (PQ_DICCIONARIO), NO en las bases de empresas.
+ *
+ * @see docs/modelo-datos/md-diccionario/md-diccionario.md
  * @see TR-00(MH)-Generacion-base-datos-inicial.md
  */
 return new class extends Migration
@@ -23,6 +23,8 @@ return new class extends Migration
         Schema::create('USERS', function (Blueprint $table) {
             $table->id();
             $table->string('code', 50)->comment('Código de usuario para autenticación');
+            $table->string('name', 255)->nullable()->comment('Nombre del usuario');
+            $table->string('email', 255)->nullable()->comment('Email del usuario');
             $table->string('password_hash', 255)->comment('Hash de contraseña');
             $table->boolean('activo')->default(true)->comment('Indica si el usuario está activo');
             $table->boolean('inhabilitado')->default(false)->comment('Indica si el usuario está inhabilitado');

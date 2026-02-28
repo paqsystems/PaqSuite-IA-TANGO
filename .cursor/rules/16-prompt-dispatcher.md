@@ -131,6 +131,21 @@ En otra terminal:
 cd frontend
 npm run test:e2e
 --- 
+--- 
+## PARTE E – Hacer commit + push - Texto para PR
+
+### Comando: "Commiteá" ó " Commitea"
+
+Cuando el usuario escriba algo como:
+> Commiteá
+> actualiza el GitHub
+
+el asistente debe:
+1. Hacer commit
+2. Hacer push
+3. Generar el texto para el PR en el archivo PR-prompt.md, borrado el contenido anterior
+
+---
 
 ## Reglas generales (aplican a todos los comandos)
 - No inventar prompts fuera de los definidos.

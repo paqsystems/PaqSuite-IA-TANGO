@@ -2,8 +2,8 @@
     "openapi": "3.0.0",
     "info": [
         {
-            "title": "API Partes de Atención - MVP",
-            "description": "API REST para el sistema de partes de atención (consultorías y empresas de servicios). Autenticación con Laravel Sanctum (Bearer token).",
+            "title": "API PaqSuite-IA-TANGO",
+            "description": "API REST. Autenticación con Laravel Sanctum (Bearer token).",
             "version": "1.0.0"
         }
     ],
@@ -24,7 +24,7 @@
                     "Auth"
                 ],
                 "summary": "Login",
-                "description": "Especificación OpenAPI base para la API del MVP (Partes de atención).\nTodas las respuestas usan el envelope estándar: error, respuesta, resultado.\nVer .cursor/rules/06-api-contract.md y docs/api/openapi.md.",
+                "description": "Paths de la API v1 para OpenAPI.",
                 "operationId": "authLogin",
                 "responses": {
                     "200": {
@@ -39,7 +39,6 @@
                     "Auth"
                 ],
                 "summary": "Solicitar recuperación de contraseña",
-                "description": "Paths de la API v1 para OpenAPI. Se fusionan con app/OpenApi.php al ejecutar l5-swagger:generate.\nRutas protegidas: usar Bearer token (Authorize en Swagger UI).",
                 "operationId": "authForgotPassword",
                 "responses": {
                     "200": {
@@ -86,7 +85,7 @@
                 "tags": [
                     "Auth"
                 ],
-                "summary": "Cambiar contraseña (usuario autenticado)",
+                "summary": "Cambiar contraseña",
                 "operationId": "authChangePassword",
                 "responses": {
                     "200": {
@@ -105,7 +104,7 @@
                 "tags": [
                     "User"
                 ],
-                "summary": "Usuario actual (legacy)",
+                "summary": "Usuario actual",
                 "operationId": "userCurrent",
                 "responses": {
                     "200": {
@@ -154,702 +153,11 @@
                     }
                 ]
             }
-        },
-        "/api/v1/dashboard": {
-            "get": {
-                "tags": [
-                    "Dashboard"
-                ],
-                "summary": "Resumen del dashboard",
-                "operationId": "dashboardIndex",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/reports/detail": {
-            "get": {
-                "tags": [
-                    "Reports"
-                ],
-                "summary": "Consulta detallada de tareas",
-                "operationId": "reportsDetail",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/reports/by-client": {
-            "get": {
-                "tags": [
-                    "Reports"
-                ],
-                "summary": "Informe agrupado por cliente",
-                "operationId": "reportsByClient",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/reports/by-employee": {
-            "get": {
-                "tags": [
-                    "Reports"
-                ],
-                "summary": "Informe agrupado por empleado",
-                "operationId": "reportsByEmployee",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/reports/by-task-type": {
-            "get": {
-                "tags": [
-                    "Reports"
-                ],
-                "summary": "Informe agrupado por tipo de tarea",
-                "operationId": "reportsByTaskType",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/reports/by-date": {
-            "get": {
-                "tags": [
-                    "Reports"
-                ],
-                "summary": "Informe agrupado por fecha",
-                "operationId": "reportsByDate",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/clientes": {
-            "get": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Listar clientes",
-                "operationId": "clientesIndex",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Crear cliente",
-                "operationId": "clientesStore",
-                "responses": {
-                    "201": {
-                        "description": "Creado"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/clientes/{id}": {
-            "get": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Ver cliente",
-                "operationId": "clientesShow",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Actualizar cliente",
-                "operationId": "clientesUpdate",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Eliminar cliente",
-                "operationId": "clientesDestroy",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/clientes/{id}/tipos-tarea": {
-            "get": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Tipos de tarea del cliente",
-                "operationId": "clientesTiposTareaIndex",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Actualizar tipos de tarea del cliente",
-                "operationId": "clientesTiposTareaUpdate",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tipos-cliente": {
-            "get": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Listar tipos de cliente",
-                "operationId": "tiposClienteIndex",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Crear tipo de cliente",
-                "operationId": "tiposClienteStore",
-                "responses": {
-                    "201": {
-                        "description": "Creado"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tipos-cliente/{id}": {
-            "get": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Ver tipo de cliente",
-                "operationId": "tiposClienteShow",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Actualizar tipo de cliente",
-                "operationId": "tiposClienteUpdate",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "Clientes"
-                ],
-                "summary": "Eliminar tipo de cliente",
-                "operationId": "tiposClienteDestroy",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/empleados": {
-            "get": {
-                "tags": [
-                    "Empleados"
-                ],
-                "summary": "Listar empleados",
-                "operationId": "empleadosIndex",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Empleados"
-                ],
-                "summary": "Crear empleado",
-                "operationId": "empleadosStore",
-                "responses": {
-                    "201": {
-                        "description": "Creado"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/empleados/{id}": {
-            "get": {
-                "tags": [
-                    "Empleados"
-                ],
-                "summary": "Ver empleado",
-                "operationId": "empleadosShow",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Empleados"
-                ],
-                "summary": "Actualizar empleado",
-                "operationId": "empleadosUpdate",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "Empleados"
-                ],
-                "summary": "Eliminar empleado",
-                "operationId": "empleadosDestroy",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tipos-tarea": {
-            "get": {
-                "tags": [
-                    "Tipos de tarea"
-                ],
-                "summary": "Listar tipos de tarea",
-                "operationId": "tiposTareaIndex",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Tipos de tarea"
-                ],
-                "summary": "Crear tipo de tarea",
-                "operationId": "tiposTareaStore",
-                "responses": {
-                    "201": {
-                        "description": "Creado"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tipos-tarea/{id}": {
-            "get": {
-                "tags": [
-                    "Tipos de tarea"
-                ],
-                "summary": "Ver tipo de tarea",
-                "operationId": "tiposTareaShow",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Tipos de tarea"
-                ],
-                "summary": "Actualizar tipo de tarea",
-                "operationId": "tiposTareaUpdate",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "Tipos de tarea"
-                ],
-                "summary": "Eliminar tipo de tarea",
-                "operationId": "tiposTareaDestroy",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tasks": {
-            "get": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Listar tareas propias (paginado, filtros)",
-                "operationId": "tasksIndex",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "post": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Crear tarea",
-                "operationId": "tasksStore",
-                "responses": {
-                    "201": {
-                        "description": "Creado"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tasks/all": {
-            "get": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Listar todas las tareas (supervisores)",
-                "operationId": "tasksIndexAll",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tasks/clients": {
-            "get": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Lista de clientes activos",
-                "operationId": "tasksGetClients",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tasks/task-types": {
-            "get": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Tipos de tarea disponibles",
-                "operationId": "tasksGetTaskTypes",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tasks/employees": {
-            "get": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Lista de empleados (supervisores)",
-                "operationId": "tasksGetEmployees",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tasks/bulk-toggle-close": {
-            "post": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Proceso masivo: cerrar/reabrir tareas seleccionadas",
-                "operationId": "tasksBulkToggleClose",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
-        },
-        "/api/v1/tasks/{id}": {
-            "get": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Ver/editar tarea",
-                "operationId": "tasksShow",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "put": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Actualizar tarea",
-                "operationId": "tasksUpdate",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            },
-            "delete": {
-                "tags": [
-                    "Tasks"
-                ],
-                "summary": "Eliminar tarea",
-                "operationId": "tasksDestroy",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                },
-                "security": [
-                    {
-                        "bearerAuth": []
-                    }
-                ]
-            }
         }
     },
     "components": {
         "schemas": {
             "ApiEnvelope": {
-                "description": "Envelope estándar de todas las respuestas",
                 "required": [
                     "error",
                     "respuesta",
@@ -857,33 +165,22 @@
                 ],
                 "properties": {
                     "error": {
-                        "description": "0=OK, distinto de 0=error",
+                        "description": "Especificación OpenAPI base para la API.",
                         "type": "integer"
                     },
                     "respuesta": {
-                        "description": "Mensaje legible",
                         "type": "string"
                     },
                     "resultado": {
-                        "description": "Datos o {}",
                         "type": "object"
                     }
                 },
                 "type": "object"
-            },
-            "ApiErrorResponse": {
-                "description": "Respuesta de error (error != 0)",
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/ApiEnvelope"
-                    }
-                ]
             }
         },
         "securitySchemes": {
             "bearerAuth": {
                 "type": "http",
-                "description": "Token obtenido vía POST /api/v1/auth/login",
                 "bearerFormat": "Sanctum",
                 "scheme": "bearer"
             }
@@ -897,30 +194,6 @@
         {
             "name": "User",
             "description": "Perfil de usuario"
-        },
-        {
-            "name": "Dashboard",
-            "description": "Resumen dashboard"
-        },
-        {
-            "name": "Reports",
-            "description": "Informes y consultas"
-        },
-        {
-            "name": "Clientes",
-            "description": "CRUD clientes y tipos de cliente"
-        },
-        {
-            "name": "Empleados",
-            "description": "CRUD empleados"
-        },
-        {
-            "name": "Tipos de tarea",
-            "description": "CRUD tipos de tarea"
-        },
-        {
-            "name": "Tasks",
-            "description": "Tareas diarias y proceso masivo"
         }
     ]
 }

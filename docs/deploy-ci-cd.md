@@ -7,6 +7,26 @@ Disponer de una URL pública accesible para evaluación del MVP.
 
 ---
 
+## Versión de la aplicación
+
+### Fuente de verdad
+
+- **Archivo único:** `VERSION` en la raíz del proyecto (ej: `1.1.0`).
+- No duplicar la versión en `package.json` ni `composer.json` como fuente principal.
+- Ver `.cursor/rules/23-versioning-and-deploy.md` para criterios de bump (MAJOR/MINOR/PATCH).
+
+### Inyección en el build del frontend
+
+El build de Vite **lee automáticamente** el archivo `VERSION` y lo inyecta en la aplicación:
+
+- **Proceso:** `frontend/vite.config.ts` lee `VERSION` en la raíz y define `import.meta.env.VITE_APP_VERSION`.
+- **Uso:** La versión se muestra en el footer del shell (ej: `v1.1.0`).
+- **No requiere configurar** `VITE_APP_VERSION` en `.env`; el build lo toma del archivo `VERSION`.
+
+**Comandos que usan la versión:** `npm run build` y `npm run dev` en `frontend/`.
+
+---
+
 ## Base de Datos y Migraciones
 
 ### Requisitos
@@ -32,7 +52,7 @@ DB_PASSWORD=tu_password
 
 | Tabla | Descripción |
 |-------|-------------|
-| `USERS` | Autenticación centralizada (sin prefijo) |
+| `USERS` | Autenticación centralizada (base DICCIONARIO, no en bases de empresas) |
 | `PQ_PARTES_USUARIOS` | Empleados que cargan tareas |
 | `PQ_PARTES_CLIENTES` | Clientes para los cuales se registran tareas |
 | `PQ_PARTES_TIPOS_CLIENTE` | Catálogo de tipos de cliente |

@@ -92,7 +92,7 @@ El ERP opera con modelo multiempresa. En cada request de gestión:
 
 **Almacenamiento:**
 - Campo en BD: `password_hash` (tipo: `varchar` o `text`, suficiente para hash bcrypt ~60 caracteres)
-- Tabla: `USERS` (sin prefijo PQ_PARTES_)
+- Tabla: `USERS` (base DICCIONARIO, no en bases de empresas)
 - **NUNCA** exponer `password_hash` en respuestas de API
 
 ### Regeneración de Contraseñas
@@ -101,7 +101,7 @@ Cuando se actualiza una contraseña:
 1. Validar la nueva contraseña (mínimo 8 caracteres)
 2. Hashear con `Hash::make()`
 3. Actualizar `password_hash` en tabla `USERS`
-4. **NUNCA** actualizar en tablas `PQ_PARTES_USUARIOS` o `PQ_PARTES_CLIENTES` (solo en `USERS`)
+4. Actualizar contraseñas solo en tabla `USERS`
 
 ### Ejemplo Completo
 

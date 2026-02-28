@@ -26,7 +26,7 @@ class LoginTest extends TestCase
 
     protected function seedTestUsers(): void
     {
-        $testCodes = ['JPEREZ', 'MGARCIA', 'INACTIVO', 'INHABILITADO', 'CLI001', 'CLIINACTIVO'];
+        $testCodes = ['JPEREZ', 'MGARCIA', 'INACTIVO', 'INHABILITADO'];
 
         $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
@@ -71,23 +71,12 @@ class LoginTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'CLI001',
-            'name' => 'Empresa ABC S.A.',
-            'email' => 'contacto@empresaabc.com',
-            'password_hash' => Hash::make('cliente123'),
+            'code' => 'INHABILITADO',
+            'name' => 'Usuario Inhabilitado',
+            'email' => 'inhabilitado@ejemplo.com',
+            'password_hash' => Hash::make('password000'),
             'activo' => true,
-            'inhabilitado' => false,
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-
-        DB::table('USERS')->insert([
-            'code' => 'CLIINACTIVO',
-            'name' => 'Cliente Inactivo',
-            'email' => 'contacto@clienteinactivo.com',
-            'password_hash' => Hash::make('cliente456'),
-            'activo' => false,
-            'inhabilitado' => false,
+            'inhabilitado' => true,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -255,80 +244,4 @@ class LoginTest extends TestCase
         $this->assertIsString($response->json('respuesta'));
     }
 
-    /** @test */
-    public function login_exitoso_cliente_retorna_200()
-    {
-        $response = $this->postJson('/api/v1/auth/login', [
-            'usuario' => 'CLI001',
-            'password' => 'cliente123',
-        ]);
-
-        $response->assertStatus(200)
-            ->assertJson(['error' => 0, 'respuesta' => 'Autenticación exitosa'])
-            ->assertJsonStructure(['error', 'respuesta', 'resultado' => ['token', 'user']]);
-    }
-
-    /** @test */
-    public function login_cliente_retorna_tipo_usuario_usuario()
-    {
-        $response = $this->postJson('/api/v1/auth/login', [
-            'usuario' => 'CLI001',
-            'password' => 'cliente123',
-        ]);
-
-        $response->assertStatus(200);
-        $this->assertEquals('usuario', $response->json('resultado.user.tipo_usuario'));
-        $this->assertEquals('CLI001', $response->json('resultado.user.user_code'));
-    }
-
-    /** @test */
-    public function login_cliente_retorna_es_supervisor_false()
-    {
-        $response = $this->postJson('/api/v1/auth/login', [
-            'usuario' => 'CLI001',
-            'password' => 'cliente123',
-        ]);
-
-        $response->assertStatus(200);
-        $this->assertFalse($response->json('resultado.user.es_supervisor'));
-    }
-
-    /** @test */
-    public function login_cliente_retorna_usuario_id_y_cliente_id_null()
-    {
-        $response = $this->postJson('/api/v1/auth/login', [
-            'usuario' => 'CLI001',
-            'password' => 'cliente123',
-        ]);
-
-        $response->assertStatus(200);
-        $this->assertNotNull($response->json('resultado.user.usuario_id'));
-        $this->assertNull($response->json('resultado.user.cliente_id'));
-    }
-
-    /** @test */
-    public function login_fallido_cliente_inactivo_retorna_401_error_4203()
-    {
-        $response = $this->postJson('/api/v1/auth/login', [
-            'usuario' => 'CLIINACTIVO',
-            'password' => 'cliente456',
-        ]);
-
-        $response->assertStatus(401)
-            ->assertJson(['error' => 4203, 'respuesta' => 'Usuario inactivo']);
-    }
-
-    /** @test */
-    public function login_cliente_genera_token_valido()
-    {
-        $response = $this->postJson('/api/v1/auth/login', [
-            'usuario' => 'CLI001',
-            'password' => 'cliente123',
-        ]);
-
-        $response->assertStatus(200);
-        $token = $response->json('resultado.token');
-        $this->assertNotEmpty($token);
-        $this->assertStringContainsString('|', $token);
-    }
 }

@@ -97,10 +97,13 @@ public function scopeActivos($query) {
 
 ## 4) Convenciones de nombres físicos de base de datos
 
-### Prefijo obligatorio de tablas
+### Prefijos de tablas
 
-Todas las tablas físicas del sistema deben utilizar el prefijo obligatorio:
-PQ_PARTES_
+- **USERS**: tabla de autenticación (sin prefijo). **Ubicación: base DICCIONARIO**, no en bases de empresas.
+- **Tablas del proyecto**: prefijo `PQ_` (ej. `PQ_MENUS`).
+- **Laravel/Sanctum**: `personal_access_tokens`, `failed_jobs`, etc.
+
+> **Nota:** Las tablas `PQ_PARTES_*` fueron eliminadas. No crear ni referenciar tablas con ese prefijo.
 
 Esta convención aplica a:
 - tablas principales
@@ -132,8 +135,7 @@ Esta convención aplica a:
 
 Cursor debe asumir que:
 - El nombre lógico de una entidad **no coincide necesariamente** con el nombre físico de la tabla
-- El prefijo `PQ_PARTES_` es **obligatorio**
-- Cualquier mapeo ORM futuro debe respetar esta convención
+- Usar prefijo `PQ_` para tablas nuevas del proyecto (no `PQ_PARTES_`)
 
 ---
 

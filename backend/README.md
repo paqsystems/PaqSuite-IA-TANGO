@@ -44,15 +44,10 @@ backend/
 
 | Modelo | Tabla | Descripción |
 |--------|-------|-------------|
-| **User** | `users` | Autenticación central (Laravel) |
-| **Usuario** | `PQ_PARTES_USUARIOS` | Empleados que cargan tareas |
-| **Cliente** | `PQ_PARTES_CLIENTES` | Clientes para quienes se registran tareas |
-| **TipoCliente** | `PQ_PARTES_TIPOS_CLIENTE` | Catálogo de tipos de cliente |
-| **TipoTarea** | `PQ_PARTES_TIPOS_TAREA` | Catálogo de tipos de tarea |
-| **RegistroTarea** | `PQ_PARTES_REGISTRO_TAREA` | Registros de tareas realizadas |
-| **ClienteTipoTarea** | `PQ_PARTES_CLIENTE_TIPO_TAREA` | Asociación Cliente–TipoTarea |
+| **User** | `USERS` | Autenticación central (base DICCIONARIO, no en bases de empresas) |
+| **PqMenu** | `PQ_MENUS` | Menús del sistema |
 
-> **Nota:** La tabla `users` no usa prefijo. El login se valida contra `users` y luego se determina si es Cliente o Usuario interno.
+> **Nota:** El login se valida contra la tabla `USERS` por `code` y `password_hash`.
 
 ---
 
@@ -97,7 +92,7 @@ php artisan test --filter Feature   # Solo integración
 
 ## Convenciones
 
-- **Prefijo de tablas:** `PQ_PARTES_` (excepto `users`)
+- **Tablas:** `USERS` (auth), `PQ_MENUS` (menús), `personal_access_tokens` (Sanctum)
 - **Formato de respuesta:** Envelope estándar (`error`, `respuesta`, `resultado`)
 - **Validación:** Form Requests en todas las escrituras
 - **Documentación:** PHPDoc obligatorio en clases, métodos y propiedades (ver `specs/governance/code-documentation-rules.md`)

@@ -10,6 +10,7 @@ config({ licenseKey });
 
 import './i18n';
 import 'devextreme/dist/css/dx.light.css';
+import './app/paqsystems-design.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './app/App';

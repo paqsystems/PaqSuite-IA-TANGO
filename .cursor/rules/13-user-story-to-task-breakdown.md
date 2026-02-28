@@ -36,7 +36,7 @@ Responder siempre con estas secciones en este orden:
 - Incluir validaciones y restricciones de estado
 
 ### 4) Impacto en Datos
-- Tablas afectadas (respetar prefijo PQ_PARTES_)
+- Tablas afectadas (USERS, PQ_*, convenciones del proyecto)
 - Nuevas columnas/índices/constraints
 - Migración + rollback
 - Seed mínimo para tests

@@ -23,7 +23,8 @@ Este archivo mapea cada endpoint de la API a sus operaciones correspondientes en
 - Índices utilizados para optimización
 
 ### Convenciones Técnicas
-- Nomenclatura de tablas con prefijo `PQ_PARTES_`
+- Tablas: `USERS` (auth, **base DICCIONARIO**), `PQ_*` (módulos del proyecto). Las tablas `PQ_PARTES_*` fueron eliminadas.
+- La tabla `USERS` está en la base DICCIONARIO, no en las bases de empresas.
 - Uso de LEFT JOIN en lugar de subqueries
 - Eager loading para evitar N+1
 - Paginación y filtros
