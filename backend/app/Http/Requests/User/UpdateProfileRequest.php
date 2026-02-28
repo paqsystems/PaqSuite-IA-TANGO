@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests\User;
 
-use App\Models\Cliente;
-use App\Models\Usuario;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -13,9 +11,6 @@ use Illuminate\Validation\Rule;
  * FormRequest: UpdateProfileRequest
  *
  * Valida nombre y email para PUT /api/v1/user/profile.
- * Código de usuario no se acepta en el body (no modificable).
- *
- * @see TR-007(SH)-edición-de-perfil-de-usuario.md
  */
 class UpdateProfileRequest extends FormRequest
 {
@@ -27,28 +22,10 @@ class UpdateProfileRequest extends FormRequest
     public function rules(): array
     {
         $user = $this->user();
-        $emailUniqueRule = $this->buildEmailUniqueRule($user);
-
         return [
             'nombre' => ['required', 'string', 'min:1', 'max:255'],
-            'email' => ['nullable', 'string', 'email', 'max:255', $emailUniqueRule],
+            'email' => ['nullable', 'string', 'email', 'max:255', Rule::unique('USERS', 'email')->ignore($user->id)],
         ];
-    }
-
-    /**
-     * Regla unique para email excluyendo al usuario actual (empleado o cliente).
-     */
-    private function buildEmailUniqueRule($user): \Illuminate\Contracts\Validation\ValidationRule|\Illuminate\Validation\Rules\Unique
-    {
-        $empleado = Usuario::where('user_id', $user->id)->first();
-        if ($empleado) {
-            return Rule::unique('PQ_PARTES_USUARIOS', 'email')->ignore($empleado->id);
-        }
-        $cliente = Cliente::where('user_id', $user->id)->first();
-        if ($cliente) {
-            return Rule::unique('PQ_PARTES_CLIENTES', 'email')->ignore($cliente->id);
-        }
-        return Rule::unique('PQ_PARTES_USUARIOS', 'email');
     }
 
     public function messages(): array

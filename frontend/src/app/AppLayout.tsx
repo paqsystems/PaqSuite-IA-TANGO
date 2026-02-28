@@ -1,20 +1,30 @@
 /**
- * Component: AppLayout
+ * AppLayout – PaqSystems Main Shell
  *
- * Layout con header común y menú lateral (TR-056) para todas las pantallas autenticadas.
+ * Layout según diseño Figma "PaqSystems UI – Main Shell":
+ * Header oscuro, sidebar claro, contenido principal, footer oscuro.
  *
- * @see docs/frontend/frontend-specifications.md (Layout general y navegación)
- * @see docs/hu-historias/HU-056(SH)-menú-lateral-de-navegación.md
+ * @see docs/design/paqsystems-main-shell-design.md
  */
 
 import React, { useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { getUserData } from '../shared/utils/tokenStorage';
 import { logout } from '../features/auth/services/auth.service';
+import { getEmpresa } from '../config/sessionContext';
+import { appVersion } from '../config/appVersion';
 import { t } from '../shared/i18n';
 import { LanguageSelector } from '../shared/components/LanguageSelector';
 import { Sidebar } from './Sidebar';
 import './AppLayout.css';
+
+function getAvatarInitials(nombre: string, userCode: string): string {
+  const parts = nombre.trim().split(/\s+/);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase().slice(0, 2);
+  }
+  return userCode.slice(0, 2).toUpperCase();
+}
 
 export function AppLayout(): React.ReactElement {
   const navigate = useNavigate();
@@ -43,6 +53,8 @@ export function AppLayout(): React.ReactElement {
     return <div className="app-layout-loading">{t('app.layout.loading', 'Cargando...')}</div>;
   }
 
+  const avatarInitials = getAvatarInitials(user.nombre, user.userCode);
+
   return (
     <div className="app-layout" data-testid="app.layout">
       <header className="app-layout-header" role="banner">
@@ -57,13 +69,19 @@ export function AppLayout(): React.ReactElement {
           >
             <span className="app-layout-menu-icon" aria-hidden>☰</span>
           </button>
-          <h1 className="app-layout-title">{t('app.layout.title', 'Sistema de Registro de Tareas')}</h1>
+          <div className="app-layout-brand">
+            <div className="app-layout-logo" aria-hidden>
+              PQ
+            </div>
+            <h1 className="app-layout-title">{t('app.layout.title', 'PaqSystems')}</h1>
+            <span className="app-layout-company">{getEmpresa()}</span>
+          </div>
           <button
             type="button"
             onClick={handleVolver}
             className="app-layout-volver"
             data-testid="app.volverButton"
-            aria-label={t('app.layout.volverAria', 'Volver al panel del usuario')}
+            aria-label={t('app.layout.volverAria', 'Volver al panel')}
           >
             {isPanel ? t('app.layout.panel', 'Panel') : t('app.layout.volver', 'Volver')}
           </button>
@@ -71,11 +89,9 @@ export function AppLayout(): React.ReactElement {
         <div className="app-layout-user-info">
           <LanguageSelector />
           <span className="app-layout-user-name">{user.nombre}</span>
-          {user.esSupervisor && (
-            <span className="app-layout-supervisor-badge" data-testid="app.supervisorBadge">
-              {t('app.layout.supervisor', 'Supervisor')}
-            </span>
-          )}
+          <div className="app-layout-user-avatar" aria-hidden>
+            {avatarInitials}
+          </div>
           <button
             type="button"
             onClick={handleLogout}
@@ -94,6 +110,12 @@ export function AppLayout(): React.ReactElement {
           <Outlet />
         </main>
       </div>
+      <footer className="app-layout-footer" role="contentinfo">
+        <span className="app-layout-footer-role">
+          {user.esSupervisor ? t('app.layout.roleSupervisor', 'A SUPERVISOR') : t('app.layout.roleUser', 'A USUARIO')}
+        </span>
+        <span className="app-layout-footer-version">v{appVersion}</span>
+      </footer>
     </div>
   );
 }

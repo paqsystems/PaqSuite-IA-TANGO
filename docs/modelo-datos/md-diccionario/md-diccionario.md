@@ -2,6 +2,8 @@
 
 > **Diagramas Mermaid:** Ver `md-diccionario-diagramas.md` para diagramas ER por módulo (SEGURIDAD, GRUPOS EMPRESARIOS, REPORTES, SISTEMA ALARMAS, TAREAS PROGRAMADAS).
 
+Esta base es la **base DICCIONARIO** (central/compartida). Las bases de datos de cada empresa (Company DB) son distintas y contienen datos operativos. **La tabla `users`/`USERS` está únicamente en DICCIONARIO**, no en las bases de empresas.
+
 ---
 
 ## Tablas no aplicadas (por el momento)

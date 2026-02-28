@@ -2,11 +2,13 @@
 
 ## Descripción General
 
-El sistema utiliza autenticación basada en tokens mediante Laravel Sanctum. La autenticación se realiza contra la tabla centralizada `USERS`, y luego se determina si el usuario es un empleado (en `PQ_PARTES_USUARIOS`) o un cliente (en `PQ_PARTES_CLIENTES`).
+El sistema utiliza autenticación basada en tokens mediante Laravel Sanctum. La autenticación se realiza exclusivamente contra la tabla `USERS` (code, password_hash, name, email, activo, inhabilitado).
+
+> **Ubicación de la tabla USERS:** La tabla `USERS` se encuentra en la **base de datos DICCIONARIO** (PQ_DICCIONARIO), **no** en las bases de datos de las empresas. Es una tabla centralizada compartida por todo el sistema.
 
 ## Flujo de Autenticación
 
-### 1. Login de Empleado o Cliente
+### 1. Login
 
 ```
 POST /api/v1/auth/login
@@ -14,30 +16,24 @@ POST /api/v1/auth/login
 
 **Flujo interno:**
 1. Validar campos de entrada (usuario, password)
-2. Buscar usuario en tabla `USERS` por `code`
+2. Buscar usuario en tabla `USERS` (base DICCIONARIO) por `code`
 3. Validar estado activo y no inhabilitado en `USERS`
 4. Verificar contraseña con `Hash::check()`
-5. Buscar **primero** en `PQ_PARTES_USUARIOS` por `code` (empleado)
-6. Si **no es empleado**, buscar en `PQ_PARTES_CLIENTES` por `code` (cliente)
-7. Validar estado activo y no inhabilitado en la tabla correspondiente
-8. Determinar `tipo_usuario` ("usuario" para empleado, "cliente" para cliente)
-9. Generar token Sanctum
-10. Retornar token y datos del usuario
+5. Generar token Sanctum
+6. Retornar token y datos del usuario
 
 ### 2. Diagrama de Secuencia
 
 ```
-Cliente          API              AuthService        USERS        PQ_PARTES_USUARIOS
-   |               |                   |               |               |
-   |--- POST /login -->|               |               |               |
-   |               |--- validate() --->|               |               |
-   |               |                   |--- find() --->|               |
-   |               |                   |<-- user ------|               |
-   |               |                   |--- check() -->|               |
-   |               |                   |               |--- find() --->|
-   |               |                   |               |<-- empleado --|
-   |               |                   |<- token ------|               |
-   |<-- 200 OK ----|                   |               |               |
+Cliente          API              AuthService        USERS
+   |               |                   |               |
+   |--- POST /login -->|               |               |
+   |               |--- validate() --->|               |
+   |               |                   |--- find() --->|
+   |               |                   |<-- user ------|
+   |               |                   |--- check() -->|
+   |               |                   |<- token ------|
+   |<-- 200 OK ----|                   |               |
 ```
 
 ## Endpoint de Login
@@ -55,7 +51,7 @@ Accept: application/json
 }
 ```
 
-### Response Exitosa - Empleado (200 OK)
+### Response Exitosa (200 OK)
 
 ```json
 {
@@ -67,7 +63,7 @@ Accept: application/json
       "user_id": 1,
       "user_code": "JPEREZ",
       "tipo_usuario": "usuario",
-      "usuario_id": 5,
+      "usuario_id": 1,
       "cliente_id": null,
       "es_supervisor": false,
       "nombre": "Juan Pérez",
@@ -77,36 +73,13 @@ Accept: application/json
 }
 ```
 
-### Response Exitosa - Cliente (200 OK)
-
-```json
-{
-  "error": 0,
-  "respuesta": "Autenticación exitosa",
-  "resultado": {
-    "token": "1|abcdef1234567890abcdef1234567890",
-    "user": {
-      "user_id": 10,
-      "user_code": "CLI001",
-      "tipo_usuario": "cliente",
-      "usuario_id": null,
-      "cliente_id": 5,
-      "es_supervisor": false,
-      "nombre": "Empresa ABC S.A.",
-      "email": "contacto@empresaabc.com"
-    }
-  }
-}
-```
-
-**Diferencias entre Empleado y Cliente:**
-
-| Campo | Empleado | Cliente |
-|-------|----------|---------|
-| `tipo_usuario` | "usuario" | "cliente" |
-| `usuario_id` | número (ID en PQ_PARTES_USUARIOS) | null |
-| `cliente_id` | null | número (ID en PQ_PARTES_CLIENTES) |
-| `es_supervisor` | true/false | siempre false |
+**Campos del usuario:**
+| Campo | Descripción |
+|-------|-------------|
+| `tipo_usuario` | Siempre "usuario" (schema simplificado) |
+| `usuario_id` | ID del usuario en tabla USERS |
+| `cliente_id` | null |
+| `es_supervisor` | false |
 
 ### Códigos de Error
 
@@ -178,7 +151,7 @@ Accept: application/json
 
 **Nota:** Este endpoint requiere autenticación.
 
-### Response Exitosa - Empleado (200 OK)
+### Response Exitosa (200 OK)
 
 ```json
 {
@@ -189,40 +162,6 @@ Accept: application/json
     "nombre": "Juan Pérez",
     "email": "juan.perez@ejemplo.com",
     "tipo_usuario": "usuario",
-    "es_supervisor": false,
-    "created_at": "2026-01-27T10:30:00+00:00"
-  }
-}
-```
-
-### Response Exitosa - Supervisor (200 OK)
-
-```json
-{
-  "error": 0,
-  "respuesta": "Perfil obtenido correctamente",
-  "resultado": {
-    "user_code": "MGARCIA",
-    "nombre": "María García",
-    "email": "maria.garcia@ejemplo.com",
-    "tipo_usuario": "usuario",
-    "es_supervisor": true,
-    "created_at": "2026-01-27T10:30:00+00:00"
-  }
-}
-```
-
-### Response Exitosa - Cliente (200 OK)
-
-```json
-{
-  "error": 0,
-  "respuesta": "Perfil obtenido correctamente",
-  "resultado": {
-    "user_code": "CLI001",
-    "nombre": "Empresa ABC S.A.",
-    "email": "contacto@empresaabc.com",
-    "tipo_usuario": "cliente",
     "es_supervisor": false,
     "created_at": "2026-01-27T10:30:00+00:00"
   }
@@ -241,11 +180,9 @@ Accept: application/json
 
 ### Comportamiento
 
-1. El endpoint retorna los datos del usuario autenticado según su tipo (empleado o cliente)
-2. Si el usuario es empleado, busca en `PQ_PARTES_USUARIOS`
-3. Si el usuario es cliente, busca en `PQ_PARTES_CLIENTES`
-4. El campo `email` puede ser `null` si no está configurado
-5. El campo `created_at` está en formato ISO8601
+1. El endpoint retorna los datos del usuario autenticado desde la tabla `USERS` (base DICCIONARIO)
+2. El campo `email` puede ser `null` si no está configurado
+3. El campo `created_at` está en formato ISO8601
 
 ### Códigos de Error de Perfil
 
@@ -297,17 +234,7 @@ El sistema **NO revela** si un usuario existe o no. Tanto para "usuario no encon
 
 ### Validación de Estados
 
-Se validan dos niveles de estado:
-1. **En tabla USERS:** `activo = true` AND `inhabilitado = false`
-2. **En tabla de perfil:**
-   - Para empleados: `PQ_PARTES_USUARIOS.activo = true` AND `inhabilitado = false`
-   - Para clientes: `PQ_PARTES_CLIENTES.activo = true` AND `inhabilitado = false`
-
-Si alguno falla, se retorna error 4203 (Usuario inactivo).
-
-### Prioridad Empleado vs Cliente
-
-Si un código de usuario existe tanto en `PQ_PARTES_USUARIOS` como en `PQ_PARTES_CLIENTES` (caso no permitido por reglas de negocio pero manejado por seguridad), se prioriza `PQ_PARTES_USUARIOS` (empleado).
+Se valida en tabla `USERS` (base DICCIONARIO): `activo = true` AND `inhabilitado = false`. Si falla, se retorna error 4203 (Usuario inactivo).
 
 ## Estructura de Archivos
 

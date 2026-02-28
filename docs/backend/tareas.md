@@ -1,5 +1,7 @@
 # Documentación de API de Tareas
 
+> **Nota:** Las tablas `PQ_PARTES_*` fueron eliminadas del proyecto. Este documento describe especificaciones previas; las validaciones que referencian esas tablas no aplican al esquema actual.
+
 ## Descripción General
 
 El módulo de tareas permite a los empleados registrar tareas diarias realizadas para clientes específicos. Los supervisores pueden registrar tareas para otros empleados.

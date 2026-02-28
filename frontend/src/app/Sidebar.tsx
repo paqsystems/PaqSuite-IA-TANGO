@@ -1,11 +1,7 @@
 /**
  * Component: Sidebar
  *
- * Menú lateral de navegación (TR-056 / HU-056).
- * Visible en todas las pantallas autenticadas; ítems por rol (empleado, supervisor, cliente).
- * Orden: Inicio, Perfil | Archivos | Partes | Informes (según docs/hu-historias/HU-056).
- *
- * @see docs/hu-historias/HU-056(SH)-menú-lateral-de-navegación.md
+ * Menú lateral de navegación.
  */
 
 import React from 'react';
@@ -20,8 +16,6 @@ export interface SidebarProps {
 
 function SidebarContent({ onClose }: { onClose?: () => void }): React.ReactElement {
   const user = getUserData();
-  const isSupervisor = user?.esSupervisor === true;
-  const isEmpleado = user?.tipoUsuario === 'usuario';
 
   if (!user) {
     return <nav className="sidebar-nav" aria-label="Navegación principal" />;
@@ -51,54 +45,6 @@ function SidebarContent({ onClose }: { onClose?: () => void }): React.ReactEleme
       <ul className="sidebar-list">
         <li>{link('/', 'Inicio', 'app.sidebar.inicio', true)}</li>
         <li>{link('/perfil', 'Perfil', 'app.profileLink', true)}</li>
-      </ul>
-
-      {isSupervisor && (
-        <>
-          <div className="sidebar-separator" role="presentation" />
-          <div className="sidebar-group-label">Archivos</div>
-          <ul className="sidebar-list">
-            <li>{link('/clientes', 'Clientes', 'app.clientesLink')}</li>
-            <li>{link('/empleados', 'Empleados', 'app.empleadosLink')}</li>
-            <li>{link('/tipos-cliente', 'Tipos de Cliente', 'app.tiposClienteLink')}</li>
-            <li>{link('/tipos-tarea', 'Tipos de Tarea', 'app.tiposTareaLink')}</li>
-          </ul>
-        </>
-      )}
-
-      {(isEmpleado || isSupervisor) && (
-        <>
-          <div className="sidebar-separator" role="presentation" />
-          <div className="sidebar-group-label">Partes</div>
-          <ul className="sidebar-list">
-            {isEmpleado && (
-              <>
-                <li>{link('/tareas/nueva', 'Cargar Tarea', 'app.createTaskLink', true)}</li>
-                <li>{link('/tareas', 'Mis Tareas', 'app.myTasksLink', true)}</li>
-              </>
-            )}
-            {isSupervisor && (
-              <>
-                <li>{link('/tareas/todas', 'Todas las Tareas', 'app.todasTareasLink', true)}</li>
-                <li>{link('/tareas/proceso-masivo', 'Proceso Masivo', 'app.procesoMasivoLink', true)}</li>
-              </>
-            )}
-          </ul>
-        </>
-      )}
-
-      <div className="sidebar-separator" role="presentation" />
-      <div className="sidebar-group-label">Informes</div>
-      <ul className="sidebar-list">
-        <li>{link('/informes/consulta-detallada', 'Consulta Detallada', 'app.consultaDetalladaLink', true)}</li>
-        <li>{link('/informes/tareas-por-cliente', 'Tareas por Cliente', 'app.tareasPorClienteLink', true)}</li>
-        <li>{link('/informes/tareas-por-fecha', 'Tareas por Fecha', 'app.tareasPorFechaLink', true)}</li>
-        {isSupervisor && (
-          <>
-            <li>{link('/informes/tareas-por-empleado', 'Tareas por Empleado', 'app.tareasPorEmpleadoLink', true)}</li>
-            <li>{link('/informes/tareas-por-tipo', 'Tareas por Tipo', 'app.tareasPorTipoLink', true)}</li>
-          </>
-        )}
       </ul>
     </nav>
   );

@@ -1,0 +1,30 @@
+/**
+ * PaqSystems Main Shell – Design System
+ * Variables CSS para el diseño base (Figma: PaqSystems UI – Main Shell)
+ * Compatible con DevExtreme (dx.light.css)
+ */
+
+:root {
+  /* Header / Footer */
+  --paq-header-bg: #1e293b;
+  --paq-header-text: #ffffff;
+  --paq-header-hover: rgba(255, 255, 255, 0.1);
+  --paq-header-border: rgba(255, 255, 255, 0.15);
+
+  /* Sidebar */
+  --paq-sidebar-bg: #f8fafc;
+  --paq-sidebar-text: #334155;
+  --paq-sidebar-hover: #f1f5f9;
+  --paq-sidebar-active-bg: #e2e8f0;
+  --paq-sidebar-active-accent: #0ea5e9;
+
+  /* Content */
+  --paq-content-bg: #ffffff;
+  --paq-text-primary: #1e293b;
+  --paq-text-secondary: #64748b;
+
+  /* Accents */
+  --paq-accent: #0ea5e9;
+  --paq-success: #22c55e;
+  --paq-error: #ef4444;
+}

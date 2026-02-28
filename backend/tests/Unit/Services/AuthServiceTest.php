@@ -176,10 +176,8 @@ class AuthServiceTest extends TestCase
     }
 
     /** @test */
-    public function login_fallido_usuario_inactivo_en_pq_partes_usuarios()
+    public function login_fallido_usuario_inactivo_retorna_error_4203()
     {
-        // Ya no existe PQ_PARTES_USUARIOS; este test se mantiene por compatibilidad
-        // pero verifica el mismo flujo que usuario inactivo en USERS
         $this->expectException(AuthException::class);
         $this->expectExceptionMessage('Usuario inactivo');
         $this->authService->login('INACTIVO', 'password789');
@@ -297,15 +295,6 @@ class AuthServiceTest extends TestCase
         // AuthService simplificado: usuario_id = user->id (no null)
         $result = $this->authService->login('JPEREZ', 'password123');
         $this->assertNotNull($result['user_data']['usuario_id']);
-    }
-
-    /** @test */
-    public function login_fallido_cliente_inactivo_en_pq_partes_clientes()
-    {
-        // Ya no existe PQ_PARTES_CLIENTES; verifica usuario inactivo
-        $this->expectException(AuthException::class);
-        $this->expectExceptionMessage('Usuario inactivo');
-        $this->authService->login('INACTIVO', 'password789');
     }
 
     /** @test */

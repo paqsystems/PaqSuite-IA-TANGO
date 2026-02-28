@@ -47,8 +47,8 @@ Todo el desarrollo debe soportar este flujo.
 
 ## Entidades Clave
 
-a nivel "diccionario":
-- Usuario, roles, empresa, permisos, opciòn de menù
+a nivel "diccionario" (base DICCIONARIO, no en bases de empresas):
+- **Usuario** (tabla USERS), roles, empresa, permisos, opción de menú
 - Modelo multiempresa: tenant vía header `X-Company-Id`
 - grupos empresarios, empresas que comprende cada grupo
 - tareas programadas, frecuencia, procesos
