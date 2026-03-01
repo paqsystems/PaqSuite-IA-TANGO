@@ -35,18 +35,18 @@ class LogoutTest extends TestCase
     protected function seedTestUsers(): void
     {
         $testCodes = ['JPEREZ'];
-        $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
+        $userIds = DB::table('USERS')->whereIn('codigo', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
                 ->where('tokenable_type', 'App\\Models\\User')
                 ->whereIn('tokenable_id', $userIds)
                 ->delete();
         }
-        DB::table('USERS')->whereIn('code', $testCodes)->delete();
+        DB::table('USERS')->whereIn('codigo', $testCodes)->delete();
 
         DB::table('USERS')->insert([
-            'code' => 'JPEREZ',
-            'name' => 'Juan Pérez',
+            'codigo' => 'JPEREZ',
+            'name_user' => 'Juan Pérez',
             'email' => 'juan.perez@ejemplo.com',
             'password_hash' => Hash::make('password123'),
             'activo' => true,
@@ -60,7 +60,7 @@ class LogoutTest extends TestCase
     public function logout_exitoso_retorna_200()
     {
         // Crear usuario y autenticar con Sanctum
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         // Hacer logout
@@ -86,7 +86,7 @@ class LogoutTest extends TestCase
     public function logout_revoca_token_en_base_de_datos()
     {
         // Crear usuario y token real
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $token = $user->createToken('test_token')->plainTextToken;
 
         // Verificar que el token existe
@@ -117,7 +117,7 @@ class LogoutTest extends TestCase
     /** @test */
     public function logout_respuesta_tiene_formato_envelope_correcto()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->postJson('/api/v1/auth/logout');
@@ -139,7 +139,7 @@ class LogoutTest extends TestCase
     public function token_usado_para_logout_es_eliminado_de_base_de_datos()
     {
         // Crear usuario y token real
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $tokenResult = $user->createToken('test_token');
         $token = $tokenResult->plainTextToken;
         $tokenId = $tokenResult->accessToken->id;
@@ -164,7 +164,7 @@ class LogoutTest extends TestCase
     /** @test */
     public function logout_solo_revoca_token_actual_no_todos()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         
         // Crear dos tokens (simulando login desde dos dispositivos)
         $token1 = $user->createToken('device_1')->plainTextToken;

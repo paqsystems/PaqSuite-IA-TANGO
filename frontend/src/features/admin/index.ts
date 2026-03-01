@@ -1,0 +1,9 @@
+export { UsersAdminPage } from './pages/UsersAdminPage';
+export { EmpresasAdminPage } from './pages/EmpresasAdminPage';
+export { GruposEmpresariosAdminPage } from './pages/GruposEmpresariosAdminPage';
+export { GrupoEmpresarioCrearPage } from './pages/GrupoEmpresarioCrearPage';
+export { GrupoEmpresarioEditarPage } from './pages/GrupoEmpresarioEditarPage';
+export { GrupoEmpresarioDetallePage } from './pages/GrupoEmpresarioDetallePage';
+export { RolesAdminPage } from './pages/RolesAdminPage';
+export { RolAtributosPage } from './pages/RolAtributosPage';
+export { PermisosAdminPage } from './pages/PermisosAdminPage';

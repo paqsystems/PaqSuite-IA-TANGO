@@ -11,22 +11,22 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         $users = [
-            ['code' => 'ADMIN', 'name' => 'Administrador', 'email' => 'admin@ejemplo.com', 'password' => 'admin123'],
-            ['code' => 'EMP', 'name' => 'Usuario Operativo', 'email' => 'emp@ejemplo.com', 'password' => 'emple123'],
+            ['codigo' => 'ADMIN', 'name_user' => 'Administrador', 'email' => 'admin@ejemplo.com', 'password' => 'admin123'],
+            ['codigo' => 'EMP', 'name_user' => 'Usuario Operativo', 'email' => 'emp@ejemplo.com', 'password' => 'emple123'],
         ];
 
         foreach ($users as $user) {
-            $exists = DB::table('USERS')->where('code', $user['code'])->exists();
+            $exists = DB::table('USERS')->where('codigo', $user['codigo'])->exists();
             if (!$exists) {
                 DB::table('USERS')->insert([
-                    'code' => $user['code'],
-                    'name' => $user['name'],
+                    'codigo' => $user['codigo'],
+                    'name_user' => $user['name_user'],
                     'email' => $user['email'],
                     'password_hash' => Hash::make($user['password']),
                     'activo' => true,
                     'inhabilitado' => false,
-                    'created_at' => now(),
-                    'updated_at' => now(),
+                    'created_at' => DB::raw('GETDATE()'),
+                    'updated_at' => DB::raw('GETDATE()'),
                 ]);
             }
         }

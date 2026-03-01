@@ -33,18 +33,18 @@ class UserProfileServiceTest extends TestCase
     {
         $testCodes = ['JPEREZ', 'MGARCIA', 'CLI001', 'SINPERFIL', 'SINEMAIL'];
 
-        $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
+        $userIds = DB::table('USERS')->whereIn('codigo', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
                 ->where('tokenable_type', 'App\\Models\\User')
                 ->whereIn('tokenable_id', $userIds)
                 ->delete();
         }
-        DB::table('USERS')->whereIn('code', $testCodes)->delete();
+        DB::table('USERS')->whereIn('codigo', $testCodes)->delete();
 
         DB::table('USERS')->insert([
-            'code' => 'JPEREZ',
-            'name' => 'Juan Pérez',
+            'codigo' => 'JPEREZ',
+            'name_user' => 'Juan Pérez',
             'email' => 'juan.perez@ejemplo.com',
             'password_hash' => Hash::make('password123'),
             'activo' => true,
@@ -54,8 +54,8 @@ class UserProfileServiceTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'MGARCIA',
-            'name' => 'María García',
+            'codigo' => 'MGARCIA',
+            'name_user' => 'María García',
             'email' => 'maria.garcia@ejemplo.com',
             'password_hash' => Hash::make('password456'),
             'activo' => true,
@@ -65,8 +65,8 @@ class UserProfileServiceTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'CLI001',
-            'name' => 'Empresa ABC S.A.',
+            'codigo' => 'CLI001',
+            'name_user' => 'Empresa ABC S.A.',
             'email' => 'contacto@empresaabc.com',
             'password_hash' => Hash::make('cliente123'),
             'activo' => true,
@@ -76,8 +76,8 @@ class UserProfileServiceTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'SINPERFIL',
-            'name' => null,
+            'codigo' => 'SINPERFIL',
+            'name_user' => null,
             'email' => null,
             'password_hash' => Hash::make('sinperfil123'),
             'activo' => true,
@@ -87,8 +87,8 @@ class UserProfileServiceTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'SINEMAIL',
-            'name' => 'Usuario Sin Email',
+            'codigo' => 'SINEMAIL',
+            'name_user' => 'Usuario Sin Email',
             'email' => null,
             'password_hash' => Hash::make('password123'),
             'activo' => true,
@@ -101,7 +101,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function getProfile_empleado_normal_retorna_datos_correctos()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $profile = $this->profileService->getProfile($user);
 
         $this->assertEquals('JPEREZ', $profile['user_code']);
@@ -115,7 +115,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function getProfile_empleado_supervisor_retorna_es_supervisor_true()
     {
-        $user = User::where('code', 'MGARCIA')->first();
+        $user = User::where('codigo', 'MGARCIA')->first();
         $profile = $this->profileService->getProfile($user);
 
         $this->assertEquals('MGARCIA', $profile['user_code']);
@@ -127,7 +127,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function getProfile_cliente_retorna_datos_correctos()
     {
-        $user = User::where('code', 'CLI001')->first();
+        $user = User::where('codigo', 'CLI001')->first();
         $profile = $this->profileService->getProfile($user);
 
         $this->assertEquals('CLI001', $profile['user_code']);
@@ -139,7 +139,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function getProfile_usuario_sin_perfil_retorna_perfil_minimo()
     {
-        $user = User::where('code', 'SINPERFIL')->first();
+        $user = User::where('codigo', 'SINPERFIL')->first();
         $profile = $this->profileService->getProfile($user);
 
         $this->assertEquals('SINPERFIL', $profile['user_code']);
@@ -152,7 +152,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function getProfile_empleado_sin_email_retorna_null()
     {
-        $user = User::where('code', 'SINEMAIL')->first();
+        $user = User::where('codigo', 'SINEMAIL')->first();
         $profile = $this->profileService->getProfile($user);
 
         $this->assertNull($profile['email']);
@@ -161,7 +161,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function getProfile_retorna_todos_los_campos_requeridos()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $profile = $this->profileService->getProfile($user);
 
         $this->assertArrayHasKey('user_code', $profile);
@@ -175,7 +175,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function getProfile_fecha_creacion_formato_iso8601()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $profile = $this->profileService->getProfile($user);
 
         $this->assertIsString($profile['created_at']);
@@ -185,7 +185,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function updateProfile_empleado_actualiza_nombre_y_email()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $profile = $this->profileService->updateProfile($user, [
             'nombre' => 'Juan Pérez Actualizado',
             'email' => 'nuevo@ejemplo.com',
@@ -196,14 +196,14 @@ class UserProfileServiceTest extends TestCase
         $this->assertEquals('nuevo@ejemplo.com', $profile['email']);
 
         $user->refresh();
-        $this->assertEquals('Juan Pérez Actualizado', $user->name);
+        $this->assertEquals('Juan Pérez Actualizado', $user->name_user);
         $this->assertEquals('nuevo@ejemplo.com', $user->email);
     }
 
     /** @test */
     public function updateProfile_cliente_actualiza_nombre_y_email()
     {
-        $user = User::where('code', 'CLI001')->first();
+        $user = User::where('codigo', 'CLI001')->first();
         $profile = $this->profileService->updateProfile($user, [
             'nombre' => 'Empresa ABC Actualizada',
             'email' => 'nuevo@empresaabc.com',
@@ -217,7 +217,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function updateProfile_email_vacio_guarda_null()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $this->profileService->updateProfile($user, [
             'nombre' => 'Juan Pérez',
             'email' => '',
@@ -230,7 +230,7 @@ class UserProfileServiceTest extends TestCase
     /** @test */
     public function updateProfile_usuario_sin_perfil_actualiza_en_users()
     {
-        $user = User::where('code', 'SINPERFIL')->first();
+        $user = User::where('codigo', 'SINPERFIL')->first();
         $profile = $this->profileService->updateProfile($user, [
             'nombre' => 'Usuario Actualizado',
             'email' => 'nuevo@ejemplo.com',

@@ -1,4 +1,4 @@
-# Regla: Descomposición de Historia de Usuario a Tareas (Lidr - Trabajo Final)
+# Regla: Descomposición de Historia de Usuario a Tareas 
 
 ## Objetivo
 Dada UNA Historia de Usuario (HU), generar un plan de trabajo ejecutable:
@@ -14,10 +14,28 @@ Para cada HU recibida, asumir que se provee (o pedir que se provea) como mínimo
 - Narrativa (Como <rol> quiero <acción> para <beneficio>)
 - Alcance (in/out)
 - Prioridad (MUST o SHOULD)
-- Rol(es) involucrados: Cliente / Empleado / Supervisor
+- Rol(es) involucrados: Usuario Supervisor / Usuario operador
 
 ## Output requerido (formato)
 Responder siempre con estas secciones en este orden:
+
+### 0) Tabla de metadatos (encabezado del TR)
+Incluir **antes** de "1) HU Refinada" una tabla con:
+
+| Campo              | Valor                                      |
+|--------------------|--------------------------------------------|
+| HU relacionada     | HU-XXX – Título de la HU                   |
+| Épica              | 000 – Nombre de la épica                   |
+| Prioridad          | MUST-HAVE / SHOULD-HAVE                    |
+| Roles              | Rol(es) involucrados                        |
+| Dependencias       | HUs o TRs de los que depende               |
+| Clasificación      | HU SIMPLE / HU COMPLEJA                    |
+| Última actualización | YYYY-MM-DD                               |
+| Estado             | Pendiente / Implementado                  |
+
+Línea de **Origen:** enlace al archivo HU.
+
+---
 
 ### 1) HU Refinada
 - Título
@@ -28,11 +46,27 @@ Responder siempre con estas secciones en este orden:
 
 ### 2) Criterios de Aceptación (AC)
 - 6 a 12 AC en bullets
-- Si aplica, incluir 2 a 4 escenarios Gherkin (Given/When/Then)
+
+**Escenarios Gherkin (obligatorio):** Incluir subsección `### Escenarios Gherkin` con bloques en sintaxis Gherkin:
+
+```gherkin
+Feature: Nombre del feature
+
+  Scenario: Descripción del escenario
+    Given condición inicial
+    When acción del usuario
+    Then resultado esperado
+
+  Scenario: Otro escenario
+    ...
+```
+
+- Incluir 3 a 6 escenarios que cubran los flujos principales (éxito, errores, permisos, edge cases).
+- Usar `Feature`, `Scenario`, `Given`, `When`, `Then` (y `And` cuando aplique).
 
 ### 3) Reglas de Negocio
 - Lista numerada
-- Incluir permisos por rol (cliente/empleado/supervisor)
+- Incluir permisos por rol (usuario supervisor / usuario operador)
 - Incluir validaciones y restricciones de estado
 
 ### 4) Impacto en Datos

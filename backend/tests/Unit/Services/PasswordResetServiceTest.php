@@ -35,19 +35,19 @@ class PasswordResetServiceTest extends TestCase
     protected function seedTestUser(): void
     {
         $testCodes = ['PWUSER'];
-        $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
+        $userIds = DB::table('USERS')->whereIn('codigo', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
                 ->where('tokenable_type', 'App\\Models\\User')
                 ->whereIn('tokenable_id', $userIds)
                 ->delete();
         }
-        DB::table('USERS')->whereIn('code', $testCodes)->delete();
+        DB::table('USERS')->whereIn('codigo', $testCodes)->delete();
         DB::table('password_reset_tokens')->where('email', 'pwuser@test.com')->delete();
 
         DB::table('USERS')->insert([
-            'code' => 'PWUSER',
-            'name' => 'Password User',
+            'codigo' => 'PWUSER',
+            'name_user' => 'Password User',
             'email' => 'pwuser@test.com',
             'password_hash' => Hash::make('oldpass'),
             'activo' => true,
@@ -96,7 +96,7 @@ class PasswordResetServiceTest extends TestCase
 
         $this->service->resetPassword($row->token, 'newPassword123');
 
-        $user = DB::table('USERS')->where('code', 'PWUSER')->first();
+        $user = DB::table('USERS')->where('codigo', 'PWUSER')->first();
         $this->assertTrue(Hash::check('newPassword123', $user->password_hash));
         $this->assertNull(DB::table('password_reset_tokens')->where('token', $row->token)->first());
     }

@@ -56,7 +56,7 @@ Las tablas siguen el diseño de `docs/modelo-datos/md-diccionario/md-diccionario
 |-------|-------------|--------|
 | `users` / `USERS` | Autenticación centralizada (base DICCIONARIO) | Implementada |
 | `pq_menus` | Catálogo de opciones de menú del sistema | Implementada |
-| `pq_empresa` | Empresas del sistema (multiempresa) | Implementada |
+| `pq_empresa` / `PQ_Empresa` | Empresas del sistema (multiempresa) | Implementada. El backend soporta ambos esquemas: PQ_Empresa (IDEmpresa, NombreEmpresa) y pq_empresa (id, nombre_empresa). |
 | `pq_rol` | Roles de usuario | Implementada |
 | `pq_permiso` | Usuario–Empresa–Rol (tripleta) | Implementada |
 | `PQ_RolAtributo` | Permisos por opción de menú | Pendiente |

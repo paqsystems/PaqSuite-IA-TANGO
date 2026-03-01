@@ -8,11 +8,9 @@
  * @see TR-003(MH)-logout.md
  */
 
-import { setToken, setUserData, clearAuth, getToken, AuthUser } from '../../../shared/utils/tokenStorage';
+import { setToken, setUserData, setEmpresas, setEmpresaActiva, setLocale, clearAuth, getToken, getLocale, AuthUser, EmpresaItem } from '../../../shared/utils/tokenStorage';
+import { apiFetch } from '../../../shared/api/apiClient';
 
-/**
- * URL base del API
- */
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 
 /**
@@ -33,6 +31,8 @@ export interface LoginResponse {
       nombre: string;
       email: string | null;
     };
+    empresas?: EmpresaItem[];
+    redirectTo?: 'layout' | 'selector';
   };
 }
 
@@ -53,6 +53,8 @@ export interface ApiError {
 export interface LoginResult {
   success: boolean;
   user?: AuthUser;
+  redirectTo?: 'layout' | 'selector';
+  empresas?: EmpresaItem[];
   errorCode?: number;
   errorMessage?: string;
 }
@@ -64,15 +66,17 @@ export interface LoginResult {
  * @param password Contraseña
  * @returns Resultado del login con datos del usuario o error
  */
-export async function login(usuario: string, password: string): Promise<LoginResult> {
+export async function login(usuario: string, password: string, locale?: string): Promise<LoginResult> {
   try {
+    const body: Record<string, string> = { usuario, password };
+    if (locale) body.locale = locale;
     const response = await fetch(`${API_BASE_URL}/v1/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       },
-      body: JSON.stringify({ usuario, password }),
+      body: JSON.stringify(body),
     });
 
     const data = await response.json();
@@ -89,26 +93,39 @@ export async function login(usuario: string, password: string): Promise<LoginRes
 
     // Login exitoso
     const loginData = data as LoginResponse;
-    
-    // Mapear datos del usuario al formato del frontend
+    const resultado = loginData.resultado;
+
     const authUser: AuthUser = {
-      userId: loginData.resultado.user.user_id,
-      userCode: loginData.resultado.user.user_code,
-      tipoUsuario: loginData.resultado.user.tipo_usuario,
-      usuarioId: loginData.resultado.user.usuario_id,
-      clienteId: loginData.resultado.user.cliente_id,
-      esSupervisor: loginData.resultado.user.es_supervisor,
-      nombre: loginData.resultado.user.nombre,
-      email: loginData.resultado.user.email,
+      userId: resultado.user.user_id,
+      userCode: resultado.user.user_code,
+      tipoUsuario: resultado.user.tipo_usuario,
+      usuarioId: resultado.user.usuario_id,
+      clienteId: resultado.user.cliente_id,
+      esSupervisor: resultado.user.es_supervisor ?? false,
+      esAdmin: (resultado.user as { es_admin?: boolean }).es_admin ?? resultado.user.es_supervisor ?? false,
+      nombre: resultado.user.nombre,
+      email: resultado.user.email,
+      locale: (resultado.user as { locale?: string }).locale ?? getLocale(),
+      menuAbrirNuevaPestana: (resultado.user as { menu_abrir_nueva_pestana?: boolean }).menu_abrir_nueva_pestana ?? false,
     };
 
-    // Guardar token y datos del usuario
-    setToken(loginData.resultado.token);
+    setToken(resultado.token);
     setUserData(authUser);
+    if (authUser.locale) setLocale(authUser.locale);
+
+    const empresas = resultado.empresas ?? [];
+    const redirectTo = resultado.redirectTo ?? 'layout';
+
+    setEmpresas(empresas);
+    if (empresas.length === 1) {
+      setEmpresaActiva(empresas[0]);
+    }
 
     return {
       success: true,
       user: authUser,
+      redirectTo,
+      empresas,
     };
 
   } catch (error) {
@@ -147,14 +164,7 @@ export async function logout(): Promise<LogoutResult> {
   try {
     // Intentar llamar al API de logout
     if (token) {
-      const response = await fetch(`${API_BASE_URL}/v1/auth/logout`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-      });
+      const response = await apiFetch('/v1/auth/logout', { method: 'POST', skipCompanyId: true });
 
       // Incluso si retorna 401 (token inválido), consideramos éxito
       // porque el objetivo es cerrar sesión local

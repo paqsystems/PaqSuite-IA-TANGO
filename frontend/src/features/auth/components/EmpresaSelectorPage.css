@@ -1,0 +1,31 @@
+.empresa-selector-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.empresa-selector-page h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.empresa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.empresa-card {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.empresa-card:hover {
+  background: #f5f5f5;
+}

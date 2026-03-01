@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->unique(['id_rol', 'id_empresa', 'id_usuario'], 'uq_pq_permiso_rol_empresa_usuario');
             $table->foreign('id_rol')->references('id')->on('pq_rol')->onDelete('cascade');
-            $table->foreign('id_empresa')->references('id')->on('pq_empresa')->onDelete('cascade');
+            $table->foreign('id_empresa')->references('IDEmpresa')->on('pq_empresa')->onDelete('cascade');
             $table->foreign('id_usuario')->references('id')->on('USERS')->onDelete('cascade');
         });
     }

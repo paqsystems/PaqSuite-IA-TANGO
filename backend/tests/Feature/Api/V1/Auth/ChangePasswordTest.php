@@ -29,18 +29,18 @@ class ChangePasswordTest extends TestCase
     protected function seedTestUsers(): void
     {
         $testCodes = ['JPEREZ'];
-        $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
+        $userIds = DB::table('USERS')->whereIn('codigo', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
                 ->where('tokenable_type', 'App\\Models\\User')
                 ->whereIn('tokenable_id', $userIds)
                 ->delete();
         }
-        DB::table('USERS')->whereIn('code', $testCodes)->delete();
+        DB::table('USERS')->whereIn('codigo', $testCodes)->delete();
 
         DB::table('USERS')->insert([
             'code' => 'JPEREZ',
-            'name' => 'Juan Pérez',
+            'name_user' => 'Juan Pérez',
             'email' => 'juan.perez@ejemplo.com',
             'password_hash' => Hash::make('password123'),
             'activo' => true,
@@ -53,7 +53,7 @@ class ChangePasswordTest extends TestCase
     /** @test */
     public function change_password_exitoso_retorna_200()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->postJson('/api/v1/auth/change-password', [
@@ -84,7 +84,7 @@ class ChangePasswordTest extends TestCase
     /** @test */
     public function change_password_contrasena_actual_incorrecta_retorna_422()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->postJson('/api/v1/auth/change-password', [
@@ -100,7 +100,7 @@ class ChangePasswordTest extends TestCase
     /** @test */
     public function change_password_confirmacion_no_coincide_retorna_422()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->postJson('/api/v1/auth/change-password', [
@@ -115,7 +115,7 @@ class ChangePasswordTest extends TestCase
     /** @test */
     public function change_password_nueva_contrasena_corta_retorna_422()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->postJson('/api/v1/auth/change-password', [
@@ -130,7 +130,7 @@ class ChangePasswordTest extends TestCase
     /** @test */
     public function change_password_exitoso_actualiza_hash_en_base_de_datos()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $this->postJson('/api/v1/auth/change-password', [

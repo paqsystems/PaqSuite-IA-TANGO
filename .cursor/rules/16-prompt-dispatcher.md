@@ -143,7 +143,7 @@ Cuando el usuario escriba algo como:
 
 el asistente debe:
 1. Hacer commit
-2. consulta si quiero hacer el push
+2. consultar al usuario si quiere hacer el push. en caso afirmativo, proceder a hacerlo.
 3. Generar el texto para el PR en el archivo PR-prompt.md, borrando el contenido anterior
 
 ---

@@ -1,0 +1,66 @@
+.company-switcher-single {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.company-switcher {
+  position: relative;
+}
+
+.company-switcher-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  color: inherit;
+  border: 1px solid var(--paq-header-border, rgba(255, 255, 255, 0.3));
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.company-switcher-trigger:hover {
+  background: var(--paq-header-hover, rgba(255, 255, 255, 0.1));
+}
+
+.company-switcher-chevron {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+.company-switcher-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.25rem;
+  min-width: 180px;
+  background: var(--paq-content-bg, #fff);
+  color: var(--paq-text-primary, #333);
+  border: 1px solid var(--paq-border, #ddd);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 0.25rem 0;
+  z-index: 1000;
+}
+
+.company-switcher-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.company-switcher-option:hover {
+  background: var(--paq-hover-bg, #f0f0f0);
+}
+
+.company-switcher-option.active {
+  background: var(--paq-selected-bg, #e8f4fd);
+  font-weight: 500;
+}

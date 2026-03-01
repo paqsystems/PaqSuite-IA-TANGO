@@ -12,12 +12,13 @@ services:
     environment:
       - APP_ENV=production
       - APP_DEBUG=false
-      - DB_CONNECTION=${DB_CONNECTION:-mysql}
+      - DB_CONNECTION=${DB_CONNECTION:-sqlsrv}
       - DB_HOST=${DB_HOST}
-      - DB_PORT=${DB_PORT:-3306}
+      - DB_PORT=${DB_PORT:-1433}
       - DB_DATABASE=${DB_DATABASE}
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
+      - DB_TRUST_SERVER_CERTIFICATE=${DB_TRUST_SERVER_CERTIFICATE:-true}
       - APP_URL=${APP_URL:-http://localhost:8000}
       - FRONTEND_URL=${FRONTEND_URL:-http://localhost:80}
     networks:

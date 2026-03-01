@@ -1,7 +1,7 @@
 # Manual del Programador
 
-**Versión:** 1.7  
-**Última actualización:** 2026-02-28
+**Versión:** 1.8  
+**Última actualización:** 2026-03-01
 
 ---
 
@@ -225,7 +225,17 @@ docs/
 
 ## 8. Testing y calidad
 
-### Estrategia
+### Control de calidad manual
+
+`docs/00-ControlCalidad.md` registra los errores detectados en **pruebas manuales** realizadas por usuarios. Cada control incluye:
+
+- **Fecha** y **autor** del control
+- **Estado:** Pendiente (inicial) → se actualiza tras generar las HU y resolver los errores
+- **Errores encontrados** por área o módulo
+
+El historial se conserva. Previsto: regla en `.cursor/rules/` para generar las HU a partir de los errores y actualizar el estado de cada control.
+
+### Estrategia de tests automatizados
 
 | Tipo | Herramienta | Ubicación |
 |------|-------------|-----------|
@@ -238,6 +248,7 @@ docs/
 
 | Documento | Propósito |
 |-----------|-----------|
+| `docs/00-ControlCalidad.md` | Errores de pruebas manuales (historial, fecha, autor, estado) |
 | `.cursor/rules/12-testing.md` | Estrategia, cómo ejecutar tests |
 | `docs/frontend/testing.md` | Vitest y Playwright |
 | `.cursor/rules/11-playwright-testing-rules.md` | Reglas E2E |
@@ -302,6 +313,7 @@ Si la BD está en servidor remoto: ver `docs/migracion-mssql-a-mysql.md` y `.cur
 | Documento | Propósito |
 |-----------|-----------|
 | `docs/README.md` | Navegación de documentación |
+| `docs/00-ControlCalidad.md` | Control de calidad manual (errores, historial, estado) |
 | `docs/00-contexto/01-guia-estructura-documental-corporativa.md` | Estructura 00–07 |
 | `docs/03-historias-usuario/` | Historias de usuario |
 | `docs/04-tareas/` | Tareas técnicas |
@@ -338,6 +350,11 @@ Este es un **MVP web** para consultorías y empresas de servicios que permite a 
 ---
 
 ## Actualizaciones del manual
+
+**v1.8 (2026-03-01):**
+- Añadida sección "Control de calidad manual" en 8. Testing y calidad
+- Referencia a `docs/00-ControlCalidad.md` (errores de pruebas manuales, historial, estado)
+- Documento incluido en Referencias rápidas
 
 **v1.7 (2026-02-28):**
 - Añadidas secciones Mobile (Capacitor) y CI/CD en PARTE 1 – Stack tecnológico

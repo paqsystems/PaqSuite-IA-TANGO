@@ -7,14 +7,11 @@
  * @see TR-006(MH)-visualización-de-perfil-de-usuario.md
  * @see TR-007(SH)-edición-de-perfil-de-usuario.md
  * @see TR-005(SH)-cambio-de-contraseña-usuario-autenticado.md
+ * @see TR-002-seleccion-empresa.md (apiFetch con X-Company-Id)
  */
 
 import { getToken } from '../../../shared/utils/tokenStorage';
-
-/**
- * URL base del API
- */
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+import { apiFetch } from '../../../shared/api/apiClient';
 
 /**
  * Datos del perfil de usuario
@@ -73,14 +70,7 @@ export async function getProfile(): Promise<GetProfileResult> {
   }
 
   try {
-    const response = await fetch(`${API_BASE_URL}/v1/user/profile`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-    });
+    const response = await apiFetch('/v1/user/profile', { method: 'GET' });
 
     const data = await response.json();
 
@@ -147,13 +137,8 @@ export async function changePassword(
   }
 
   try {
-    const response = await fetch(`${API_BASE_URL}/v1/auth/change-password`, {
+    const response = await apiFetch('/v1/auth/change-password', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
       body: JSON.stringify({
         current_password: currentPassword,
         password,
@@ -214,13 +199,8 @@ export async function updateProfile(nombre: string, email: string | null): Promi
   }
 
   try {
-    const response = await fetch(`${API_BASE_URL}/v1/user/profile`, {
+    const response = await apiFetch('/v1/user/profile', {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
       body: JSON.stringify({
         nombre: nombre.trim(),
         email: email && email.trim() !== '' ? email.trim() : null,

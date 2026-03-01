@@ -43,8 +43,8 @@ class MigrationTest extends TestCase
     {
         $expectedColumns = [
             'id',
-            'code',
-            'name',
+            'codigo',
+            'name_user',
             'email',
             'password_hash',
             'activo',

@@ -1,0 +1,170 @@
+.admin-page {
+  padding: 1.5rem;
+  max-width: 1200px;
+}
+
+.admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.admin-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.export-excel-wrapper {
+  position: relative;
+}
+
+.export-excel-wrapper button {
+  padding: 0.5rem 1rem;
+  background: var(--paq-primary, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.export-excel-wrapper button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.export-excel-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.25rem;
+  min-width: 180px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  list-style: none;
+  padding: 0.25rem;
+  z-index: 100;
+}
+
+.export-excel-menu li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.export-excel-menu li button:hover {
+  background: #f0f0f0;
+}
+
+.admin-page h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.admin-btn-primary {
+  padding: 0.5rem 1rem;
+  background: var(--paq-primary, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.admin-btn-primary:hover {
+  opacity: 0.9;
+}
+
+.admin-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.admin-btn-link {
+  background: none;
+  border: none;
+  color: var(--paq-primary, #2563eb);
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+}
+
+.admin-btn-link:hover {
+  text-decoration: underline;
+}
+
+.admin-btn-link-danger {
+  color: #b91c1c;
+}
+
+.admin-btn-link-danger:hover {
+  color: #991b1b;
+}
+
+.admin-btn-danger {
+  background: #b91c1c;
+}
+
+.admin-btn-danger:hover {
+  background: #991b1b;
+}
+
+.admin-error {
+  padding: 1rem;
+  background: #fef2f2;
+  color: #b91c1c;
+  border-radius: 6px;
+}
+
+.grupo-empresario-form {
+  max-width: 500px;
+  margin-top: 1rem;
+}
+
+.grupo-empresario-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.grupo-empresario-form .form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.grupo-empresario-form .form-group input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.grupo-empresario-form .form-actions {
+  margin-top: 1.5rem;
+}
+
+.grupo-detalle dl {
+  margin: 1rem 0;
+}
+
+.grupo-detalle dt {
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.grupo-detalle dd {
+  margin-left: 1rem;
+}
+
+.grupo-empresas-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+}

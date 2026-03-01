@@ -7,6 +7,7 @@ use App\Services\AuthService;
 use App\Services\AuthException;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
@@ -30,25 +31,91 @@ class AuthServiceTest extends TestCase
         parent::setUp();
         $this->authService = new AuthService();
         $this->seedTestUsers();
+        $this->seedTestEmpresaAndPermisos();
+    }
+
+    protected function seedTestEmpresaAndPermisos(): void
+    {
+        if (!Schema::hasTable('pq_empresa') || !Schema::hasTable('pq_permiso')) {
+            return;
+        }
+        $empresa = DB::table('pq_empresa')->first();
+        if (!$empresa) {
+            return;
+        }
+        $empresaId = $empresa->IDEmpresa ?? $empresa->id ?? null;
+        if (!$empresaId) {
+            return;
+        }
+
+        $rolNormal = DB::table('pq_rol')->where('acceso_total', false)->first();
+        $rolSupervisor = DB::table('pq_rol')->where('acceso_total', true)->first();
+        if (!$rolNormal) {
+            $rolNormalId = DB::table('pq_rol')->insertGetId([
+                'nombre_rol' => 'USER',
+                'descripcion_rol' => 'Usuario normal',
+                'acceso_total' => false,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            $rolNormal = DB::table('pq_rol')->where('id', $rolNormalId)->first();
+        }
+        if (!$rolSupervisor) {
+            $rolSupervisorId = DB::table('pq_rol')->insertGetId([
+                'nombre_rol' => 'ADMIN',
+                'descripcion_rol' => 'Administrador',
+                'acceso_total' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            $rolSupervisor = DB::table('pq_rol')->where('id', $rolSupervisorId)->first();
+        }
+        $rol = $rolNormal;
+        if (!$rol) {
+            return;
+        }
+        foreach (['JPEREZ', 'MGARCIA'] as $code) {
+            $user = DB::table('USERS')->where('codigo', $code)->first();
+            if ($user) {
+                $rolForUser = $code === 'MGARCIA' ? $rolSupervisor : $rolNormal;
+                if (!$rolForUser) {
+                    $rolForUser = $rol;
+                }
+                $exists = DB::table('pq_permiso')
+                    ->where('id_rol', $rolForUser->id)
+                    ->where('id_empresa', $empresaId)
+                    ->where('id_usuario', $user->id)
+                    ->exists();
+                if (!$exists) {
+                    DB::table('pq_permiso')->insert([
+                        'id_rol' => $rolForUser->id,
+                        'id_empresa' => $empresaId,
+                        'id_usuario' => $user->id,
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+                }
+            }
+        }
     }
 
     protected function seedTestUsers(): void
     {
-        $testCodes = ['JPEREZ', 'MGARCIA', 'INACTIVO', 'INHABILITADO'];
+        $testCodes = ['JPEREZ', 'MGARCIA', 'INACTIVO', 'INHABILITADO', 'SINEMPR'];
 
-        $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
+        $userIds = DB::table('USERS')->whereIn('codigo', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
                 ->where('tokenable_type', 'App\\Models\\User')
                 ->whereIn('tokenable_id', $userIds)
                 ->delete();
         }
-        DB::table('USERS')->whereIn('code', $testCodes)->delete();
+        DB::table('USERS')->whereIn('codigo', $testCodes)->delete();
 
         // Usuario activo normal
         DB::table('USERS')->insert([
-            'code' => 'JPEREZ',
-            'name' => 'Juan Pérez',
+            'codigo' => 'JPEREZ',
+            'name_user' => 'Juan Pérez',
             'email' => 'juan.perez@ejemplo.com',
             'password_hash' => Hash::make('password123'),
             'activo' => true,
@@ -59,8 +126,8 @@ class AuthServiceTest extends TestCase
 
         // Usuario activo (supervisor se maneja en otro modelo si aplica)
         DB::table('USERS')->insert([
-            'code' => 'MGARCIA',
-            'name' => 'María García',
+            'codigo' => 'MGARCIA',
+            'name_user' => 'María García',
             'email' => 'maria.garcia@ejemplo.com',
             'password_hash' => Hash::make('password456'),
             'activo' => true,
@@ -71,8 +138,8 @@ class AuthServiceTest extends TestCase
 
         // Usuario inactivo
         DB::table('USERS')->insert([
-            'code' => 'INACTIVO',
-            'name' => 'Usuario Inactivo',
+            'codigo' => 'INACTIVO',
+            'name_user' => 'Usuario Inactivo',
             'email' => 'inactivo@ejemplo.com',
             'password_hash' => Hash::make('password789'),
             'activo' => false,
@@ -83,12 +150,24 @@ class AuthServiceTest extends TestCase
 
         // Usuario inhabilitado
         DB::table('USERS')->insert([
-            'code' => 'INHABILITADO',
-            'name' => 'Usuario Inhabilitado',
+            'codigo' => 'INHABILITADO',
+            'name_user' => 'Usuario Inhabilitado',
             'email' => 'inhabilitado@ejemplo.com',
             'password_hash' => Hash::make('password000'),
             'activo' => true,
             'inhabilitado' => true,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        // Usuario activo sin empresas (no se agrega a pq_permiso)
+        DB::table('USERS')->insert([
+            'codigo' => 'SINEMPR',
+            'name_user' => 'Usuario Sin Empresas',
+            'email' => 'sinempr@ejemplo.com',
+            'password_hash' => Hash::make('password111'),
+            'activo' => true,
+            'inhabilitado' => false,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -101,11 +180,15 @@ class AuthServiceTest extends TestCase
 
         $this->assertArrayHasKey('token', $result);
         $this->assertArrayHasKey('user_data', $result);
+        $this->assertArrayHasKey('empresas', $result);
+        $this->assertArrayHasKey('redirectTo', $result);
         $this->assertEquals('JPEREZ', $result['user_data']['user_code']);
         $this->assertEquals('usuario', $result['user_data']['tipo_usuario']);
         $this->assertFalse($result['user_data']['es_supervisor']);
         $this->assertEquals('Juan Pérez', $result['user_data']['nombre']);
         $this->assertNull($result['user_data']['cliente_id']);
+        $this->assertNotEmpty($result['empresas']);
+        $this->assertContains($result['redirectTo'], ['layout', 'selector']);
     }
 
     /** @test */
@@ -176,6 +259,20 @@ class AuthServiceTest extends TestCase
     }
 
     /** @test */
+    public function login_fallido_usuario_sin_empresas_lanza_excepcion()
+    {
+        $this->expectException(AuthException::class);
+        $this->expectExceptionMessage('No tiene empresas asignadas');
+
+        try {
+            $this->authService->login('SINEMPR', 'password111');
+        } catch (AuthException $e) {
+            $this->assertEquals(AuthService::ERROR_NO_EMPRESAS, $e->getErrorCode());
+            throw $e;
+        }
+    }
+
+    /** @test */
     public function login_fallido_usuario_inactivo_retorna_error_4203()
     {
         $this->expectException(AuthException::class);
@@ -234,7 +331,7 @@ class AuthServiceTest extends TestCase
         $result = $this->authService->login('JPEREZ', 'password123');
         $this->assertNotEmpty($result['token']);
 
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $this->assertEquals(1, $user->tokens()->count());
 
         $token = $user->tokens()->first();
@@ -248,7 +345,7 @@ class AuthServiceTest extends TestCase
     /** @test */
     public function logout_sin_token_no_genera_error()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $this->assertEquals(0, $user->tokens()->count());
 
         $this->authService->logout($user);
@@ -262,7 +359,7 @@ class AuthServiceTest extends TestCase
         $this->authService->login('JPEREZ', 'password123');
         $this->authService->login('JPEREZ', 'password123');
 
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $this->assertEquals(2, $user->tokens()->count());
 
         $latestToken = $user->tokens()->latest()->first();
@@ -324,7 +421,7 @@ class AuthServiceTest extends TestCase
     /** @test */
     public function change_password_exitoso_actualiza_hash_en_users()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $this->authService->changePassword($user, 'password123', 'nuevaContraseña456');
 
         $user->refresh();
@@ -338,7 +435,7 @@ class AuthServiceTest extends TestCase
         $this->expectException(AuthException::class);
         $this->expectExceptionMessage('La contraseña actual es incorrecta');
 
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         try {
             $this->authService->changePassword($user, 'contraseñaIncorrecta', 'nuevaContraseña456');
         } catch (AuthException $e) {
@@ -353,7 +450,7 @@ class AuthServiceTest extends TestCase
         $this->expectException(AuthException::class);
         $this->expectExceptionMessage('al menos');
 
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         try {
             $this->authService->changePassword($user, 'password123', 'short');
         } catch (AuthException $e) {
@@ -365,7 +462,7 @@ class AuthServiceTest extends TestCase
     /** @test */
     public function change_password_exitoso_usuario_puede_login_con_nueva_contrasena()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         $this->authService->changePassword($user, 'password123', 'nuevaContraseña789');
 
         $result = $this->authService->login('JPEREZ', 'nuevaContraseña789');

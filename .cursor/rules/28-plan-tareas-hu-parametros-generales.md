@@ -6,7 +6,7 @@ El HU-007 define el **proceso general** de mantenimiento de `PQ_PARAMETROS_GRAL`
 
 ## Alcance del plan de tareas
 
-Al descomponer HU-007 en tareas (TR), incluir:
+Al descomponer HU-007 en tareas (TR), seguir la estructura de `.cursor/rules/13-user-story-to-task-breakdown.md` (tabla de metadatos, escenarios Gherkin, etc.) y además incluir:
 
 ### 1. Base de datos
 

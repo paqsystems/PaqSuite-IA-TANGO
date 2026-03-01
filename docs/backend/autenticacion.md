@@ -2,7 +2,7 @@
 
 ## Descripción General
 
-El sistema utiliza autenticación basada en tokens mediante Laravel Sanctum. La autenticación se realiza exclusivamente contra la tabla `USERS` (code, password_hash, name, email, activo, inhabilitado).
+El sistema utiliza autenticación basada en tokens mediante Laravel Sanctum. La autenticación se realiza exclusivamente contra la tabla `USERS` (codigo, password_hash, name, email, activo, inhabilitado).
 
 > **Ubicación de la tabla USERS:** La tabla `USERS` se encuentra en la **base de datos DICCIONARIO** (PQ_DICCIONARIO), **no** en las bases de datos de las empresas. Es una tabla centralizada compartida por todo el sistema.
 
@@ -16,7 +16,7 @@ POST /api/v1/auth/login
 
 **Flujo interno:**
 1. Validar campos de entrada (usuario, password)
-2. Buscar usuario en tabla `USERS` (base DICCIONARIO) por `code`
+2. Buscar usuario en tabla `USERS` (base DICCIONARIO) por `codigo`
 3. Validar estado activo y no inhabilitado en `USERS`
 4. Verificar contraseña con `Hash::check()`
 5. Generar token Sanctum

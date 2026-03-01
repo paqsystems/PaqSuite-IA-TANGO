@@ -16,6 +16,8 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { login } from '../services/auth.service';
+import { LanguageSelector } from '../../../shared/components/LanguageSelector';
+import { getLocale } from '../../../shared/utils/tokenStorage';
 import './LoginForm.css';
 
 /**
@@ -85,12 +87,12 @@ export function LoginForm(): React.ReactElement {
     
     try {
       // Intentar login
-      const result = await login(usuario, password);
+      const result = await login(usuario, password, getLocale());
       
       if (result.success) {
-        // Login exitoso - redirigir al dashboard
         setFormState('success');
-        navigate('/');
+        const redirectTo = result.redirectTo ?? 'layout';
+        navigate(redirectTo === 'selector' ? '/select-empresa' : '/');
       } else {
         // Error de autenticación
         setFormState('error');
@@ -107,9 +109,12 @@ export function LoginForm(): React.ReactElement {
 
   return (
     <div className="login-container">
+      <div className="login-language-wrapper">
+        <LanguageSelector />
+      </div>
       <form 
         onSubmit={handleSubmit}
-        data-testid="auth.login.form"
+        data-testid="login.form"
         className="login-form"
         aria-busy={isLoading}
       >
@@ -139,7 +144,7 @@ export function LoginForm(): React.ReactElement {
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
             disabled={isLoading}
-            data-testid="auth.login.usuarioInput"
+            data-testid="login.codigo"
             className={`form-input ${validationErrors.usuario ? 'input-error' : ''}`}
             aria-label="Código de usuario"
             aria-invalid={!!validationErrors.usuario}
@@ -166,7 +171,7 @@ export function LoginForm(): React.ReactElement {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             disabled={isLoading}
-            data-testid="auth.login.passwordInput"
+            data-testid="login.password"
             className={`form-input ${validationErrors.password ? 'input-error' : ''}`}
             aria-label="Contraseña"
             aria-invalid={!!validationErrors.password}
@@ -195,7 +200,7 @@ export function LoginForm(): React.ReactElement {
         <button
           type="submit"
           disabled={isLoading}
-          data-testid="auth.login.submitButton"
+          data-testid="login.submit"
           className="login-button"
           aria-label="Iniciar sesión"
         >

@@ -19,12 +19,14 @@ class User extends Authenticatable
     protected $table = 'USERS';
 
     protected $fillable = [
-        'code',
-        'name',
+        'codigo',
+        'name_user',
         'email',
         'password_hash',
         'activo',
         'inhabilitado',
+        'locale',
+        'menu_abrir_nueva_pestana',
     ];
 
     protected $hidden = [
@@ -35,6 +37,7 @@ class User extends Authenticatable
     protected $casts = [
         'activo' => 'boolean',
         'inhabilitado' => 'boolean',
+        'menu_abrir_nueva_pestana' => 'boolean',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];

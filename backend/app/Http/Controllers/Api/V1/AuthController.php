@@ -86,7 +86,8 @@ class AuthController extends Controller
             // Intentar login con credenciales validadas
             $result = $this->authService->login(
                 $request->input('usuario'),
-                $request->input('password')
+                $request->input('password'),
+                $request->input('locale')
             );
 
             // Retornar respuesta exitosa en formato envelope
@@ -95,14 +96,14 @@ class AuthController extends Controller
                 'respuesta' => 'Autenticación exitosa',
                 'resultado' => [
                     'token' => $result['token'],
-                    'user' => $result['user_data']
+                    'user' => $result['user_data'],
+                    'empresas' => $result['empresas'] ?? [],
+                    'redirectTo' => $result['redirectTo'] ?? 'layout',
                 ]
             ], 200);
 
         } catch (AuthException $e) {
-            // Manejar errores de autenticación
-            $httpCode = $e->getErrorCode() === AuthService::ERROR_USER_INACTIVE ? 401 : 401;
-            
+            $httpCode = $e->getErrorCode() === AuthService::ERROR_NO_EMPRESAS ? 403 : 401;
             return response()->json([
                 'error' => $e->getErrorCode(),
                 'respuesta' => $e->getMessage(),

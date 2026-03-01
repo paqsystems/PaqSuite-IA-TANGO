@@ -30,18 +30,18 @@ class UserProfileTest extends TestCase
     {
         $testCodes = ['JPEREZ', 'MGARCIA', 'CLI001', 'SINEMAIL'];
 
-        $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
+        $userIds = DB::table('USERS')->whereIn('codigo', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
                 ->where('tokenable_type', 'App\\Models\\User')
                 ->whereIn('tokenable_id', $userIds)
                 ->delete();
         }
-        DB::table('USERS')->whereIn('code', $testCodes)->delete();
+        DB::table('USERS')->whereIn('codigo', $testCodes)->delete();
 
         DB::table('USERS')->insert([
-            'code' => 'JPEREZ',
-            'name' => 'Juan Pérez',
+            'codigo' => 'JPEREZ',
+            'name_user' => 'Juan Pérez',
             'email' => 'juan.perez@ejemplo.com',
             'password_hash' => Hash::make('password123'),
             'activo' => true,
@@ -51,8 +51,8 @@ class UserProfileTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'MGARCIA',
-            'name' => 'María García',
+            'codigo' => 'MGARCIA',
+            'name_user' => 'María García',
             'email' => 'maria.garcia@ejemplo.com',
             'password_hash' => Hash::make('password456'),
             'activo' => true,
@@ -62,8 +62,8 @@ class UserProfileTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'CLI001',
-            'name' => 'Empresa ABC S.A.',
+            'codigo' => 'CLI001',
+            'name_user' => 'Empresa ABC S.A.',
             'email' => 'contacto@empresaabc.com',
             'password_hash' => Hash::make('cliente123'),
             'activo' => true,
@@ -73,8 +73,8 @@ class UserProfileTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'SINEMAIL',
-            'name' => 'Usuario Sin Email',
+            'codigo' => 'SINEMAIL',
+            'name_user' => 'Usuario Sin Email',
             'email' => null,
             'password_hash' => Hash::make('password123'),
             'activo' => true,
@@ -87,7 +87,7 @@ class UserProfileTest extends TestCase
     /** @test */
     public function get_profile_empleado_normal_retorna_200()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->getJson('/api/v1/user/profile');
@@ -119,7 +119,7 @@ class UserProfileTest extends TestCase
     /** @test */
     public function get_profile_empleado_supervisor_retorna_es_supervisor_true()
     {
-        $user = User::where('code', 'MGARCIA')->first();
+        $user = User::where('codigo', 'MGARCIA')->first();
         Sanctum::actingAs($user);
 
         $response = $this->getJson('/api/v1/user/profile');
@@ -131,7 +131,7 @@ class UserProfileTest extends TestCase
     /** @test */
     public function get_profile_cliente_retorna_tipo_usuario()
     {
-        $user = User::where('code', 'CLI001')->first();
+        $user = User::where('codigo', 'CLI001')->first();
         Sanctum::actingAs($user);
 
         $response = $this->getJson('/api/v1/user/profile');
@@ -153,7 +153,7 @@ class UserProfileTest extends TestCase
     /** @test */
     public function get_profile_empleado_sin_email_retorna_null()
     {
-        $user = User::where('code', 'SINEMAIL')->first();
+        $user = User::where('codigo', 'SINEMAIL')->first();
         Sanctum::actingAs($user);
 
         $response = $this->getJson('/api/v1/user/profile');
@@ -165,7 +165,7 @@ class UserProfileTest extends TestCase
     /** @test */
     public function respuesta_tiene_formato_envelope_correcto()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->getJson('/api/v1/user/profile');
@@ -178,7 +178,7 @@ class UserProfileTest extends TestCase
     /** @test */
     public function put_profile_empleado_actualiza_200()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->putJson('/api/v1/user/profile', [
@@ -210,7 +210,7 @@ class UserProfileTest extends TestCase
     /** @test */
     public function put_profile_nombre_vacio_retorna_422()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->putJson('/api/v1/user/profile', [
@@ -225,7 +225,7 @@ class UserProfileTest extends TestCase
     /** @test */
     public function put_profile_email_duplicado_retorna_422()
     {
-        $user = User::where('code', 'JPEREZ')->first();
+        $user = User::where('codigo', 'JPEREZ')->first();
         Sanctum::actingAs($user);
 
         $response = $this->putJson('/api/v1/user/profile', [

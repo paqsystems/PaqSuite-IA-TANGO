@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'sqlsrv'),
 
     /*
     |--------------------------------------------------------------------------
@@ -89,6 +89,29 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
+            'date_format' => 'Y-m-d H:i:s',
+            'encrypt' => env('DB_ENCRYPT', 'no'),
+            'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'true'),
+        ],
+
+        /*
+         * Company DB: base de datos de la empresa activa (según X-Company-Id).
+         * SetCompanyConnection middleware sobrescribe 'database' en runtime.
+         * Migraciones: php artisan migrate --database=company
+         */
+        'company' => [
+            'driver' => env('DB_CONNECTION', 'sqlsrv'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => env('DB_CONNECTION') === 'sqlsrv' ? 'utf8' : 'utf8mb4',
+            'collation' => env('DB_CONNECTION') === 'sqlsrv' ? null : 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
             'date_format' => 'Y-m-d H:i:s',
             'encrypt' => env('DB_ENCRYPT', 'no'),
             'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'true'),

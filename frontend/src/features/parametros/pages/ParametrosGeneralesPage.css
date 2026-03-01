@@ -1,0 +1,38 @@
+.parametros-page {
+  padding: 1rem 2rem;
+}
+
+.parametros-page h1 {
+  margin-bottom: 1rem;
+}
+
+.parametros-error {
+  color: #c00;
+  padding: 0.5rem;
+}
+
+.parametros-grid table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.parametros-grid th,
+.parametros-grid td {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.parametros-grid input[type="text"],
+.parametros-grid input[type="number"],
+.parametros-grid input[type="datetime-local"],
+.parametros-grid textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.25rem;
+}
+
+.parametros-empty {
+  color: #666;
+  font-style: italic;
+}

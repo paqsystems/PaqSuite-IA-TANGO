@@ -54,6 +54,16 @@
   margin: 0.75rem 1rem;
 }
 
+.sidebar-section {
+  padding: 0.5rem 1.25rem 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--paq-text-secondary, #64748b);
+  list-style: none;
+}
+
 .sidebar-group-label {
   padding: 0.25rem 1.25rem 0.35rem;
   font-size: 0.75rem;

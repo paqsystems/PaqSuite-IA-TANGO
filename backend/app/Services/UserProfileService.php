@@ -15,8 +15,8 @@ class UserProfileService
     public function getProfile(User $user): array
     {
         return [
-            'user_code' => $user->code,
-            'nombre' => $user->name ?? $user->code,
+            'user_code' => $user->codigo,
+            'nombre' => $user->name_user ?? $user->codigo,
             'email' => $user->email,
             'tipo_usuario' => 'usuario',
             'es_supervisor' => false,
@@ -26,7 +26,7 @@ class UserProfileService
 
     public function updateProfile(User $user, array $data): array
     {
-        $user->name = $data['nombre'] ?? $user->name;
+        $user->name_user = $data['nombre'] ?? $user->name_user;
         $user->email = isset($data['email']) && $data['email'] !== '' ? $data['email'] : null;
         $user->save();
 

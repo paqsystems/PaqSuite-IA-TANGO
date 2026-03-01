@@ -28,18 +28,18 @@ class LoginTest extends TestCase
     {
         $testCodes = ['JPEREZ', 'MGARCIA', 'INACTIVO', 'INHABILITADO'];
 
-        $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
+        $userIds = DB::table('USERS')->whereIn('codigo', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
                 ->where('tokenable_type', 'App\\Models\\User')
                 ->whereIn('tokenable_id', $userIds)
                 ->delete();
         }
-        DB::table('USERS')->whereIn('code', $testCodes)->delete();
+        DB::table('USERS')->whereIn('codigo', $testCodes)->delete();
 
         DB::table('USERS')->insert([
-            'code' => 'JPEREZ',
-            'name' => 'Juan Pérez',
+            'codigo' => 'JPEREZ',
+            'name_user' => 'Juan Pérez',
             'email' => 'juan.perez@ejemplo.com',
             'password_hash' => Hash::make('password123'),
             'activo' => true,
@@ -49,8 +49,8 @@ class LoginTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'MGARCIA',
-            'name' => 'María García',
+            'codigo' => 'MGARCIA',
+            'name_user' => 'María García',
             'email' => 'maria.garcia@ejemplo.com',
             'password_hash' => Hash::make('password456'),
             'activo' => true,
@@ -60,8 +60,8 @@ class LoginTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'INACTIVO',
-            'name' => 'Usuario Inactivo',
+            'codigo' => 'INACTIVO',
+            'name_user' => 'Usuario Inactivo',
             'email' => 'inactivo@ejemplo.com',
             'password_hash' => Hash::make('password789'),
             'activo' => false,
@@ -71,8 +71,8 @@ class LoginTest extends TestCase
         ]);
 
         DB::table('USERS')->insert([
-            'code' => 'INHABILITADO',
-            'name' => 'Usuario Inhabilitado',
+            'codigo' => 'INHABILITADO',
+            'name_user' => 'Usuario Inhabilitado',
             'email' => 'inhabilitado@ejemplo.com',
             'password_hash' => Hash::make('password000'),
             'activo' => true,

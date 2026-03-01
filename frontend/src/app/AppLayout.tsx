@@ -7,15 +7,17 @@
  * @see docs/design/paqsystems-main-shell-design.md
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { getUserData } from '../shared/utils/tokenStorage';
+import { getUserData, getEmpresaActiva, getEmpresas, getMenuAbrirNuevaPestana } from '../shared/utils/tokenStorage';
 import { logout } from '../features/auth/services/auth.service';
-import { getEmpresa } from '../config/sessionContext';
+import { updatePreferences } from '../features/user/services/preferences.service';
+import { CompanySwitcher } from '../features/company/components/CompanySwitcher';
 import { appVersion } from '../config/appVersion';
 import { t } from '../shared/i18n';
 import { LanguageSelector } from '../shared/components/LanguageSelector';
 import { Sidebar } from './Sidebar';
+import { useThemeLoader } from '../shared/components/ThemeLoader';
 import './AppLayout.css';
 
 function getAvatarInitials(nombre: string, userCode: string): string {
@@ -32,6 +34,12 @@ export function AppLayout(): React.ReactElement {
   const user = getUserData();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [menuNuevaPestana, setMenuNuevaPestana] = useState(getMenuAbrirNuevaPestana);
+
+  useThemeLoader();
+  useEffect(() => {
+    setMenuNuevaPestana(getMenuAbrirNuevaPestana());
+  }, []);
 
   const handleLogout = async () => {
     setIsLoggingOut(true);
@@ -47,7 +55,19 @@ export function AppLayout(): React.ReactElement {
     navigate('/');
   };
 
+  const handleToggleNuevaPestana = async () => {
+    const nuevo = !menuNuevaPestana;
+    setMenuNuevaPestana(nuevo);
+    await updatePreferences({ menuAbrirNuevaPestana: nuevo });
+  };
+
   const isPanel = location.pathname === '/';
+  const empresaActiva = getEmpresaActiva();
+  const empresas = getEmpresas();
+  if (empresas.length > 1 && !empresaActiva) {
+    navigate('/select-empresa', { replace: true });
+    return <div className="app-layout-loading">{t('app.layout.loading', 'Cargando...')}</div>;
+  }
 
   if (!user) {
     return <div className="app-layout-loading">{t('app.layout.loading', 'Cargando...')}</div>;
@@ -74,7 +94,7 @@ export function AppLayout(): React.ReactElement {
               PQ
             </div>
             <h1 className="app-layout-title">{t('app.layout.title', 'PaqSystems')}</h1>
-            <span className="app-layout-company">{getEmpresa()}</span>
+            <span className="app-layout-company"><CompanySwitcher /></span>
           </div>
           <button
             type="button"
@@ -88,6 +108,16 @@ export function AppLayout(): React.ReactElement {
         </div>
         <div className="app-layout-user-info">
           <LanguageSelector />
+          <label className="app-layout-newtab-toggle">
+            <input
+              type="checkbox"
+              checked={menuNuevaPestana}
+              onChange={handleToggleNuevaPestana}
+              data-testid="userMenu.openInNewTab"
+              aria-label={t('app.layout.openInNewTab', 'Abrir menú en nueva pestaña')}
+            />
+            <span>{t('app.layout.newTab', 'Nueva pestaña')}</span>
+          </label>
           <span className="app-layout-user-name">{user.nombre}</span>
           <div className="app-layout-user-avatar" aria-hidden>
             {avatarInitials}
@@ -96,7 +126,7 @@ export function AppLayout(): React.ReactElement {
             type="button"
             onClick={handleLogout}
             className="app-layout-logout"
-            data-testid="app.logoutButton"
+            data-testid="userMenu.logout"
             disabled={isLoggingOut}
             aria-label={t('app.layout.logoutAria', 'Cerrar sesión')}
           >
@@ -105,7 +135,11 @@ export function AppLayout(): React.ReactElement {
         </div>
       </header>
       <div className="app-layout-body">
-        <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+          openInNewTab={menuNuevaPestana}
+        />
         <main className="app-layout-main">
           <Outlet />
         </main>

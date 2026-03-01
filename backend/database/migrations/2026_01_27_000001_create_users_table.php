@@ -22,16 +22,16 @@ return new class extends Migration
     {
         Schema::create('USERS', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 50)->comment('Código de usuario para autenticación');
-            $table->string('name', 255)->nullable()->comment('Nombre del usuario');
+            $table->string('codigo', 50)->comment('Código de usuario para autenticación');
+            $table->string('name_user', 255)->nullable()->comment('Nombre del usuario');
             $table->string('email', 255)->nullable()->comment('Email del usuario');
             $table->string('password_hash', 255)->comment('Hash de contraseña');
             $table->boolean('activo')->default(true)->comment('Indica si el usuario está activo');
             $table->boolean('inhabilitado')->default(false)->comment('Indica si el usuario está inhabilitado');
             $table->timestamps();
 
-            // Índice único para code
-            $table->unique('code', 'idx_users_code');
+            // Índice único para codigo
+            $table->unique('codigo', 'idx_users_codigo');
         });
     }
 

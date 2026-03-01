@@ -27,7 +27,7 @@ class PasswordResetTest extends TestCase
     protected function seedTestUserWithEmail(): void
     {
         $testCodes = ['JPEREZ'];
-        $userIds = DB::table('USERS')->whereIn('code', $testCodes)->pluck('id');
+        $userIds = DB::table('USERS')->whereIn('codigo', $testCodes)->pluck('id');
         if ($userIds->isNotEmpty()) {
             DB::table('personal_access_tokens')
                 ->where('tokenable_type', 'App\\Models\\User')
@@ -35,11 +35,11 @@ class PasswordResetTest extends TestCase
                 ->delete();
         }
         DB::table('password_reset_tokens')->where('email', 'juan.perez@ejemplo.com')->delete();
-        DB::table('USERS')->whereIn('code', $testCodes)->delete();
+        DB::table('USERS')->whereIn('codigo', $testCodes)->delete();
 
         DB::table('USERS')->insert([
-            'code' => 'JPEREZ',
-            'name' => 'Juan Pérez',
+            'codigo' => 'JPEREZ',
+            'name_user' => 'Juan Pérez',
             'email' => 'juan.perez@ejemplo.com',
             'password_hash' => Hash::make('password123'),
             'activo' => true,

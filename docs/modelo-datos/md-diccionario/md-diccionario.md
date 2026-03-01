@@ -115,7 +115,7 @@ GO
 CREATE TABLE [dbo].[Pq_Permiso](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[IDRol] [int] NOT NULL,								-- Idem PQ_Rol.IdRol
-	[IDEmpresa] [int] NOT NULL,							-- Idem PQ_Empresa.Id
+	[IDEmpresa] [int] NOT NULL,							-- Idem PQ_Empresa.IDEmpresa
 	[IDUsuario] [int] NOT NULL,							-- Idem users.id
  CONSTRAINT [PK_PQ_PERMISO] PRIMARY KEY CLUSTERED 
 (
@@ -160,7 +160,7 @@ CREATE TABLE [dbo].[PQ_GrupoEmpresario_Empresas](
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [dbo].[PQ_Reportes](
+CREATE TABLE [dbo].[PQ_REPORTE_IA](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[procedimiento] [nvarchar](150) NOT NULL,					-- Idem Pq_menu.procedimiento
 	[Name] [nvarchar](max) NULL,

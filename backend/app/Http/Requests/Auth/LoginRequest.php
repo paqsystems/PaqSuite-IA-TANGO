@@ -43,6 +43,7 @@ class LoginRequest extends FormRequest
         return [
             'usuario' => ['required', 'string', 'min:1'],
             'password' => ['required', 'string', 'min:8'],
+            'locale' => ['nullable', 'string', 'in:es,en'],
         ];
     }
 

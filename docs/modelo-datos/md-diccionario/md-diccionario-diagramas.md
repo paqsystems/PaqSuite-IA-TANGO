@@ -112,7 +112,7 @@ erDiagram
         bigint id_empresa PK,FK
     }
     
-    PQ_Reportes {
+    PQ_REPORTE_IA {
         int Id PK
         nvarchar procedimiento "Vincula pq_menus.procedimiento"
         nvarchar Name
@@ -187,7 +187,7 @@ erDiagram
     PQ_TareasProgramadas_Cabecera ||--o{ PQ_TareasProgramadas_Parametros : "idTarea"
 ```
 
-> **Nota:** `PQ_Reportes` se vincula lógicamente a `pq_menus` mediante el campo `procedimiento` (no hay FK física).
+> **Nota:** `PQ_REPORTE_IA` se vincula lógicamente a `pq_menus` mediante el campo `procedimiento` (no hay FK física).
 
 ---
 
@@ -330,7 +330,7 @@ erDiagram
         nvarchar procedimiento "Clave de vinculación"
     }
     
-    PQ_Reportes {
+    PQ_REPORTE_IA {
         int Id PK
         nvarchar procedimiento "= pq_menus.procedimiento"
         nvarchar Name
@@ -345,7 +345,7 @@ erDiagram
     }
 ```
 
-> **Nota:** La vinculación entre `pq_menus` y `PQ_Reportes` es **lógica** mediante el campo `procedimiento` (mismo valor en ambos). No existe FK física.
+> **Nota:** La vinculación entre `pq_menus` y `PQ_REPORTE_IA` es **lógica** mediante el campo `procedimiento` (mismo valor en ambos). No existe FK física.
 
 ---
 
@@ -429,6 +429,6 @@ erDiagram
 |--------|--------|-------------------|
 | **SEGURIDAD** | users, pq_menus, PQ_Empresa, Pq_Rol, PQ_RolAtributo, Pq_Permiso | Definidas |
 | **GRUPOS EMPRESARIOS** | PQ_GrupoEmpresario, PQ_GrupoEmpresario_Empresas, PQ_Empresa | Definidas |
-| **REPORTES** | pq_menus, PQ_Reportes | Lógica por procedimiento |
+| **REPORTES** | pq_menus, PQ_REPORTE_IA | Lógica por procedimiento |
 | **SISTEMA ALARMAS** | PQ_SistemaAlarmas_Cabecera, PQ_SistemaAlarmas_Detalle | Cabecera-Detalle |
 | **TAREAS PROGRAMADAS** | PQ_TareasProgramadas_Cabecera, PQ_TareasProgramadas_Parametros | Cabecera-Parámetros |

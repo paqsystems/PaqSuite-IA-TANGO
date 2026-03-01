@@ -1,8 +1,10 @@
 /**
  * DataGridDX - Wrapper de DevExtreme DataGrid con testId e i18n
  * Permite migración incremental desde DataTable a DevExtreme
+ * Soporta layouts persistentes (TR-001) con stateStoring custom.
  */
 
+import React, { useRef } from 'react';
 import { DataGrid, Column, Scrolling, Paging, Pager } from 'devextreme-react/data-grid';
 import { Column as ColumnDef } from '../DataTable/DataTable';
 
@@ -17,6 +19,10 @@ export interface DataGridDXProps<T> {
   loadingMessageKey?: string;
   rowTestId?: string;
   className?: string;
+  /** Carga inicial de layout (last-used). Si se provee, habilita stateStoring custom. */
+  layoutLoad?: () => Promise<Record<string, unknown> | null>;
+  /** Ref para acceder al instance y obtener state() al guardar. */
+  gridRef?: React.RefObject<{ instance: () => { state: (s?: Record<string, unknown>) => Record<string, unknown> } }>;
 }
 
 export function DataGridDX<T extends Record<string, any>>({
@@ -25,8 +31,13 @@ export function DataGridDX<T extends Record<string, any>>({
   columns,
   emptyMessage,
   loading = false,
-  loadingMessage
+  loadingMessage,
+  layoutLoad,
+  gridRef,
 }: DataGridDXProps<T>) {
+  const internalRef = useRef<{ instance: () => { state: (s?: Record<string, unknown>) => Record<string, unknown> } }>(null);
+  const ref = gridRef ?? internalRef;
+
   if (loading) {
     return (
       <div data-testid={`${testId}-loading`} role="status">
@@ -35,13 +46,26 @@ export function DataGridDX<T extends Record<string, any>>({
     );
   }
 
+  const stateStoringConfig = layoutLoad
+    ? {
+        enabled: true,
+        type: 'custom' as const,
+        customLoad: async () => {
+          const state = await layoutLoad();
+          return state ?? undefined;
+        },
+      }
+    : undefined;
+
   return (
     <div data-testid={testId} className="dx-datagrid-wrapper">
       <DataGrid
+        ref={ref as React.RefObject<never>}
         dataSource={data}
         showBorders={true}
         noDataText={emptyMessage || 'No hay datos disponibles'}
         height="400px"
+        stateStoring={stateStoringConfig}
       >
         {columns.map((col, idx) => (
           <Column

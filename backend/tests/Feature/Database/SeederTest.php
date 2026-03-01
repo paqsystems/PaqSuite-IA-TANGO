@@ -21,7 +21,7 @@ class SeederTest extends TestCase
         $this->artisan('db:seed');
 
         $this->assertDatabaseHas('USERS', [
-            'code' => 'ADMIN',
+            'codigo' => 'ADMIN',
             'activo' => true,
             'inhabilitado' => false,
         ]);

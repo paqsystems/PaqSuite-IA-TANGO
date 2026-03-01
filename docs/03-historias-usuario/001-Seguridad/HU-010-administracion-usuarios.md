@@ -28,7 +28,7 @@ Como administrador quiero gestionar los usuarios del sistema (alta, edición, ba
 
 ## Tabla involucrada
 
-- `users`: id, codigo, name_user, email, password_hash, first_login, supervisor, activo, inhabilitado, token, created_at, updated_at
+- `USERS`: id, codigo, name, email, password_hash, first_login, supervisor, activo, inhabilitado, token, created_at, updated_at
 
 ## Reglas de negocio
 

@@ -76,7 +76,7 @@ class PasswordResetService
             return User::where('email', $codeOrEmail)->first();
         }
 
-        return User::where('code', $codeOrEmail)->first();
+        return User::where('codigo', $codeOrEmail)->first();
     }
 
     private function storeToken(string $email, string $token): void

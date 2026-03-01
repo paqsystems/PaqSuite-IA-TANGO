@@ -98,6 +98,19 @@
   margin-right: 0.5rem;
 }
 
+.app-layout-newtab-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.app-layout-newtab-toggle input {
+  cursor: pointer;
+}
+
 .app-layout-user-info {
   display: flex;
   align-items: center;

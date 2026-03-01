@@ -9,6 +9,9 @@
 
 const TOKEN_KEY = 'auth_token';
 const USER_DATA_KEY = 'auth_user';
+const EMPRESAS_KEY = 'auth_empresas';
+const EMPRESA_ACTIVA_KEY = 'auth_empresa_activa';
+const LOCALE_KEY = 'locale';
 
 /**
  * Datos del usuario autenticado
@@ -20,8 +23,11 @@ export interface AuthUser {
   usuarioId: number | null;
   clienteId: number | null;
   esSupervisor: boolean;
+  esAdmin?: boolean;
   nombre: string;
   email: string | null;
+  locale?: string;
+  menuAbrirNuevaPestana?: boolean;
 }
 
 /**
@@ -90,9 +96,75 @@ export function isAuthenticated(): boolean {
 }
 
 /**
+ * Empresa del usuario (del login)
+ */
+export interface EmpresaItem {
+  id: number;
+  nombreEmpresa: string;
+  nombreBd: string;
+  theme?: string;
+  imagen?: string | null;
+}
+
+/**
+ * Guarda las empresas del usuario
+ */
+export function setEmpresas(empresas: EmpresaItem[]): void {
+  localStorage.setItem(EMPRESAS_KEY, JSON.stringify(empresas));
+}
+
+/**
+ * Obtiene las empresas del usuario
+ */
+export function getEmpresas(): EmpresaItem[] {
+  const data = localStorage.getItem(EMPRESAS_KEY);
+  if (!data) return [];
+  try {
+    return JSON.parse(data) as EmpresaItem[];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Guarda la empresa activa (id, nombreEmpresa)
+ */
+export function setEmpresaActiva(empresa: EmpresaItem): void {
+  localStorage.setItem(EMPRESA_ACTIVA_KEY, JSON.stringify(empresa));
+}
+
+/**
+ * Obtiene la empresa activa
+ */
+export function getEmpresaActiva(): EmpresaItem | null {
+  const data = localStorage.getItem(EMPRESA_ACTIVA_KEY);
+  if (!data) return null;
+  try {
+    return JSON.parse(data) as EmpresaItem;
+  } catch {
+    return null;
+  }
+}
+
+/**
  * Limpia todos los datos de autenticación
  */
 export function clearAuth(): void {
   removeToken();
   removeUserData();
+  localStorage.removeItem(EMPRESAS_KEY);
+  localStorage.removeItem(EMPRESA_ACTIVA_KEY);
+}
+
+export function getLocale(): string {
+  return localStorage.getItem(LOCALE_KEY) || 'es';
+}
+
+export function setLocale(locale: string): void {
+  localStorage.setItem(LOCALE_KEY, locale);
+}
+
+export function getMenuAbrirNuevaPestana(): boolean {
+  const user = getUserData();
+  return user?.menuAbrirNuevaPestana ?? false;
 }
